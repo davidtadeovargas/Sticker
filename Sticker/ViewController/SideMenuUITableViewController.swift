@@ -76,7 +76,7 @@ class SideMenuUITableViewController: UITableViewController {
         switch(indexPath.item){
             
             case 0:
-                
+                Share.shared.share(UIViewController: self, message: "Invite you to install this app:", link: "https://play.google.com/store/apps/details?id=gatitosyperritoschidos.whatsappsticker")
                 break
             case 1:
                 UIApplication.shared.open(URL(string: "http://www.google.com")!, options: [:], completionHandler: nil)

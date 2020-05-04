@@ -1538,6 +1538,17 @@
                                     <segue destination="yoA-UC-hWo" kind="modal" id="jED-7s-Zgn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOy-1U-Air">
+                                <rect key="frame" x="256" y="378" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="jAz-7X-YBy"/>
+                                    <constraint firstAttribute="width" constant="48" id="peL-0W-8HP"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus"/>
+                                <connections>
+                                    <action selector="btnAddStickerClicked:" destination="exW-nG-mSK" eventType="touchUpInside" id="lMH-8L-Qpb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1555,11 +1566,14 @@
                             <constraint firstAttribute="trailing" secondItem="F6u-eD-OtX" secondAttribute="trailing" id="SVT-W8-C9s"/>
                             <constraint firstItem="RdQ-d2-KUz" firstAttribute="leading" secondItem="7W6-VM-BJs" secondAttribute="leading" id="YeX-qp-Qmx"/>
                             <constraint firstItem="pby-wW-k3i" firstAttribute="leading" secondItem="nXR-FL-uXE" secondAttribute="trailing" constant="15" id="d0A-jr-uxH"/>
+                            <constraint firstItem="lOy-1U-Air" firstAttribute="trailing" secondItem="7W6-VM-BJs" secondAttribute="trailingMargin" id="hPv-18-3j9"/>
                             <constraint firstItem="z3M-P9-aaD" firstAttribute="leading" secondItem="7W6-VM-BJs" secondAttribute="leading" id="pjw-Zn-YGo"/>
+                            <constraint firstItem="z3M-P9-aaD" firstAttribute="top" secondItem="lOy-1U-Air" secondAttribute="bottom" constant="4" id="qfs-9d-NPZ"/>
                             <constraint firstItem="nXR-FL-uXE" firstAttribute="top" secondItem="PeQ-7A-EBo" secondAttribute="bottom" constant="14" id="svS-rU-bJb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAdd" destination="lOy-1U-Air" id="iXC-5Z-nZ5"/>
                         <outlet property="btnPackageStickers" destination="DA4-vh-HrF" id="2yy-Rb-Xac"/>
                         <outlet property="btnStickersMaker" destination="7EY-mq-Hb8" id="yNS-jp-Cvi"/>
                         <outlet property="imgNoStickers" destination="r7E-Dm-Wpm" id="na6-4k-oJi"/>
@@ -1923,7 +1937,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2Pu-Iw-47C"/>
-        <segue reference="fMX-MQ-w2Z"/>
+        <segue reference="jED-7s-Zgn"/>
         <segue reference="ddK-Ea-qdV"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1941,6 +1955,7 @@
         <image name="init3" width="320" height="568"/>
         <image name="no_stickers" width="174" height="78"/>
         <image name="paquetes_stickers" width="150" height="30"/>
+        <image name="plus" width="37.5" height="37.5"/>
         <image name="salvado_normal" width="150" height="30"/>
         <image name="salvado_select" width="150" height="30"/>
         <image name="stickers_maker" width="150" height="30"/>

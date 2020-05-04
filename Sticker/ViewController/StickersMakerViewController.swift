@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class StickersMakerViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class StickersMakerViewController: UIViewController {
     @IBOutlet weak var btnPackageStickers: UIButton!
     @IBOutlet weak var btnStickersMaker: UIButton!
     @IBOutlet weak var tableStickers: UITableView!
+    @IBOutlet weak var btnAdd: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +31,18 @@ class StickersMakerViewController: UIViewController {
     }
     
     @IBAction func btnStickersMakerClicked(_ sender: Any) {
+    }
+    
+    @IBAction func btnAddStickerClicked(_ sender: Any) {
+        
+        //Show google add if apply
+        AddsManager.shared.showAddIfApply(UIViewController: self)
+        
+        //Show dialog to create sticker package
+        AlertManager.shared.showTwoEdits(title: "Crear nuevo paquete", subtitle: "Por favor, especifique el titulo y el creador del paquete", placeholderOne: "Nombre del paquete", placeholderSecond: "Creador", onOk: {
+            
+            //Save the new sticker package
+            
+        }, onCancel: {})
     }
 }
