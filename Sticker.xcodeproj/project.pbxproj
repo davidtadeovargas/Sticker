@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,6 +63,20 @@
 		2AFC8B69223234A8007DB18E /* viwe_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC8B68223234A8007DB18E /* viwe_more.png */; };
 		2AFC8B6B223255DC007DB18E /* ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC8B6A223255DC007DB18E /* ex.png */; };
 		8E03CFE0EEF20015C13249CA /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C9B1CD0AAE7E20284BCFB /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */; };
+		CE5E0870245EFDAB003FFA6A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E086F245EFDAB003FFA6A /* StartViewController.swift */; };
+		CE5E0872245EFDF3003FFA6A /* Init1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0871245EFDF3003FFA6A /* Init1ViewController.swift */; };
+		CE5E0874245EFE0E003FFA6A /* Init2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0873245EFE0E003FFA6A /* Init2ViewController.swift */; };
+		CE5E0876245EFE37003FFA6A /* Init3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0875245EFE37003FFA6A /* Init3ViewController.swift */; };
+		CE5E0878245EFF25003FFA6A /* StartUIPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0877245EFF25003FFA6A /* StartUIPageController.swift */; };
+		CE5E087B245F0E43003FFA6A /* PHPhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E087A245F0E43003FFA6A /* PHPhotoLibraryManager.swift */; };
+		CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E087C245F1D54003FFA6A /* ViewControllersManager.swift */; };
+		CE5E087F245F20E1003FFA6A /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E087E245F20E1003FFA6A /* AlertManager.swift */; };
+		CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */; };
+		CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */; };
+		CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */; };
+		CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */; };
+		CEBED2D1245FC24900FFD965 /* SideMenuLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBED2CF245FC24900FFD965 /* SideMenuLogoTableViewCell.xib */; };
 		FE7FD0AD6D7B3B21D3D7A6EA /* Pods_Sticker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +176,20 @@
 		468C9B1CD0AAE7E20284BCFB /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A13DAF1EE892A73989E140 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersMakerViewController.swift; sourceTree = "<group>"; };
+		CE5E086F245EFDAB003FFA6A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		CE5E0871245EFDF3003FFA6A /* Init1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init1ViewController.swift; sourceTree = "<group>"; };
+		CE5E0873245EFE0E003FFA6A /* Init2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init2ViewController.swift; sourceTree = "<group>"; };
+		CE5E0875245EFE37003FFA6A /* Init3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init3ViewController.swift; sourceTree = "<group>"; };
+		CE5E0877245EFF25003FFA6A /* StartUIPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUIPageController.swift; sourceTree = "<group>"; };
+		CE5E087A245F0E43003FFA6A /* PHPhotoLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPhotoLibraryManager.swift; sourceTree = "<group>"; };
+		CE5E087C245F1D54003FFA6A /* ViewControllersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersManager.swift; sourceTree = "<group>"; };
+		CE5E087E245F20E1003FFA6A /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
+		CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvadoViewController.swift; sourceTree = "<group>"; };
+		CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITableViewController.swift; sourceTree = "<group>"; };
+		CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
+		CEBED2CF245FC24900FFD965 /* SideMenuLogoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuLogoTableViewCell.xib; sourceTree = "<group>"; };
 		E35D6476CA2D2EFCD9AB99F4 /* Pods-Sticker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sticker/Pods-Sticker.release.xcconfig"; sourceTree = "<group>"; };
 		E98804A84C84B3CE50123F31 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +249,8 @@
 				2A2F8CC2222D55EA002B412A /* SubCell.swift */,
 				2A9C4B9B22AFBB5F00B74B38 /* CategoryCell.swift */,
 				2A818B7322BA18DB005DECE4 /* MyStickerCell.swift */,
+				CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */,
+				CEBED2CF245FC24900FFD965 /* SideMenuLogoTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -257,6 +287,7 @@
 		2AC6E34221C76883005FFDB8 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E0879245F0E31003FFA6A /* managers */,
 				2AA4A336224CF1BB003F0BDC /* Sticker.entitlements */,
 				2AC6E34321C76883005FFDB8 /* AppDelegate.swift */,
 				2A425D6022390B56007E8C0E /* Config.swift */,
@@ -285,6 +316,15 @@
 				2A818B7122BA1455005DECE4 /* MyStickerViewController.swift */,
 				2A818B7A22BA3C03005DECE4 /* CustomPackViewController.swift */,
 				2A818B7C22BA5582005DECE4 /* EditViewController.swift */,
+				CE5E086F245EFDAB003FFA6A /* StartViewController.swift */,
+				CE5E0871245EFDF3003FFA6A /* Init1ViewController.swift */,
+				CE5E0873245EFE0E003FFA6A /* Init2ViewController.swift */,
+				CE5E0875245EFE37003FFA6A /* Init3ViewController.swift */,
+				CE5E0877245EFF25003FFA6A /* StartUIPageController.swift */,
+				CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */,
+				CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */,
+				CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */,
+				CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -352,6 +392,16 @@
 				1F61E110D6EB1A97BD64D39E /* Pods_iSticker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE5E0879245F0E31003FFA6A /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E087A245F0E43003FFA6A /* PHPhotoLibraryManager.swift */,
+				CE5E087C245F1D54003FFA6A /* ViewControllersManager.swift */,
+				CE5E087E245F20E1003FFA6A /* AlertManager.swift */,
+			);
+			path = managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +510,7 @@
 				2AFC8B6B223255DC007DB18E /* ex.png in Resources */,
 				2A9C4B9A22AFAA1D00B74B38 /* down.png in Resources */,
 				2ACD40FF22B3D27300FCAA5C /* tick.png in Resources */,
+				CEBED2D1245FC24900FFD965 /* SideMenuLogoTableViewCell.xib in Resources */,
 				2A146F02222CDABA00FEDF34 /* back.png in Resources */,
 				2AC6E34E21C76884005FFDB8 /* LaunchScreen.storyboard in Resources */,
 				2AC6E34B21C76884005FFDB8 /* Assets.xcassets in Resources */,
@@ -482,23 +533,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sticker/Pods-Sticker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticker/Pods-Sticker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticker/Pods-Sticker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sticker/Pods-Sticker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticker/Pods-Sticker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86F8B19FDB0F8DA87BB2C017 /* [CP] Check Pods Manifest.lock */ = {
@@ -552,14 +596,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5E0870245EFDAB003FFA6A /* StartViewController.swift in Sources */,
+				CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */,
 				2ADFCA50222A5F6A00D299CF /* StickerPack.swift in Sources */,
 				2A818B7B22BA3C03005DECE4 /* CustomPackViewController.swift in Sources */,
 				2ACB431222AA586C00ACEE01 /* MainViewController.swift in Sources */,
 				2A146EFF222CD97900FEDF34 /* PackViewController.swift in Sources */,
+				CE5E0874245EFE0E003FFA6A /* Init2ViewController.swift in Sources */,
 				2ACD40FD22B3B30300FCAA5C /* CreateSticker2ViewController.swift in Sources */,
 				2ADFCA4F222A5F6A00D299CF /* WebPManager.swift in Sources */,
+				CE5E0876245EFE37003FFA6A /* Init3ViewController.swift in Sources */,
+				CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */,
 				2A9C4B9C22AFBB5F00B74B38 /* CategoryCell.swift in Sources */,
 				2AD491BF22AE25ED005D104E /* CreateStickerViewController.swift in Sources */,
+				CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */,
 				2AC6E34621C76883005FFDB8 /* ViewController.swift in Sources */,
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,
 				2ADFCA4E222A5F6A00D299CF /* Interoperability.swift in Sources */,
@@ -568,18 +618,25 @@
 				2ADFCA5F222A5FD600D299CF /* YYAnimatedImageView.m in Sources */,
 				2A818B7422BA18DB005DECE4 /* MyStickerCell.swift in Sources */,
 				2ADFCA4C222A5F6A00D299CF /* Limits.swift in Sources */,
+				CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */,
 				2AB3F33A2233BFFC002B047B /* ZFRippleButton.swift in Sources */,
+				CE5E087B245F0E43003FFA6A /* PHPhotoLibraryManager.swift in Sources */,
 				2ADFCA51222A5F6A00D299CF /* ImageData.swift in Sources */,
 				2ADFCA61222A5FD600D299CF /* YYSpriteSheetImage.m in Sources */,
 				2A2F8CBF222D47E8002B412A /* UIAlertController+Additions.swift in Sources */,
 				2AF2F6E021CA638300C3B126 /* HomeCell.swift in Sources */,
 				2ADFCA4D222A5F6A00D299CF /* StickerPackManager.swift in Sources */,
 				2ADFCA62222A5FD600D299CF /* YYFrameImage.m in Sources */,
+				CE5E0872245EFDF3003FFA6A /* Init1ViewController.swift in Sources */,
+				CE5E087F245F20E1003FFA6A /* AlertManager.swift in Sources */,
 				2A2F8CBD222D3F84002B412A /* StickerCell.swift in Sources */,
+				CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */,
 				2AC6E34421C76883005FFDB8 /* AppDelegate.swift in Sources */,
 				2A2F8CC1222D548B002B412A /* AllSubViewController.swift in Sources */,
 				2A818B7D22BA5582005DECE4 /* EditViewController.swift in Sources */,
+				CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */,
 				2ADFCA52222A5F6A00D299CF /* Sticker.swift in Sources */,
+				CE5E0878245EFF25003FFA6A /* StartUIPageController.swift in Sources */,
 				2ADFCA63222A5FD600D299CF /* YYImage.m in Sources */,
 				2A818B7222BA1455005DECE4 /* MyStickerViewController.swift in Sources */,
 			);
@@ -621,7 +678,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2DAGTKAK2;
+				DEVELOPMENT_TEAM = 72V232H5RB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -630,7 +687,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.StickerStore.-OneSignalNotificationServiceExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.solucionestpvpos.stickers.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -645,7 +702,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2DAGTKAK2;
+				DEVELOPMENT_TEAM = 72V232H5RB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -654,7 +711,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.StickerStore.-OneSignalNotificationServiceExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.solucionestpvpos.stickers.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -785,9 +842,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sticker/Sticker.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2DAGTKAK2;
+				DEVELOPMENT_TEAM = 72V232H5RB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,7 +856,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.StickerStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solucionestpvpos.stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -818,9 +875,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sticker/Sticker.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2DAGTKAK2;
+				DEVELOPMENT_TEAM = 72V232H5RB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -832,7 +889,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.StickerStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solucionestpvpos.stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

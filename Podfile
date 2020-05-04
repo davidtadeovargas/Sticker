@@ -11,6 +11,7 @@ target 'Sticker' do
   pod 'SDWebImage'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'OneSignal', '>= 2.6.2', '< 3.0'
+  pod 'SideMenu'
 end
 
 target 'OneSignalNotificationServiceExtension' do
