@@ -9,7 +9,7 @@
 import UIKit
 import SCLAlertView
 
-class StickersMakerViewController: UIViewController {
+class StickersMakerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imgNoStickers: UIImageView!
@@ -18,12 +18,22 @@ class StickersMakerViewController: UIViewController {
     @IBOutlet weak var tableStickers: UITableView!
     @IBOutlet weak var btnAdd: UIButton!
     
+    var customStickers:[StickerPackage]?
+    
+    var packageName:String?
+    var creatorPackage:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableStickers.isHidden = true
         
-        // Do any additional setup after loading the view.
+        customStickers = StickersManager.shared.getAllCustomPackages()
+        if(customStickers!.count == 0){
+            tableStickers.isHidden = true
+        }
+        else{
+            tableStickers.delegate = self
+            tableStickers.dataSource = self
+        }
     }
     
     @IBAction func btnPackageStickersClicked(_ sender: Any) {
@@ -39,10 +49,95 @@ class StickersMakerViewController: UIViewController {
         AddsManager.shared.showAddIfApply(UIViewController: self)
         
         //Show dialog to create sticker package
-        AlertManager.shared.showTwoEdits(title: "Crear nuevo paquete", subtitle: "Por favor, especifique el titulo y el creador del paquete", placeholderOne: "Nombre del paquete", placeholderSecond: "Creador", onOk: {
+        showPackageDialog()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? StickersMakerTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let StickerPackage:StickerPackage = self.customStickers![indexPath.row]
+        
+        cell.image_.image = UIImage(named: "add_icon.png")
+        cell.labelPackageName.text = StickerPackage.name
+        cell.labelCreator.text = StickerPackage.creator
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard (tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? StickersMakerTableViewCell) != nil else {
+                return
+        }
+        
+        let StickerPackage_:StickerPackage = self.customStickers![indexPath.row]
+        
+        //Open the next screen to view the package info
+        PackageDetailShare.shared.StickerPackage = StickerPackage_ //Params for the screen
+        ViewControllersManager.shared.setRoot(UIViewController: self, id:"PackageDetailViewController")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return customStickers!.count
+    }
+    
+    private func showPackageDialog(){
+        
+        //Show dialog to create sticker package
+        TwoDialogManager.shared.showTwoEdits(title: "Crear nuevo paquete", subtitle: "Por favor, especifique el titulo y el creador del paquete", placeholderOne: "Nombre del paquete", placeholderSecond: "Creador", initValueOne: packageName, initValueTwo: creatorPackage, onOk:{txtPackageName,txtCreator in
+        
+            self.packageName = txtPackageName.text
+            self.creatorPackage = txtCreator.text
+            
+            //Validate that has a package and creator
+            if(self.packageName!.isEmpty){
+                AlertManager.shared.showOk(UIViewController: self, message: "Ingresa un nombre de paquete")
+                self.showPackageDialog()
+                return
+            }
+            if(self.creatorPackage!.isEmpty){
+                AlertManager.shared.showOk(UIViewController: self, message: "Ingresa un creador")
+                self.showPackageDialog()
+                return
+            }
+            
+            //Check that the packa name does not exists
+            let StickerPackage = StickersManager.shared.getCustomPackageForName(name: self.packageName!)
+            if(StickerPackage != nil){
+                AlertManager.shared.showOk(UIViewController: self, message: "Este paquete ya existe")
+                self.showPackageDialog()
+                return
+            }
             
             //Save the new sticker package
+            let StickerPackage_ = StickersManager.shared.addCustomPackage(name: self.packageName!,creator: self.creatorPackage!)
+            
+            //Open the next screen
+            PackageDetailShare.shared.StickerPackage = StickerPackage_ //Params for the screen
+            ViewControllersManager.shared.setRoot(UIViewController: self, id:"PackageDetailViewController")
             
         }, onCancel: {})
+    }
+}
+
+class StickersMakerTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var image_: UIImageView!
+    @IBOutlet weak var stackStickers: UIStackView!
+    @IBOutlet weak var labelPackageName: UILabel!
+    @IBOutlet weak var labelCreator: UILabel!
+    @IBOutlet weak var btnView: UIButton!
+    
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 }

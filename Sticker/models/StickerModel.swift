@@ -9,9 +9,35 @@
 import Foundation
 
 
-class StickerModel {
+class StickerModel: NSObject, NSCoding {
     
     var id:String?
     var image:String?
     var subcate:String?
+    
+    override init() {
+        super.init()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+
+        if let id = aDecoder.decodeObject(forKey: "id") as? String {
+            self.id = id
+        }
+
+        if let image = aDecoder.decodeObject(forKey: "len") as? String {
+            self.image = image
+        }
+        
+        if let subcate = aDecoder.decodeObject(forKey: "len") as? String {
+            self.subcate = subcate
+        }
+
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(image, forKey: "image")
+        aCoder.encode(subcate, forKey: "subcate")
+    }
 }
