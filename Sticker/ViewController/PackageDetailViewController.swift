@@ -14,6 +14,8 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var labelPackageName: UILabel!
     @IBOutlet weak var labelCreator: UILabel!
     
+    var details:[PackageDetailTableRow] = []
+    
     var packageName:String?
     var creatorPackage:String?
     
@@ -25,6 +27,17 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
+        details.append(PackageDetailTableRow())
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,17 +56,82 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? DetailPackageTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.img1.image = UIImage(named: "add_icon.png")
-        cell.img2.image = UIImage(named: "add_icon.png")
-        cell.img3.image = UIImage(named: "add_icon.png")
+        let stringValue = "\(indexPath.row)"
+        print("index = " + stringValue)
+        
+        let PackageDetailTableRow = details[indexPath.row]
+        
+        cell.img1.image = PackageDetailTableRow.image1.image
+        cell.img2.image = PackageDetailTableRow.image2.image
+        cell.img3.image = PackageDetailTableRow.image3.image
+        
+        if(cell.img1.index == nil){
+            
+            cell.img1.index = indexPath.row
+            cell.img1.position = 1
+            cell.img2.index = indexPath.row
+            cell.img2.position = 2
+            cell.img3.index = indexPath.row
+            cell.img3.position = 3
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            cell.img1.isUserInteractionEnabled = true
+            cell.img1.addGestureRecognizer(tapGestureRecognizer)
+            
+            let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            cell.img2.isUserInteractionEnabled = true
+            cell.img2.addGestureRecognizer(tapGestureRecognizer2)
+            
+            let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            cell.img3.isUserInteractionEnabled = true
+            cell.img3.addGestureRecognizer(tapGestureRecognizer3)
+            
+            var stringValue = "\(indexPath.row)"
+            print("cell.img1.index = nil index = " + stringValue)
+            
+        }
+        else{
+            var stringValue = "\(indexPath.row)"
+            print("cell.img1.index != nil index " + stringValue)
+            
+            cell.img1.index = indexPath.row
+            cell.img2.index = indexPath.row
+            cell.img3.index = indexPath.row
+        }
         
         return cell
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! DetailsPackageUIImageView
+        
+        var indexS = "\(tappedImage.index)"
+        var positionS = "\(tappedImage.position)"
+        print("tappedImage  index = " + indexS + " position = " + positionS)
+        
+        let PackageDetailTableRow = details[tappedImage.index!]
+        if(tappedImage.position == 1){
+            EditPackageImageShare.shared.UIImageView2 = PackageDetailTableRow.image1
+        }
+        else if(tappedImage.position == 2){
+            EditPackageImageShare.shared.UIImageView2 = PackageDetailTableRow.image2
+        }
+        else if(tappedImage.position == 3){
+            EditPackageImageShare.shared.UIImageView2 = PackageDetailTableRow.image3
+        }
+        
+        //Open window to select image from gallery and edit it
+        EditPackageImageShare.shared.UIImageView = tappedImage
+        EditPackageImageShare.shared.UIViewController = self
+        ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,6 +162,11 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func btnEditPackageImagePressed(_ sender: Any) {
+        
+        //Open window to select image from gallery and edit it
+        EditPackageImageShare.shared.UIImageView = imgPackage
+        EditPackageImageShare.shared.UIViewController = self
+        ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
     
     @IBAction func btnEditPackageInfoPressed(_ sender: Any) {
@@ -140,9 +223,9 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
 
 class DetailPackageTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var img1: UIImageView!
-    @IBOutlet weak var img2: UIImageView!
-    @IBOutlet weak var img3: UIImageView!
+    @IBOutlet weak var img1: DetailsPackageUIImageView!
+    @IBOutlet weak var img2: DetailsPackageUIImageView!
+    @IBOutlet weak var img3: DetailsPackageUIImageView!
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -23,7 +23,7 @@ class TwoDialogManager: NSObject, UITextFieldDelegate {
                replacementString string: String) -> Bool {
 
         guard let preText = textField.text as NSString?,
-            preText.replacingCharacters(in: range, with: string).count <= 10 else {
+            preText.replacingCharacters(in: range, with: string).count <= self.txtLen! else {
             return false
         }
 

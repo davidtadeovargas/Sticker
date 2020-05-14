@@ -13,10 +13,12 @@ target 'Sticker' do
   pod 'OneSignal', '>= 2.6.2', '< 3.0'
   pod 'SideMenu'
   pod 'SCLAlertView'
+  pod 'iOSPhotoEditor'
 end
 
 target 'OneSignalNotificationServiceExtension' do
     use_frameworks!
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
+    pod 'SwiftyJSON', '~> 4.0'
 end
 

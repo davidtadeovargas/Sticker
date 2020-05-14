@@ -64,6 +64,11 @@
 		2AFC8B6B223255DC007DB18E /* ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC8B6A223255DC007DB18E /* ex.png */; };
 		8E03CFE0EEF20015C13249CA /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C9B1CD0AAE7E20284BCFB /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */; };
+		CE424162246B468F00B4897E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE424161246B468F00B4897E /* Constants.swift */; };
+		CE424166246B59D800B4897E /* RequestsFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE424165246B59D800B4897E /* RequestsFactor.swift */; };
+		CE424168246C38B000B4897E /* LoadingIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE424167246C38B000B4897E /* LoadingIcon.swift */; };
+		CE42416B246C8B9700B4897E /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42416A246C8B9700B4897E /* UIStackView.swift */; };
+		CE42416D246C99E800B4897E /* PackageDetailUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42416C246C99E800B4897E /* PackageDetailUIViewController.swift */; };
 		CE5E0870245EFDAB003FFA6A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E086F245EFDAB003FFA6A /* StartViewController.swift */; };
 		CE5E0872245EFDF3003FFA6A /* Init1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0871245EFDF3003FFA6A /* Init1ViewController.swift */; };
 		CE5E0874245EFE0E003FFA6A /* Init2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0873245EFE0E003FFA6A /* Init2ViewController.swift */; };
@@ -73,6 +78,8 @@
 		CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E087C245F1D54003FFA6A /* ViewControllersManager.swift */; };
 		CE5E087F245F20E1003FFA6A /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E087E245F20E1003FFA6A /* AlertManager.swift */; };
 		CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */; };
+		CE67616F246CD223000D206C /* PackageDetailUIShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67616E246CD223000D206C /* PackageDetailUIShare.swift */; };
+		CE676171246CF22F000D206C /* PrincipalShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676170246CF22F000D206C /* PrincipalShare.swift */; };
 		CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */; };
 		CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */; };
 		CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */; };
@@ -85,6 +92,16 @@
 		CEBED2E0246133FF00FFD965 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */; };
 		CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */; };
 		CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */; };
+		CEFE52B62462F76F00A0C761 /* EditPackageImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */; };
+		CEFE52B82462F7E900A0C761 /* EditPackageImageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */; };
+		CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */; };
+		CEFE52BD246326DA00A0C761 /* DetailsPackageUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52BC246326DA00A0C761 /* DetailsPackageUIImageView.swift */; };
+		CEFE52C024660ACE00A0C761 /* DataHttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52BF24660ACE00A0C761 /* DataHttpModel.swift */; };
+		CEFE52C424660B0F00A0C761 /* StickerPackageHttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52C324660B0F00A0C761 /* StickerPackageHttpModel.swift */; };
+		CEFE52C624660CB600A0C761 /* StickerInnerPackHttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52C524660CB600A0C761 /* StickerInnerPackHttpModel.swift */; };
+		CEFE52C824660DCC00A0C761 /* StickerHttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52C724660DCC00A0C761 /* StickerHttpModel.swift */; };
+		CEFE52CB2466125900A0C761 /* StickerPackageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CA2466125900A0C761 /* StickerPackageRequest.swift */; };
+		CEFE52CF2466128C00A0C761 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CE2466128C00A0C761 /* BaseRequest.swift */; };
 		FE7FD0AD6D7B3B21D3D7A6EA /* Pods_Sticker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +202,11 @@
 		48A13DAF1EE892A73989E140 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersMakerViewController.swift; sourceTree = "<group>"; };
+		CE424161246B468F00B4897E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE424165246B59D800B4897E /* RequestsFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsFactor.swift; sourceTree = "<group>"; };
+		CE424167246C38B000B4897E /* LoadingIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIcon.swift; sourceTree = "<group>"; };
+		CE42416A246C8B9700B4897E /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		CE42416C246C99E800B4897E /* PackageDetailUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailUIViewController.swift; sourceTree = "<group>"; };
 		CE5E086F245EFDAB003FFA6A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		CE5E0871245EFDF3003FFA6A /* Init1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init1ViewController.swift; sourceTree = "<group>"; };
 		CE5E0873245EFE0E003FFA6A /* Init2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init2ViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +216,8 @@
 		CE5E087C245F1D54003FFA6A /* ViewControllersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersManager.swift; sourceTree = "<group>"; };
 		CE5E087E245F20E1003FFA6A /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
+		CE67616E246CD223000D206C /* PackageDetailUIShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailUIShare.swift; sourceTree = "<group>"; };
+		CE676170246CF22F000D206C /* PrincipalShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalShare.swift; sourceTree = "<group>"; };
 		CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvadoViewController.swift; sourceTree = "<group>"; };
 		CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITableViewController.swift; sourceTree = "<group>"; };
 		CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
@@ -206,6 +230,16 @@
 		CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
 		CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDialogManager.swift; sourceTree = "<group>"; };
 		CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailShare.swift; sourceTree = "<group>"; };
+		CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageViewController.swift; sourceTree = "<group>"; };
+		CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageShare.swift; sourceTree = "<group>"; };
+		CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailTableRow.swift; sourceTree = "<group>"; };
+		CEFE52BC246326DA00A0C761 /* DetailsPackageUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPackageUIImageView.swift; sourceTree = "<group>"; };
+		CEFE52BF24660ACE00A0C761 /* DataHttpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHttpModel.swift; sourceTree = "<group>"; };
+		CEFE52C324660B0F00A0C761 /* StickerPackageHttpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPackageHttpModel.swift; sourceTree = "<group>"; };
+		CEFE52C524660CB600A0C761 /* StickerInnerPackHttpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerInnerPackHttpModel.swift; sourceTree = "<group>"; };
+		CEFE52C724660DCC00A0C761 /* StickerHttpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerHttpModel.swift; sourceTree = "<group>"; };
+		CEFE52CA2466125900A0C761 /* StickerPackageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPackageRequest.swift; sourceTree = "<group>"; };
+		CEFE52CE2466128C00A0C761 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		E35D6476CA2D2EFCD9AB99F4 /* Pods-Sticker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sticker/Pods-Sticker.release.xcconfig"; sourceTree = "<group>"; };
 		E98804A84C84B3CE50123F31 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +337,9 @@
 		2AC6E34221C76883005FFDB8 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				CE424169246C8B8A00B4897E /* extensions */,
+				CEFE52CD2466127600A0C761 /* requests */,
+				CEFE52BB246326A400A0C761 /* views */,
 				CEBED2DA245FFADB00FFD965 /* models */,
 				CE5E0879245F0E31003FFA6A /* managers */,
 				2AA4A336224CF1BB003F0BDC /* Sticker.entitlements */,
@@ -316,6 +353,7 @@
 				2AC6E34A21C76884005FFDB8 /* Assets.xcassets */,
 				2AC6E34C21C76884005FFDB8 /* LaunchScreen.storyboard */,
 				2AC6E34F21C76884005FFDB8 /* Info.plist */,
+				CE424161246B468F00B4897E /* Constants.swift */,
 			);
 			path = Sticker;
 			sourceTree = "<group>";
@@ -344,6 +382,8 @@
 				CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */,
 				CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */,
 				CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */,
+				CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */,
+				CE42416C246C99E800B4897E /* PackageDetailUIViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -413,6 +453,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE424169246C8B8A00B4897E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE42416A246C8B9700B4897E /* UIStackView.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		CE5E0879245F0E31003FFA6A /* managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +471,7 @@
 				CEBED2D6245FF3E300FFD965 /* AddsManager.swift */,
 				CEBED2D8245FF87900FFD965 /* StickersManager.swift */,
 				CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */,
+				CE424167246C38B000B4897E /* LoadingIcon.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -430,8 +479,10 @@
 		CEBED2DA245FFADB00FFD965 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				CEFE52BE24660AA700A0C761 /* http */,
 				CEBED2DB245FFAF600FFD965 /* StickerPackage.swift */,
 				CEBED2DD245FFC6E00FFD965 /* StickerModel.swift */,
+				CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -440,8 +491,40 @@
 			isa = PBXGroup;
 			children = (
 				CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */,
+				CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */,
+				CE67616E246CD223000D206C /* PackageDetailUIShare.swift */,
+				CE676170246CF22F000D206C /* PrincipalShare.swift */,
 			);
 			path = shared;
+			sourceTree = "<group>";
+		};
+		CEFE52BB246326A400A0C761 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CEFE52BC246326DA00A0C761 /* DetailsPackageUIImageView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CEFE52BE24660AA700A0C761 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				CEFE52BF24660ACE00A0C761 /* DataHttpModel.swift */,
+				CEFE52C324660B0F00A0C761 /* StickerPackageHttpModel.swift */,
+				CEFE52C524660CB600A0C761 /* StickerInnerPackHttpModel.swift */,
+				CEFE52C724660DCC00A0C761 /* StickerHttpModel.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		CEFE52CD2466127600A0C761 /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				CEFE52CA2466125900A0C761 /* StickerPackageRequest.swift */,
+				CEFE52CE2466128C00A0C761 /* BaseRequest.swift */,
+				CE424165246B59D800B4897E /* RequestsFactor.swift */,
+			);
+			path = requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -637,6 +720,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5E0870245EFDAB003FFA6A /* StartViewController.swift in Sources */,
+				CE42416D246C99E800B4897E /* PackageDetailUIViewController.swift in Sources */,
 				CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */,
 				CEBED2D7245FF3E300FFD965 /* AddsManager.swift in Sources */,
 				2ADFCA50222A5F6A00D299CF /* StickerPack.swift in Sources */,
@@ -644,6 +728,8 @@
 				2ACB431222AA586C00ACEE01 /* MainViewController.swift in Sources */,
 				2A146EFF222CD97900FEDF34 /* PackViewController.swift in Sources */,
 				CE5E0874245EFE0E003FFA6A /* Init2ViewController.swift in Sources */,
+				CEFE52CB2466125900A0C761 /* StickerPackageRequest.swift in Sources */,
+				CE424162246B468F00B4897E /* Constants.swift in Sources */,
 				2ACD40FD22B3B30300FCAA5C /* CreateSticker2ViewController.swift in Sources */,
 				CEBED2D9245FF87900FFD965 /* StickersManager.swift in Sources */,
 				2ADFCA4F222A5F6A00D299CF /* WebPManager.swift in Sources */,
@@ -653,6 +739,7 @@
 				2A9C4B9C22AFBB5F00B74B38 /* CategoryCell.swift in Sources */,
 				2AD491BF22AE25ED005D104E /* CreateStickerViewController.swift in Sources */,
 				CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */,
+				CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */,
 				2AC6E34621C76883005FFDB8 /* ViewController.swift in Sources */,
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,
 				2ADFCA4E222A5F6A00D299CF /* Interoperability.swift in Sources */,
@@ -660,26 +747,39 @@
 				2A2F8CC3222D55EA002B412A /* SubCell.swift in Sources */,
 				2ADFCA5F222A5FD600D299CF /* YYAnimatedImageView.m in Sources */,
 				2A818B7422BA18DB005DECE4 /* MyStickerCell.swift in Sources */,
+				CEFE52C024660ACE00A0C761 /* DataHttpModel.swift in Sources */,
 				2ADFCA4C222A5F6A00D299CF /* Limits.swift in Sources */,
 				CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */,
 				2AB3F33A2233BFFC002B047B /* ZFRippleButton.swift in Sources */,
+				CE67616F246CD223000D206C /* PackageDetailUIShare.swift in Sources */,
+				CEFE52C624660CB600A0C761 /* StickerInnerPackHttpModel.swift in Sources */,
 				CE5E087B245F0E43003FFA6A /* PHPhotoLibraryManager.swift in Sources */,
+				CEFE52C824660DCC00A0C761 /* StickerHttpModel.swift in Sources */,
 				2ADFCA51222A5F6A00D299CF /* ImageData.swift in Sources */,
+				CEFE52B82462F7E900A0C761 /* EditPackageImageShare.swift in Sources */,
+				CEFE52CF2466128C00A0C761 /* BaseRequest.swift in Sources */,
+				CE42416B246C8B9700B4897E /* UIStackView.swift in Sources */,
+				CE676171246CF22F000D206C /* PrincipalShare.swift in Sources */,
 				2ADFCA61222A5FD600D299CF /* YYSpriteSheetImage.m in Sources */,
 				2A2F8CBF222D47E8002B412A /* UIAlertController+Additions.swift in Sources */,
 				2AF2F6E021CA638300C3B126 /* HomeCell.swift in Sources */,
 				CEBED2D3245FE23900FFD965 /* Share.swift in Sources */,
 				2ADFCA4D222A5F6A00D299CF /* StickerPackManager.swift in Sources */,
+				CE424166246B59D800B4897E /* RequestsFactor.swift in Sources */,
 				2ADFCA62222A5FD600D299CF /* YYFrameImage.m in Sources */,
+				CEFE52B62462F76F00A0C761 /* EditPackageImageViewController.swift in Sources */,
 				CE5E0872245EFDF3003FFA6A /* Init1ViewController.swift in Sources */,
 				CEBED2E0246133FF00FFD965 /* PackageDetailViewController.swift in Sources */,
 				CE5E087F245F20E1003FFA6A /* AlertManager.swift in Sources */,
 				2A2F8CBD222D3F84002B412A /* StickerCell.swift in Sources */,
 				CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */,
 				CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */,
+				CE424168246C38B000B4897E /* LoadingIcon.swift in Sources */,
 				CEBED2DC245FFAF600FFD965 /* StickerPackage.swift in Sources */,
 				2AC6E34421C76883005FFDB8 /* AppDelegate.swift in Sources */,
 				2A2F8CC1222D548B002B412A /* AllSubViewController.swift in Sources */,
+				CEFE52BD246326DA00A0C761 /* DetailsPackageUIImageView.swift in Sources */,
+				CEFE52C424660B0F00A0C761 /* StickerPackageHttpModel.swift in Sources */,
 				2A818B7D22BA5582005DECE4 /* EditViewController.swift in Sources */,
 				CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */,
 				CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */,

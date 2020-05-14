@@ -22,6 +22,13 @@ class AlertManager {
         UIViewController.present(alert, animated: true)
     }
     
+    func showError(UIViewController:UIViewController, message:String){
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        UIViewController.present(alert, animated: true)
+    }
+    
     func showOkAction(UIViewController:UIViewController, message:String, onYes: @escaping () -> Void){
         
         let alert = UIAlertController(title: "Stickers", message: message, preferredStyle: .alert)

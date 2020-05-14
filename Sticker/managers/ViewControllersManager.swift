@@ -18,6 +18,7 @@ class ViewControllersManager {
     func push(UIViewController:UIViewController, id:String){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: id)
+        UIViewController.navigationController?.pushViewController(controller, animated: true)
         UIViewController.present(controller, animated: true, completion: nil)
     }
     
@@ -27,11 +28,23 @@ class ViewControllersManager {
         self.push(UIViewController: UIViewController, id: id)
     }
     
+    func close(UIViewController:UIViewController){
+        
+        UIViewController.navigationController?.popViewController(animated: true)
+        UIViewController.dismiss(animated: true, completion: nil)
+    }
+    
     func setRoot(UIViewController:UIViewController,id:String){
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: id)
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.window?.rootViewController = viewController
+        }
+    }
+    
+    func setRoot(routeUIViewController:UIViewController){
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            delegate.window?.rootViewController = routeUIViewController
         }
     }
 }
