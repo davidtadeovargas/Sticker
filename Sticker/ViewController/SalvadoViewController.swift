@@ -10,6 +10,7 @@ import UIKit
 
 class SalvadoViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var btnSalvado: UIButton!
     @IBOutlet weak var btnExplorar: UIButton!
     @IBOutlet weak var btnPackageStickers: UIButton!
@@ -22,6 +23,10 @@ class SalvadoViewController: UIViewController {
         super.viewDidLoad()
 
         tableStickers.isHidden = true
+        
+        //Remove borders
+        searchBar.backgroundImage = UIImage()
+        
         // Do any additional setup after loading the view.
     }
 

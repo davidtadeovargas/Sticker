@@ -80,6 +80,7 @@
 		CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */; };
 		CE67616F246CD223000D206C /* PackageDetailUIShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67616E246CD223000D206C /* PackageDetailUIShare.swift */; };
 		CE676171246CF22F000D206C /* PrincipalShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676170246CF22F000D206C /* PrincipalShare.swift */; };
+		CE676173246D1D5A000D206C /* DetailOfPackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676172246D1D5A000D206C /* DetailOfPackageViewController.swift */; };
 		CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */; };
 		CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */; };
 		CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */; };
@@ -218,6 +219,7 @@
 		CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		CE67616E246CD223000D206C /* PackageDetailUIShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailUIShare.swift; sourceTree = "<group>"; };
 		CE676170246CF22F000D206C /* PrincipalShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalShare.swift; sourceTree = "<group>"; };
+		CE676172246D1D5A000D206C /* DetailOfPackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfPackageViewController.swift; sourceTree = "<group>"; };
 		CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvadoViewController.swift; sourceTree = "<group>"; };
 		CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITableViewController.swift; sourceTree = "<group>"; };
 		CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */,
 				CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */,
 				CE42416C246C99E800B4897E /* PackageDetailUIViewController.swift */,
+				CE676172246D1D5A000D206C /* DetailOfPackageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				CEFE52BD246326DA00A0C761 /* DetailsPackageUIImageView.swift in Sources */,
 				CEFE52C424660B0F00A0C761 /* StickerPackageHttpModel.swift in Sources */,
 				2A818B7D22BA5582005DECE4 /* EditViewController.swift in Sources */,
+				CE676173246D1D5A000D206C /* DetailOfPackageViewController.swift in Sources */,
 				CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */,
 				CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */,
 				2ADFCA52222A5F6A00D299CF /* Sticker.swift in Sources */,

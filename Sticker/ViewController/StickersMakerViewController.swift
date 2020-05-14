@@ -29,6 +29,9 @@ class StickersMakerViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Remove borders
+        searchBar.backgroundImage = UIImage()
+        
         customStickers = StickersManager.shared.getAllCustomPackages()
         if(customStickers!.count == 0){
             tableStickers.isHidden = true

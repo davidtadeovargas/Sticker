@@ -50,6 +50,11 @@ class BaseRequest {
                     
                     print("Error found in request: " + error.localizedDescription)
                     
+                    //Hide loading icon
+                    if(self.UIViewController_ != nil){
+                        LoadingIcon.shared.hide()
+                    }
+                    
                     if self.onError != nil {
                         print("Redirecting to onError")
                         self.onError!(error)
@@ -66,6 +71,11 @@ class BaseRequest {
             } catch {
                 
                 print("Error exception found in request: \(error)")
+                
+                //Hide loading icon
+                if(self.UIViewController_ != nil){
+                    LoadingIcon.shared.hide()
+                }
                 
                 if self.onError != nil {
                     print("Redirecting to onError")

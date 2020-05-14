@@ -93,12 +93,12 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             cell.img3.isUserInteractionEnabled = true
             cell.img3.addGestureRecognizer(tapGestureRecognizer3)
             
-            var stringValue = "\(indexPath.row)"
+            let stringValue = "\(indexPath.row)"
             print("cell.img1.index = nil index = " + stringValue)
             
         }
         else{
-            var stringValue = "\(indexPath.row)"
+            let stringValue = "\(indexPath.row)"
             print("cell.img1.index != nil index " + stringValue)
             
             cell.img1.index = indexPath.row
@@ -113,8 +113,8 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     {
         let tappedImage = tapGestureRecognizer.view as! DetailsPackageUIImageView
         
-        var indexS = "\(tappedImage.index)"
-        var positionS = "\(tappedImage.position)"
+        let indexS = "\(tappedImage.index)"
+        let positionS = "\(tappedImage.position)"
         print("tappedImage  index = " + indexS + " position = " + positionS)
         
         let PackageDetailTableRow = details[tappedImage.index!]

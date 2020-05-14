@@ -25,6 +25,9 @@ class PackageDetailUIViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Remove borders
+        searchBar.backgroundImage = UIImage()
+        
         //Get the sticker package to preview
         self.StickerPackageHttpModel_ = PackageDetailUIShare.shared.StickerPackageHttpModel_
         

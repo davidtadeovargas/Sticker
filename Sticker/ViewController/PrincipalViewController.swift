@@ -29,12 +29,18 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
         tableStickers.delegate = self
         tableStickers.dataSource = self
         
+        //Remove borders
+        searchBar.backgroundImage = UIImage()
+        
         if(PrincipalShare.shared.StickerPackageHttpModelArray == nil){
             
             let StickerPackageRequest_ = RequestsFactor.shared.getStickerPackageRequest()
             StickerPackageRequest_.UIViewController_ = self
             StickerPackageRequest_.onError = { Error in
                 AlertManager.shared.showError(UIViewController: self, message: Error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.tableStickers.isHidden = true
+                }
             }
             StickerPackageRequest_.onFinish = { DataHttpModel_ in
              
