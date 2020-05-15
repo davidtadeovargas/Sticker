@@ -3,6 +3,11 @@ PODS:
   - iOSPhotoEditor (1.0.0)
   - MBProgressHUD (1.1.0)
   - OneSignal (2.9.2)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
   - SCLAlertView (0.8)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -15,6 +20,7 @@ DEPENDENCIES:
   - iOSPhotoEditor
   - MBProgressHUD (~> 1.1.0)
   - OneSignal (< 3.0, >= 2.6.2)
+  - RealmSwift
   - SCLAlertView
   - SDWebImage
   - SideMenu
@@ -22,6 +28,9 @@ DEPENDENCIES:
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Realm
+    - RealmSwift
   trunk:
     - Alamofire
     - iOSPhotoEditor
@@ -37,11 +46,13 @@ SPEC CHECKSUMS:
   iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   OneSignal: e00b18be0a81e6e2009d27873c76a6153e5551fe
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: cde71afebb5651e46a51bc29e1e1b86a084b301b
+PODFILE CHECKSUM: df518a43a2cefa82b7aa2a8cbecdb77fdb54a4d5
 
 COCOAPODS: 1.9.1

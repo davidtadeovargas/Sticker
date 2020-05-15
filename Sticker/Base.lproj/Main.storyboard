@@ -1412,7 +1412,7 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-pe-pS3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-pe-pS3" customClass="PackageDetailBaseUITableView" customModule="Sticker" customModuleProvider="target">
                                 <rect key="frame" x="10" y="80" width="295" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -1509,34 +1509,53 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lg-ox-T6h">
-                                <rect key="frame" x="-3" y="0.0" width="320" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lg-ox-T6h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-XQ-zpd">
-                                        <rect key="frame" x="47" y="9" width="265" height="56"/>
+                                    <searchBar contentMode="redraw" barStyle="black" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-XQ-zpd">
+                                        <rect key="frame" x="39" y="9" width="273" height="56"/>
                                         <color key="barTintColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="py4-sY-2Pl">
-                                        <rect key="frame" x="8" y="15" width="28" height="30"/>
+                                        <rect key="frame" x="14" y="26" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="6F3-8e-8dZ"/>
-                                            <constraint firstAttribute="height" constant="30" id="jZ5-y7-kyC"/>
+                                            <constraint firstAttribute="width" constant="20" id="6F3-8e-8dZ"/>
+                                            <constraint firstAttribute="height" constant="20" id="jZ5-y7-kyC"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="back"/>
                                         <connections>
                                             <action selector="backButtonTouch:" destination="gmu-5O-ock" eventType="touchUpInside" id="WZh-ks-RRR"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-Cj-rXI" userLabel="Search Button">
+                                        <rect key="frame" x="285" y="24" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="2PK-mL-OXk"/>
+                                            <constraint firstAttribute="width" constant="25" id="bT6-ld-TOg"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="search"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stickers Suavecitos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oD4-cG-rTW">
+                                        <rect key="frame" x="52" y="27" width="225" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="py4-sY-2Pl" firstAttribute="leading" secondItem="9lg-ox-T6h" secondAttribute="leading" constant="8" id="D6i-Np-VTn"/>
-                                    <constraint firstItem="py4-sY-2Pl" firstAttribute="top" secondItem="9lg-ox-T6h" secondAttribute="top" constant="15" id="OH0-xw-Joq"/>
-                                    <constraint firstItem="dsn-XQ-zpd" firstAttribute="leading" secondItem="py4-sY-2Pl" secondAttribute="trailing" constant="11" id="Srp-he-Dvn"/>
+                                    <constraint firstItem="NNV-Cj-rXI" firstAttribute="top" secondItem="9lg-ox-T6h" secondAttribute="top" constant="24" id="5Nx-Rr-tGS"/>
+                                    <constraint firstItem="NNV-Cj-rXI" firstAttribute="leading" secondItem="oD4-cG-rTW" secondAttribute="trailing" constant="8" id="C6k-Hp-jG7"/>
+                                    <constraint firstItem="py4-sY-2Pl" firstAttribute="leading" secondItem="9lg-ox-T6h" secondAttribute="leading" constant="14" id="D6i-Np-VTn"/>
+                                    <constraint firstItem="oD4-cG-rTW" firstAttribute="leading" secondItem="py4-sY-2Pl" secondAttribute="trailing" constant="18" id="N56-CK-dhf"/>
+                                    <constraint firstItem="py4-sY-2Pl" firstAttribute="top" secondItem="9lg-ox-T6h" secondAttribute="top" constant="26" id="OH0-xw-Joq"/>
+                                    <constraint firstItem="dsn-XQ-zpd" firstAttribute="leading" secondItem="py4-sY-2Pl" secondAttribute="trailing" constant="5" id="Srp-he-Dvn"/>
+                                    <constraint firstItem="oD4-cG-rTW" firstAttribute="top" secondItem="9lg-ox-T6h" secondAttribute="top" constant="27" id="Tyr-5H-1RJ"/>
                                     <constraint firstAttribute="height" constant="65" id="V4X-e8-egr"/>
                                     <constraint firstAttribute="trailing" secondItem="dsn-XQ-zpd" secondAttribute="trailing" constant="8" id="sEh-Lf-fM8"/>
+                                    <constraint firstAttribute="trailing" secondItem="NNV-Cj-rXI" secondAttribute="trailing" constant="10" id="tP7-DT-3e7"/>
                                     <constraint firstItem="dsn-XQ-zpd" firstAttribute="top" secondItem="9lg-ox-T6h" secondAttribute="top" constant="9" id="xLq-fi-tfH"/>
                                 </constraints>
                             </view>
@@ -1559,7 +1578,9 @@
                     <connections>
                         <outlet property="backButton" destination="py4-sY-2Pl" id="1jr-Hn-AgN"/>
                         <outlet property="searchBar" destination="dsn-XQ-zpd" id="VV6-d7-v19"/>
+                        <outlet property="searchButton" destination="NNV-Cj-rXI" id="Cyu-DA-sCn"/>
                         <outlet property="tableStickers" destination="w1h-pe-pS3" id="fLF-Vu-3tx"/>
+                        <outlet property="titleLabel" destination="oD4-cG-rTW" id="k4n-Gw-Y4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TML-4y-KdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1578,6 +1599,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaL-AU-uYR" userLabel="Search button">
+                                <rect key="frame" x="285" y="15" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="3lR-98-CYG"/>
+                                    <constraint firstAttribute="height" constant="25" id="9sN-aq-oTy"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="search"/>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hHN-Ln-A2W">
                                 <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <subviews>
@@ -1602,7 +1631,7 @@
                                     <constraint firstAttribute="height" constant="50" id="wNF-sO-w2A"/>
                                 </constraints>
                             </stackView>
-                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-e4-STs">
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Buscar" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-e4-STs">
                                 <rect key="frame" x="61" y="0.0" width="259" height="56"/>
                                 <color key="barTintColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1624,7 +1653,7 @@
                                     <constraint firstItem="ST0-sz-yJY" firstAttribute="centerX" secondItem="Om3-jM-mr2" secondAttribute="centerX" id="x3N-dF-zAo"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-c6-SlS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-c6-SlS" customClass="PrincipalBaseUITableView" customModule="Sticker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="106" width="320" height="324"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1708,16 +1737,25 @@
                                     <segue destination="yoA-UC-hWo" kind="modal" id="lO9-g7-wXY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stickers Suavecitos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWa-E4-2Ox">
+                                <rect key="frame" x="61" y="17" width="223" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bKy-e4-STs" secondAttribute="trailing" id="3sT-t1-QV2"/>
                             <constraint firstItem="hHN-Ln-A2W" firstAttribute="leading" secondItem="Vua-Bk-Kjp" secondAttribute="leading" id="8yL-eV-qqI"/>
                             <constraint firstAttribute="trailing" secondItem="hHN-Ln-A2W" secondAttribute="trailing" id="ES8-LP-FPc"/>
+                            <constraint firstItem="yWa-E4-2Ox" firstAttribute="top" secondItem="GhR-JL-opZ" secondAttribute="bottom" constant="17" id="GTd-Dv-bRF"/>
+                            <constraint firstItem="DYc-XJ-UT0" firstAttribute="top" secondItem="GaL-AU-uYR" secondAttribute="bottom" constant="16" id="HVY-iB-NuV"/>
                             <constraint firstItem="hHN-Ln-A2W" firstAttribute="top" secondItem="Om3-jM-mr2" secondAttribute="bottom" id="HXX-aQ-1EK"/>
                             <constraint firstItem="Om3-jM-mr2" firstAttribute="top" secondItem="DYc-XJ-UT0" secondAttribute="bottom" id="Io4-UC-D3Y"/>
                             <constraint firstItem="DYc-XJ-UT0" firstAttribute="leading" secondItem="Vua-Bk-Kjp" secondAttribute="leading" id="K8K-Ob-Ca6"/>
                             <constraint firstItem="DYc-XJ-UT0" firstAttribute="top" secondItem="bKy-e4-STs" secondAttribute="bottom" id="Q7K-BV-In1"/>
+                            <constraint firstItem="yWa-E4-2Ox" firstAttribute="leading" secondItem="k8a-Vj-hEg" secondAttribute="trailing" constant="15" id="Ro7-T3-R3P"/>
                             <constraint firstAttribute="trailing" secondItem="Om3-jM-mr2" secondAttribute="trailing" id="TDe-UA-DJz"/>
                             <constraint firstItem="hHN-Ln-A2W" firstAttribute="top" secondItem="7eb-c6-SlS" secondAttribute="bottom" id="Toc-rj-bso"/>
                             <constraint firstItem="Om3-jM-mr2" firstAttribute="leading" secondItem="Vua-Bk-Kjp" secondAttribute="leading" id="VPg-0H-bzj"/>
@@ -1725,9 +1763,11 @@
                             <constraint firstItem="7eb-c6-SlS" firstAttribute="top" secondItem="DYc-XJ-UT0" secondAttribute="bottom" id="cGV-oS-bDB"/>
                             <constraint firstItem="bKy-e4-STs" firstAttribute="top" secondItem="GhR-JL-opZ" secondAttribute="bottom" id="enm-zf-fNx"/>
                             <constraint firstAttribute="trailing" secondItem="7eb-c6-SlS" secondAttribute="trailing" id="fPM-qj-Y0B"/>
+                            <constraint firstItem="GaL-AU-uYR" firstAttribute="leading" secondItem="yWa-E4-2Ox" secondAttribute="trailing" constant="1" id="jeI-59-oz0"/>
                             <constraint firstItem="k8a-Vj-hEg" firstAttribute="top" secondItem="GhR-JL-opZ" secondAttribute="bottom" constant="16" id="p3H-4T-Xqa"/>
                             <constraint firstAttribute="trailing" secondItem="DYc-XJ-UT0" secondAttribute="trailing" id="pcl-aK-7oj"/>
                             <constraint firstItem="bKy-e4-STs" firstAttribute="leading" secondItem="k8a-Vj-hEg" secondAttribute="trailing" constant="15" id="sHY-IH-PF2"/>
+                            <constraint firstAttribute="trailing" secondItem="GaL-AU-uYR" secondAttribute="trailing" constant="10" id="wYq-Qg-OlP"/>
                             <constraint firstItem="7eb-c6-SlS" firstAttribute="leading" secondItem="Vua-Bk-Kjp" secondAttribute="leading" id="xuW-fh-Q9f"/>
                             <constraint firstItem="k8a-Vj-hEg" firstAttribute="leading" secondItem="Vua-Bk-Kjp" secondAttribute="leading" constant="16" id="zDX-xj-AC7"/>
                         </constraints>
@@ -1737,7 +1777,9 @@
                         <outlet property="btnStickersPackage" destination="2j3-q7-4AS" id="VNT-Ez-IGa"/>
                         <outlet property="imgNoStickers" destination="ST0-sz-yJY" id="vvO-3H-PVc"/>
                         <outlet property="searchBar" destination="bKy-e4-STs" id="ypS-lN-Ijh"/>
+                        <outlet property="searchButton" destination="GaL-AU-uYR" id="93q-if-3Jd"/>
                         <outlet property="tableStickers" destination="7eb-c6-SlS" id="L8B-Of-Bad"/>
+                        <outlet property="titleLabel" destination="yWa-E4-2Ox" id="lgo-Dd-Y7C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxd-i7-xXT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2508,13 +2550,13 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2Pu-Iw-47C"/>
-        <segue reference="jED-7s-Zgn"/>
+        <segue reference="lO9-g7-wXY"/>
         <segue reference="ddK-Ea-qdV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="I" width="106" height="106"/>
         <image name="add_icon" width="106" height="106"/>
-        <image name="back" width="100" height="100"/>
+        <image name="back" width="70" height="70"/>
         <image name="back.png" width="48" height="48"/>
         <image name="btnInitPermissions" width="100" height="15"/>
         <image name="btnOK" width="37.5" height="37.5"/>
@@ -2534,6 +2576,7 @@
         <image name="plus" width="37.5" height="37.5"/>
         <image name="salvado_normal" width="150" height="30"/>
         <image name="salvado_select" width="150" height="30"/>
+        <image name="search" width="1200" height="1174"/>
         <image name="stickers_maker" width="150" height="30"/>
         <image name="stickers_suavecitos_gris" width="300" height="60"/>
         <image name="viwe_more.png" width="180" height="180"/>

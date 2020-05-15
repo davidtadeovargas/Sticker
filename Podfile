@@ -14,11 +14,14 @@ target 'Sticker' do
   pod 'SideMenu'
   pod 'SCLAlertView'
   pod 'iOSPhotoEditor'
+  pod 'RealmSwift'
 end
 
 target 'OneSignalNotificationServiceExtension' do
     use_frameworks!
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
     pod 'SwiftyJSON', '~> 4.0'
+    source 'https://github.com/CocoaPods/Specs.git'
+    platform :ios, '10.0'
 end
 
