@@ -84,6 +84,8 @@
 		CE676175246DE9F2000D206C /* BaseUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676174246DE9F2000D206C /* BaseUITableView.swift */; };
 		CE676177246DEF0A000D206C /* PrincipalBaseUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676176246DEF0A000D206C /* PrincipalBaseUITableView.swift */; };
 		CE676179246E0688000D206C /* PackageDetailBaseUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676178246E0688000D206C /* PackageDetailBaseUITableView.swift */; };
+		CEA6DED4246F2618002FEC96 /* TablesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6DED3246F2618002FEC96 /* TablesCache.swift */; };
+		CEA6DED8246F8CC7002FEC96 /* DetailOfPackageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */; };
 		CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */; };
 		CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */; };
 		CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */; };
@@ -226,6 +228,8 @@
 		CE676174246DE9F2000D206C /* BaseUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableView.swift; sourceTree = "<group>"; };
 		CE676176246DEF0A000D206C /* PrincipalBaseUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalBaseUITableView.swift; sourceTree = "<group>"; };
 		CE676178246E0688000D206C /* PackageDetailBaseUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailBaseUITableView.swift; sourceTree = "<group>"; };
+		CEA6DED3246F2618002FEC96 /* TablesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesCache.swift; sourceTree = "<group>"; };
+		CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfPackageShare.swift; sourceTree = "<group>"; };
 		CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvadoViewController.swift; sourceTree = "<group>"; };
 		CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITableViewController.swift; sourceTree = "<group>"; };
 		CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
@@ -481,6 +485,7 @@
 				CEBED2D8245FF87900FFD965 /* StickersManager.swift */,
 				CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */,
 				CE424167246C38B000B4897E /* LoadingIcon.swift */,
+				CEA6DED3246F2618002FEC96 /* TablesCache.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */,
 				CE67616E246CD223000D206C /* PackageDetailUIShare.swift */,
 				CE676170246CF22F000D206C /* PrincipalShare.swift */,
+				CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -732,6 +738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5E0870245EFDAB003FFA6A /* StartViewController.swift in Sources */,
+				CEA6DED4246F2618002FEC96 /* TablesCache.swift in Sources */,
 				CE42416D246C99E800B4897E /* PackageDetailUIViewController.swift in Sources */,
 				CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */,
 				CEBED2D7245FF3E300FFD965 /* AddsManager.swift in Sources */,
@@ -740,6 +747,7 @@
 				2ACB431222AA586C00ACEE01 /* MainViewController.swift in Sources */,
 				2A146EFF222CD97900FEDF34 /* PackViewController.swift in Sources */,
 				CE5E0874245EFE0E003FFA6A /* Init2ViewController.swift in Sources */,
+				CEA6DED8246F8CC7002FEC96 /* DetailOfPackageShare.swift in Sources */,
 				CEFE52CB2466125900A0C761 /* StickerPackageRequest.swift in Sources */,
 				CE424162246B468F00B4897E /* Constants.swift in Sources */,
 				2ACD40FD22B3B30300FCAA5C /* CreateSticker2ViewController.swift in Sources */,

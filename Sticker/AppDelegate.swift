@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("User accepted notifications: \(accepted)")
         })
         
+        //Clear tables cache
+        TablesCache.shared.clearAllTableCaches()
+        
         return true
     }
 

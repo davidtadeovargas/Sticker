@@ -24,14 +24,24 @@ class PackageDetailUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableStickers.initTable()
+        self.tableStickers.initTable(TableType_:TableType.TABLE_PACKAGE_DETAIL_CACHE)
         self.tableStickers.initSearchBar(searchBar: self.searchBar, searchButton: self.searchButton)
         self.tableStickers.parentViewController = self
         self.tableStickers.onShowSearchBar = {
             self.titleLabel.isHidden = true
         }
-        tableStickers.onHideSearchBar = {
+        self.tableStickers.onHideSearchBar = {
             self.titleLabel.isHidden = false
+        }
+        self.tableStickers.didSelectRowAt = { index,cell,model in
+            
+            //Cast model
+            let StickerInnerPackHttpModel = model as! StickerInnerPackHttpModel
+            
+            //Open the detail package view
+            DetailOfPackageShare.shared.StickerInnerPackHttpModel = StickerInnerPackHttpModel
+            ViewControllersManager.shared.setRoot(UIViewController: self, id: "DetailOfPackageViewController")
+            
         }
         
         //Get the sticker package to preview
@@ -40,9 +50,13 @@ class PackageDetailUIViewController: UIViewController {
         
         //Load data in table
         self.tableStickers.loadData(data: stickerPack!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         //Show publicity if applies
-        AddsManager.shared.showAddIfApply(UIViewController: self)
+        AddsManager.shared.showNow(UIViewController: self)
     }
     
     @IBAction func backButtonTouch(_ sender: Any) {

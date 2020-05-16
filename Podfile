@@ -7,7 +7,6 @@ target 'Sticker' do
 
   # Pods for Sticker
   pod 'Alamofire'
-  pod 'SwiftyJSON'
   pod 'SDWebImage'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'OneSignal', '>= 2.6.2', '< 3.0'
@@ -21,7 +20,5 @@ target 'OneSignalNotificationServiceExtension' do
     use_frameworks!
     pod 'OneSignal', '>= 2.6.2', '< 3.0'
     pod 'SwiftyJSON', '~> 4.0'
-    source 'https://github.com/CocoaPods/Specs.git'
-    platform :ios, '10.0'
 end
 

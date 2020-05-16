@@ -24,7 +24,7 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         //Init table
-        self.tableStickers.initTable()
+        self.tableStickers.initTable(TableType_: TableType.TABLE_PRINCIPAL_CACHE)
         tableStickers.initSearchBar(searchBar: searchBar, searchButton: searchButton)
         tableStickers.parentViewController = self
         tableStickers.onShowSearchBar = {
@@ -33,8 +33,14 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
         tableStickers.onHideSearchBar = {
             self.titleLabel.isHidden = false
         }
+        self.tableStickers.didSelectRowAt = {index,cell,model in
+            
+            //Cast the row model
+            let StickerPackageHttpModel_ = model as! StickerPackageHttpModel
+            
+        }
         
-        if(PrincipalShare.shared.StickerPackageHttpModelArray == nil){
+        if(!self.tableStickers.dataInCache()){
             
             let StickerPackageRequest_ = RequestsFactor.shared.getStickerPackageRequest()
             StickerPackageRequest_.UIViewController_ = self
@@ -56,9 +62,6 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
                         
                         //Load items in the table
                         self.tableStickers.loadData(data: DataHttpModel_.data!)
-                        
-                        //Save in cache
-                        PrincipalShare.shared.StickerPackageHttpModelArray = DataHttpModel_.data!
                     }
                 }
             }
@@ -67,8 +70,7 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
         else{
             
             //Load cache data
-            let stickersArray = PrincipalShare.shared.StickerPackageHttpModelArray
-            self.tableStickers.loadData(data: stickersArray!)
+            self.tableStickers.loadDataFromCache()
         }
     }
     
