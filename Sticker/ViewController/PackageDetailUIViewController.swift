@@ -45,12 +45,24 @@ class PackageDetailUIViewController: UIViewController {
             
         }
         
-        //Get the sticker package to preview
-        let StickerPackageHttpModel_ = PackageDetailUIShare.shared.StickerPackageHttpModel_
-        let stickerPack = StickerPackageHttpModel_!.stickerPack
+        var stickerPack:[StickerInnerPackHttpModel]
+        if(PackageDetailUIShare.shared.data != nil){
+            stickerPack = PackageDetailUIShare.shared.data as! [StickerInnerPackHttpModel]
+            self.titleLabel.text = "Salvados"
+            
+            //Reset previus data
+            PackageDetailUIShare.shared.data = nil
+        }
+        else{
+            //Get the sticker package to preview
+            let StickerPackageHttpModel_ = PackageDetailUIShare.shared.StickerPackageHttpModel_
+            stickerPack = StickerPackageHttpModel_!.stickerPack
+            
+            self.titleLabel.text = "Stickers Suavecitos"
+        }
         
         //Load data in table
-        self.tableStickers.loadData(data: stickerPack!)
+        self.tableStickers.loadData(data: stickerPack)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +73,7 @@ class PackageDetailUIViewController: UIViewController {
     }
     
     @IBAction func backButtonTouch(_ sender: Any) {
-        ViewControllersManager.shared.setRoot(UIViewController: self, id: "PrincipalViewController")
+        let returnTo = PackageDetailUIShare.shared.comesFrom
+        ViewControllersManager.shared.setRoot(UIViewController: self, id: returnTo!)
     }
 }

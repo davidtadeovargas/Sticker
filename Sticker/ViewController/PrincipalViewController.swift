@@ -93,7 +93,12 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func btnSalvadoClicked(_ sender: Any) {
-        ViewControllersManager.shared.setRoot(UIViewController: self, id: "SalvadoViewController")
+        
+        //Open the detail package view
+        let stickers = StickersManager.shared.getAllRemotePackages()
+        PackageDetailUIShare.shared.data = stickers
+        PackageDetailUIShare.shared.comesFrom = "PrincipalViewController"
+        ViewControllersManager.shared.setRoot(UIViewController: self, id: "PackageDetailUIViewController")
     }
     
     @IBAction func btnHamburguesaClicked(_ sender: Any) {

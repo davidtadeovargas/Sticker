@@ -119,6 +119,7 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             
             //Open the screen to see all the stickers of this package
             PackageDetailUIShare.shared.StickerPackageHttpModel_ = model
+            PackageDetailUIShare.shared.comesFrom = "PrincipalViewController"
             ViewControllersManager.shared.setRoot(UIViewController: self.parentViewController!, id: "PackageDetailUIViewController")
         }
     }

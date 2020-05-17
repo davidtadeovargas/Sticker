@@ -19,7 +19,7 @@ class PackageDetailBaseUITableView: BaseUITableView, InitTableProtocol {
         
         self.TableType_ = TableType_
         
-        self.tableRowHeigth = 250
+        self.tableRowHeigth = 200
         
         //Render the table row
         self.cellForRowAt = {index, cell, model in

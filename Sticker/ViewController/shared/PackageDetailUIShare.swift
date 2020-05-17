@@ -13,6 +13,8 @@ class PackageDetailUIShare {
     static let shared = PackageDetailUIShare()
     
     var StickerPackageHttpModel_:StickerPackageHttpModel?
+    var data:[AnyObject]? = nil
+    var comesFrom:String? = nil
     
     private init() {
     }

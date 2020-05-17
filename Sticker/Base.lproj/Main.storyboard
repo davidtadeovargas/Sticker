@@ -604,15 +604,15 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-pe-pS3" customClass="PackageDetailBaseUITableView" customModule="Sticker" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-pe-pS3" customClass="PackageDetailBaseUITableView" customModule="Sticker" customModuleProvider="target">
                                 <rect key="frame" x="10" y="80" width="295" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="183" id="dAZ-wD-uAB" customClass="PackageDetailTableViewCell" customModule="Sticker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="295" height="183"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="144" id="dAZ-wD-uAB" customClass="PackageDetailTableViewCell" customModule="Sticker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="295" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dAZ-wD-uAB" id="Lpt-mX-h2u">
-                                            <rect key="frame" x="0.0" y="0.0" width="295" height="183"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="295" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="ROi-YF-m5Q">
