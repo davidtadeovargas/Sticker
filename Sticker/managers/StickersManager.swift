@@ -10,12 +10,65 @@ import Foundation
 
 class StickersManager {
     
+    let REMOTE_STICKERS_KEY = "remote_stickers"
+    
     static let shared = StickersManager()
     
     var dicSticker : NSMutableDictionary = [:]
     
+    
+    
+    
     private init() {
     }
+    
+    func getAllRemotePackages() -> [StickerInnerPackHttpModel] {
+        
+        let defaults = UserDefaults.standard
+        var stickers = [StickerInnerPackHttpModel]()
+        if(defaults.object(forKey: self.REMOTE_STICKERS_KEY) != nil){
+            let decoded  = defaults.object(forKey: self.REMOTE_STICKERS_KEY) as! Data
+            stickers = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [StickerInnerPackHttpModel]
+        }
+        
+        return stickers
+    }
+    func addRemotePackage(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) {
+        
+        var stickers = self.getAllRemotePackages()
+        stickers.append(StickerInnerPackHttpModel_)
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: stickers)
+        let defaults = UserDefaults.standard
+        defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
+    }
+    func deleteRemotePackage(name:String) {
+        
+        var stickers = self.getAllRemotePackages()
+        var x = 0
+        for StickerInnerPackHttpModel in stickers {
+            if(StickerInnerPackHttpModel.name == name){
+                stickers.remove(at: x)
+                break
+            }
+            x += 1
+        }
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: stickers)
+        let defaults = UserDefaults.standard
+        defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
+    }
+    func getRemotePackage(name:String) -> StickerInnerPackHttpModel? {
+        
+        let packages:[StickerInnerPackHttpModel] = self.getAllRemotePackages()
+        var StickerInnerPackHttpModel_:StickerInnerPackHttpModel? = nil
+        for StickerInnerPackHttpModel in packages {
+            if(StickerInnerPackHttpModel.name==name){
+                StickerInnerPackHttpModel_ = StickerInnerPackHttpModel
+                break
+            }
+        }
+        return StickerInnerPackHttpModel_
+    }
+    
     
     func getAllPackagesForKey(key:String) -> [StickerPackage] {
         
@@ -32,12 +85,10 @@ class StickersManager {
         
         return packages
     }
-    
     func getAllCustomPackages() -> [StickerPackage] {
         let packages:[StickerPackage] = self.getAllPackagesForKey(key:"custom_stickers")
         return packages
     }
-    
     func addCustomPackage(name:String, creator:String) -> StickerPackage{
         
         let StickerPackage_ = StickerPackage()
@@ -48,6 +99,7 @@ class StickersManager {
         
         return StickerPackage_
     }
+    
     
     func addCustomPackage(StickerPackage:StickerPackage){
         var packages = self.getAllCustomPackages()
@@ -67,7 +119,6 @@ class StickersManager {
         }
         self.updateCustomPackage(customPackages: packages)
     }
-    
     func getCustomPackageForName(name:String) -> StickerPackage? {
         
         let packages:[StickerPackage] = self.getAllCustomPackages()
@@ -80,15 +131,12 @@ class StickersManager {
         }
         return StickerPackageG
     }
-    
     func updateCustomPackage(customPackages:[StickerPackage]){
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: customPackages)
         let defaults = UserDefaults.standard
         defaults.set(encodedData, forKey: "custom_stickers")
     }
-    
-    
-    func updateSticker(packageName:String, StickerModel:StickerModel){
+    func updateCustomSticker(packageName:String, StickerModel:StickerModel){
         
         let stickers = self.getAllCustomPackages()
         for StickerPackage in stickers {
@@ -106,8 +154,7 @@ class StickersManager {
         }
         self.updateCustomPackage(customPackages: stickers)
     }
-    
-    func deleteSticker(packageName:String,id:String){
+    func deleteCustomSticker(packageName:String,id:String){
         let stickers = self.getAllCustomPackages()
         for StickerPackage in stickers {
             if(StickerPackage.name==packageName){
@@ -124,8 +171,7 @@ class StickersManager {
         }
         self.updateCustomPackage(customPackages: stickers)
     }
-    
-    func deletePackage(name:String){
+    func deleteCustomPackage(name:String){
         var stickers = self.getAllCustomPackages()
         var x = 0
         for StickerPackage in stickers {

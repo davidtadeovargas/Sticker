@@ -39,6 +39,13 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
             let StickerPackageHttpModel_ = model as! StickerPackageHttpModel
             
         }
+        self.tableStickers.stickerPackageTouch = { StickerInnerPackHttpModel in
+            
+            //Open the package detal
+            DetailOfPackageShare.shared.StickerInnerPackHttpModel = StickerInnerPackHttpModel
+            DetailOfPackageShare.shared.comesFrom = "PrincipalViewController"
+            ViewControllersManager.shared.setRoot(UIViewController: self,id: "DetailOfPackageViewController")
+        }
         
         if(!self.tableStickers.dataInCache()){
             

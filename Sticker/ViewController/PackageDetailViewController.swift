@@ -147,7 +147,7 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres borrar el paquete?", onYes: {
             
             //Delete the package
-            StickersManager.shared.deletePackage(name: self.StickerPackage!.name!)
+            StickersManager.shared.deleteCustomPackage(name: self.StickerPackage!.name!)
             
             //Notice the user about the package deletion
             AlertManager.shared.showOkAction(UIViewController: self, message: "Paquete removido correctamente", onYes: {

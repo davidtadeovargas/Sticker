@@ -11,6 +11,8 @@ import RealmSwift
 
 class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
 
+    var stickerPackageTouch:((StickerInnerPackHttpModel)->Void)? = nil
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -43,9 +45,23 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
                 
                 //Create the stack rows
                 if(StickerPackageHttpModel_.stickerPack!.count > 0){
-                    self.addStackToMain(stickerPack:StickerPackageHttpModel_.stickerPack!,index:0, mainStack:cell_!.mainStack)
-                    self.addStackToMain(stickerPack:StickerPackageHttpModel_.stickerPack!,index:1, mainStack:cell_!.mainStack)
-                    self.addStackToMain(stickerPack:StickerPackageHttpModel_.stickerPack!,index:2, mainStack:cell_!.mainStack)
+                    let stickers = StickerPackageHttpModel_.stickerPack
+                    for StickerInnerPackHttpModel in stickers! {
+                        
+                        //Create the stack with sticker images
+                        let UIStackView_ = self.getStackCell(StickerInnerPackHttpModel_: StickerInnerPackHttpModel)
+                        
+                        //Add gesture recognizer
+                        let StickerPackageUITapGestureRecognizer_ = StickerPackageUITapGestureRecognizer(target:self, action: #selector(self.stackStickerTouch))
+                        StickerPackageUITapGestureRecognizer_.StickerInnerPackHttpModel = StickerInnerPackHttpModel
+                        UIStackView_!.isUserInteractionEnabled = true
+                        UIStackView_!.addGestureRecognizer(StickerPackageUITapGestureRecognizer_)
+                        
+                        //Add it to the row stack
+                        if(UIStackView_ != nil){
+                            cell_!.mainStack.addArrangedSubview(UIStackView_!)
+                        }
+                    }
                 }
             }
             
@@ -75,6 +91,21 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
         }
     }
     
+    class StickerPackageUITapGestureRecognizer: UITapGestureRecognizer {
+        var StickerInnerPackHttpModel:StickerInnerPackHttpModel? = nil
+    }
+    
+    @objc
+    func stackStickerTouch(sender: StickerPackageUITapGestureRecognizer){
+        
+        //Get the model
+        let StickerInnerPackHttpModel = sender.StickerInnerPackHttpModel
+        
+        if(self.stickerPackageTouch != nil){
+            self.stickerPackageTouch!(StickerInnerPackHttpModel!)
+        }
+    }
+    
     @objc
     func plusAction(sender:UITapGestureRecognizer) {
         print("plusAction tapped")
@@ -89,16 +120,6 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             //Open the screen to see all the stickers of this package
             PackageDetailUIShare.shared.StickerPackageHttpModel_ = model
             ViewControllersManager.shared.setRoot(UIViewController: self.parentViewController!, id: "PackageDetailUIViewController")
-        }
-    }
-    
-    func addStackToMain(stickerPack:[StickerInnerPackHttpModel],index:Int, mainStack:UIStackView){
-        if(stickerPack.indices.contains(index)){
-            let StickerInnerPackHttpModel_ = stickerPack[index]
-            let UIStackView_ = self.getStackCell(StickerInnerPackHttpModel_: StickerInnerPackHttpModel_)
-            if(UIStackView_ != nil){
-                mainStack.insertArrangedSubview(UIStackView_!,at: index)
-            }
         }
     }
     

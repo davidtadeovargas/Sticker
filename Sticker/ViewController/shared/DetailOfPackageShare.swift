@@ -13,6 +13,7 @@ class DetailOfPackageShare {
     static let shared = DetailOfPackageShare()
     
     var StickerInnerPackHttpModel:StickerInnerPackHttpModel? = nil
+    var comesFrom:String? = nil
     
     private init() {
     }

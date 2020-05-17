@@ -40,6 +40,7 @@ class PackageDetailUIViewController: UIViewController {
             
             //Open the detail package view
             DetailOfPackageShare.shared.StickerInnerPackHttpModel = StickerInnerPackHttpModel
+            DetailOfPackageShare.shared.comesFrom = "PackageDetailUIViewController"
             ViewControllersManager.shared.setRoot(UIViewController: self, id: "DetailOfPackageViewController")
             
         }

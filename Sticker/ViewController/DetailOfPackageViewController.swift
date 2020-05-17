@@ -19,6 +19,7 @@ class DetailOfPackageViewController: UIViewController {
     @IBOutlet weak var stickersStack: UIStackView!
     @IBOutlet weak var whatsappButton: UIButton!
     @IBOutlet weak var stickersStackH: NSLayoutConstraint!
+    @IBOutlet weak var downloadStickersPackButton: UIButton!
     
     var StickerInnerPackHttpModel_:StickerInnerPackHttpModel?
     
@@ -26,6 +27,15 @@ class DetailOfPackageViewController: UIViewController {
         super.viewDidLoad()
 
         self.StickerInnerPackHttpModel_ = DetailOfPackageShare.shared.StickerInnerPackHttpModel
+        
+        //Check if the stickers is already saved or not
+        let StickerPackage = StickersManager.shared.getRemotePackage(name: self.StickerInnerPackHttpModel_!.name)
+        if((StickerPackage) == nil){
+            packageStickersNotAlreadyDownloaded()
+        }
+        else{
+            packageStickersAlreadyDownloaded()
+        }
         
         //Set main image
         let imageUri = self.StickerInnerPackHttpModel_?.trayImageUri
@@ -60,12 +70,14 @@ class DetailOfPackageViewController: UIViewController {
             if(x == 4){
                 x = 1
                 let count = self.stickersStack.subviews.count
+                print("self.stickersStack.subviews.count = \(count)")
                 self.stickersStack.addArrangedSubview(UIStackView_)
                 UIStackView_ = self.getStack()
             }
             else{
                 x += 1
                 let count = UIStackView_.subviews.count
+                print("UIStackView_.subviews.count = \(count)")
                 UIStackView_.addArrangedSubview(UIImageView_)
             }
         }
@@ -74,6 +86,20 @@ class DetailOfPackageViewController: UIViewController {
         if(count==1){
             stickersStackH.constant = stickersStackH.constant / 2
         }
+    }
+    
+    func packageStickersAlreadyDownloaded(){
+        self.deleteButton.isHidden = false
+        self.downloadStickersPackButton.isHidden = true
+        self.whatsappButton.isHidden = false
+    }
+    func packageStickersNotAlreadyDownloaded(){
+        self.deleteButton.isHidden = true
+        self.downloadStickersPackButton.isHidden = false
+        self.whatsappButton.isHidden = true
+    }
+    func packageStickersAlreadyDownloadedInWhatsapp(){
+        
     }
     
     func getStack() -> UIStackView{
@@ -118,10 +144,43 @@ class DetailOfPackageViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTouch(_ sender: Any) {
+        
+        AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres borrar el paquete de stickers?", onYes: {
+            
+            //Delete the sticker in the system self.StickerInnerPackHttpModel_
+            StickersManager.shared.deleteRemotePackage(name: self.StickerInnerPackHttpModel_!.name)
+            
+            AlertManager.shared.showOk(UIViewController: self, message: "Paquete de stickers borrado")
+            
+            DispatchQueue.main.async() {
+                self.packageStickersNotAlreadyDownloaded()
+            }
+            
+        }, onNo: {
+            
+        })
     }
     
     @IBAction func backButtonTouch(_ sender: Any) {
+        let returnTo = DetailOfPackageShare.shared.comesFrom
+        ViewControllersManager.shared.setRoot(UIViewController: self, id: returnTo!)
+    }
+    
+    @IBAction func downloadStickersPackageButtonTouch(_ sender: Any) {
         
-        ViewControllersManager.shared.setRoot(UIViewController: self, id: "PackageDetailUIViewController")
+        AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres descargar el paquete de stickers?", onYes: {
+            
+            //Save the sticker in the system
+            StickersManager.shared.addRemotePackage(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)
+            
+            AlertManager.shared.showOk(UIViewController: self, message: "Paquete de stickers descargado")
+            
+            DispatchQueue.main.async() {
+                self.packageStickersAlreadyDownloaded()
+            }
+            
+        }, onNo: {
+            
+        })
     }
 }
