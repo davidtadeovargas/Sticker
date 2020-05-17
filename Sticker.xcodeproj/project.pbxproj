@@ -49,6 +49,7 @@
 		2AFC8B69223234A8007DB18E /* viwe_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC8B68223234A8007DB18E /* viwe_more.png */; };
 		2AFC8B6B223255DC007DB18E /* ex.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC8B6A223255DC007DB18E /* ex.png */; };
 		8E03CFE0EEF20015C13249CA /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C9B1CD0AAE7E20284BCFB /* Pods_OneSignalNotificationServiceExtension.framework */; };
+		CE0937762471B52800EF328B /* StickersMakerUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0937752471B52800EF328B /* StickersMakerUITableView.swift */; };
 		CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */; };
 		CE424162246B468F00B4897E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE424161246B468F00B4897E /* Constants.swift */; };
 		CE424166246B59D800B4897E /* RequestsFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE424165246B59D800B4897E /* RequestsFactor.swift */; };
@@ -72,7 +73,6 @@
 		CE676179246E0688000D206C /* PackageDetailBaseUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE676178246E0688000D206C /* PackageDetailBaseUITableView.swift */; };
 		CEA6DED4246F2618002FEC96 /* TablesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6DED3246F2618002FEC96 /* TablesCache.swift */; };
 		CEA6DED8246F8CC7002FEC96 /* DetailOfPackageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */; };
-		CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */; };
 		CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */; };
 		CEBED2D0245FC24900FFD965 /* SideMenuLogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */; };
 		CEBED2D1245FC24900FFD965 /* SideMenuLogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBED2CF245FC24900FFD965 /* SideMenuLogoTableViewCell.xib */; };
@@ -179,6 +179,7 @@
 		468C9B1CD0AAE7E20284BCFB /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A13DAF1EE892A73989E140 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0937752471B52800EF328B /* StickersMakerUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersMakerUITableView.swift; sourceTree = "<group>"; };
 		CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersMakerViewController.swift; sourceTree = "<group>"; };
 		CE424161246B468F00B4897E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE424165246B59D800B4897E /* RequestsFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsFactor.swift; sourceTree = "<group>"; };
@@ -202,7 +203,6 @@
 		CE676178246E0688000D206C /* PackageDetailBaseUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailBaseUITableView.swift; sourceTree = "<group>"; };
 		CEA6DED3246F2618002FEC96 /* TablesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesCache.swift; sourceTree = "<group>"; };
 		CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfPackageShare.swift; sourceTree = "<group>"; };
-		CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalvadoViewController.swift; sourceTree = "<group>"; };
 		CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUITableViewController.swift; sourceTree = "<group>"; };
 		CEBED2CE245FC24900FFD965 /* SideMenuLogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuLogoTableViewCell.swift; sourceTree = "<group>"; };
 		CEBED2CF245FC24900FFD965 /* SideMenuLogoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuLogoTableViewCell.xib; sourceTree = "<group>"; };
@@ -349,7 +349,6 @@
 				CE5E0877245EFF25003FFA6A /* StartUIPageController.swift */,
 				CE5E0880245F2773003FFA6A /* PrincipalViewController.swift */,
 				CE12188C245F9F750008B9C0 /* StickersMakerViewController.swift */,
-				CEBED2CA245FA68500FFD965 /* SalvadoViewController.swift */,
 				CEBED2CC245FBD5000FFD965 /* SideMenuUITableViewController.swift */,
 				CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */,
 				CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */,
@@ -430,6 +429,7 @@
 				CE676174246DE9F2000D206C /* BaseUITableView.swift */,
 				CE676176246DEF0A000D206C /* PrincipalBaseUITableView.swift */,
 				CE676178246E0688000D206C /* PackageDetailBaseUITableView.swift */,
+				CE0937752471B52800EF328B /* StickersMakerUITableView.swift */,
 			);
 			path = tables;
 			sourceTree = "<group>";
@@ -718,7 +718,6 @@
 				CE5E0876245EFE37003FFA6A /* Init3ViewController.swift in Sources */,
 				CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */,
 				CEBED2DE245FFC6E00FFD965 /* StickerModel.swift in Sources */,
-				CEBED2CB245FA68500FFD965 /* SalvadoViewController.swift in Sources */,
 				CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */,
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,
 				2ADFCA4E222A5F6A00D299CF /* Interoperability.swift in Sources */,
@@ -726,6 +725,7 @@
 				2ADFCA5F222A5FD600D299CF /* YYAnimatedImageView.m in Sources */,
 				CEFE52C024660ACE00A0C761 /* DataHttpModel.swift in Sources */,
 				2ADFCA4C222A5F6A00D299CF /* Limits.swift in Sources */,
+				CE0937762471B52800EF328B /* StickersMakerUITableView.swift in Sources */,
 				CEBED2CD245FBD5000FFD965 /* SideMenuUITableViewController.swift in Sources */,
 				2AB3F33A2233BFFC002B047B /* ZFRippleButton.swift in Sources */,
 				CE67616F246CD223000D206C /* PackageDetailUIShare.swift in Sources */,

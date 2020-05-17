@@ -30,6 +30,9 @@ class TablesCache {
             case .TABLE_PACKAGE_DETAIL_CACHE:
                 key = "TABLE_PACKAGE_DETAIL_CACHE"
                 break
+            case .TABLE_CUSTOMER_STICKERS_CACHE:
+                key = "TABLE_CUSTOMER_STICKERS_CACHE"
+                break
         }
         
         //Save in the system
@@ -50,6 +53,9 @@ class TablesCache {
                 break
             case .TABLE_PACKAGE_DETAIL_CACHE:
                 key = "TABLE_PACKAGE_DETAIL_CACHE"
+                break
+            case .TABLE_CUSTOMER_STICKERS_CACHE:
+                key = "TABLE_CUSTOMER_STICKERS_CACHE"
                 break
         }
         
@@ -74,4 +80,5 @@ class TablesCache {
 enum TableType {
     case TABLE_PRINCIPAL_CACHE
     case TABLE_PACKAGE_DETAIL_CACHE
+    case TABLE_CUSTOMER_STICKERS_CACHE
 }

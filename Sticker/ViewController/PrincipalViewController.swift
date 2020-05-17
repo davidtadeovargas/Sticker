@@ -25,12 +25,12 @@ class PrincipalViewController: UIViewController, UISearchBarDelegate {
 
         //Init table
         self.tableStickers.initTable(TableType_: TableType.TABLE_PRINCIPAL_CACHE)
-        tableStickers.initSearchBar(searchBar: searchBar, searchButton: searchButton)
-        tableStickers.parentViewController = self
-        tableStickers.onShowSearchBar = {
+        self.tableStickers.initSearchBar(searchBar: searchBar, searchButton: searchButton)
+        self.tableStickers.parentViewController = self
+        self.tableStickers.onShowSearchBar = {
             self.titleLabel.isHidden = true
         }
-        tableStickers.onHideSearchBar = {
+        self.tableStickers.onHideSearchBar = {
             self.titleLabel.isHidden = false
         }
         self.tableStickers.didSelectRowAt = {index,cell,model in

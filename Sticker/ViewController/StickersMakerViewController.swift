@@ -9,19 +9,16 @@
 import UIKit
 import SCLAlertView
 
-class StickersMakerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class StickersMakerViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imgNoStickers: UIImageView!
     @IBOutlet weak var btnPackageStickers: UIButton!
     @IBOutlet weak var btnStickersMaker: UIButton!
-    @IBOutlet weak var tableStickers: UITableView!
+    @IBOutlet weak var tableStickers: StickersMakerUITableView!
     @IBOutlet weak var btnAdd: UIButton!
-    
-    var searchActive : Bool = false
-    
-    var customStickers:[StickerPackage]?
-    var customStickersTmp = [StickerPackage]()
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var packageName:String?
     var creatorPackage:String?
@@ -32,49 +29,33 @@ class StickersMakerViewController: UIViewController, UITableViewDelegate, UITabl
         //Remove borders
         searchBar.backgroundImage = UIImage()
         
-        customStickers = StickersManager.shared.getAllCustomPackages()
-        if(customStickers!.count == 0){
-            tableStickers.isHidden = true
+        let customStickers = StickersManager.shared.getAllCustomPackages()
+        if(customStickers.count == 0){
+            self.tableStickers.isHidden = true
         }
         else{
-            tableStickers.delegate = self
-            tableStickers.dataSource = self
-        }
-        
-        //List for search bar for the table of stickers
-        customStickersTmp = customStickers!
-        
-        searchBar.delegate = self
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        
-        customStickersTmp = customStickers!.filter({ (StickerPackage) -> Bool in
             
-            let StickerPackageTmp: StickerPackage = StickerPackage
-            
-            return (StickerPackageTmp.name?.starts(with: searchText))!
-        })
-        if(customStickersTmp.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
+            self.tableStickers.initTable(TableType_: TableType.TABLE_CUSTOMER_STICKERS_CACHE)
+            self.tableStickers.initSearchBar(searchBar: searchBar, searchButton: searchButton)
+            self.tableStickers.parentViewController = self
+            self.tableStickers.loadData(data: customStickers)
+            self.tableStickers.onShowSearchBar = {
+                self.titleLabel.isHidden = true
+            }
+            self.tableStickers.onHideSearchBar = {
+                self.titleLabel.isHidden = false
+            }
+            self.tableStickers.didSelectRowAt = {index,cell,model in
+                
+                //Cast the row model
+                let StickerPackage_ = model as! StickerPackage
+                
+                //Open the next screen to view the package info
+                PackageDetailShare.shared.StickerPackage = StickerPackage_ //Params for the screen
+                ViewControllersManager.shared.setRoot(UIViewController: self, id:"PackageDetailViewController")
+            }
         }
-        self.tableStickers.reloadData()
     }
-    
     
     @IBAction func btnPackageStickersClicked(_ sender: Any) {
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "PrincipalViewController")
@@ -90,42 +71,6 @@ class StickersMakerViewController: UIViewController, UITableViewDelegate, UITabl
         
         //Show dialog to create sticker package
         showPackageDialog()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? StickersMakerTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        let StickerPackage:StickerPackage = self.customStickersTmp[indexPath.row]
-        
-        cell.image_.image = UIImage(named: "add_icon.png")
-        cell.labelPackageName.text = StickerPackage.name
-        cell.labelCreator.text = StickerPackage.creator
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100//Choose your custom row height
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard (tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? StickersMakerTableViewCell) != nil else {
-                return
-        }
-        
-        let StickerPackage_:StickerPackage = self.customStickersTmp[indexPath.row]
-        
-        //Open the next screen to view the package info
-        PackageDetailShare.shared.StickerPackage = StickerPackage_ //Params for the screen
-        ViewControllersManager.shared.setRoot(UIViewController: self, id:"PackageDetailViewController")
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return customStickersTmp.count
     }
     
     private func showPackageDialog(){
@@ -164,24 +109,5 @@ class StickersMakerViewController: UIViewController, UITableViewDelegate, UITabl
             ViewControllersManager.shared.setRoot(UIViewController: self, id:"PackageDetailViewController")
             
         }, onCancel: {})
-    }
-}
-
-class StickersMakerTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var image_: UIImageView!
-    @IBOutlet weak var stackStickers: UIStackView!
-    @IBOutlet weak var labelPackageName: UILabel!
-    @IBOutlet weak var labelCreator: UILabel!
-    @IBOutlet weak var btnView: UIButton!
-    
-    
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }
