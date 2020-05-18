@@ -13,9 +13,8 @@ class DeleteStickerShare {
     static let shared = DeleteStickerShare()
     
     var imageData:Data?
-    var name:String?
-    var stickerId:Int?
-    var UIImageView:UIImageView?
+    
+    var onOk:(()->Void)? = nil
     
     private init() {
     }

@@ -27,15 +27,10 @@ class DeleteStickerViewController: UIViewController {
     
     @IBAction func yesButtonTouch(_ sender: Any) {
         
-        //Delete the image from the sticker pack of the system
-        let name = DeleteStickerShare.shared.name
-        let stickerId = DeleteStickerShare.shared.stickerId
-        StickersManager.shared.deleteCustomSticker(packageName: name!, id: stickerId!)
-        
-        //Remove visual image
-        let UIImageView_ = DeleteStickerShare.shared.UIImageView
-        UIImageView_!.image = UIImage(named: "add_icon")
-        
+        if(DeleteStickerShare.shared.onOk != nil){
+            DeleteStickerShare.shared.onOk!()
+        }
+    
         dismiss(animated: true, completion: nil)
     }
     

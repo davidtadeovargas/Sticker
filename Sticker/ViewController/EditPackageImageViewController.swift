@@ -18,6 +18,9 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
     var viewController: UIViewController?
     var pickImageCallback : ((UIImage) -> ())?;
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -61,6 +64,9 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
         {
             let alertWarning = UIAlertView(title:"Warning", message: "You don't have camera", delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:"")
             alertWarning.show()
+            
+            //Return to the specified view controller
+            ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
         }
     }
     func openGallary()
@@ -112,28 +118,11 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
         
         let data = UIImagePNGRepresentation(image)
         
-        if(EditPackageImageShare.shared.EditAction_ == EditAction.TRAY_IMAGE){
-            
-            //Cast model
-            let TrayImageEPIModel = EditPackageImageShare.shared.model as! TrayImageEPIModel
-            
-            //Set final image to the original image
-            TrayImageEPIModel.UIImageView.image = image
-            
-            //Update the tray image in the local system
-            StickersManager.shared.updateCustomPackageTrayImage(name: TrayImageEPIModel.name, data: data!)
-        }
-        else if(EditPackageImageShare.shared.EditAction_ == EditAction.STICKER){
-            
-            //Cast model
-            let StickerEPIModel = EditPackageImageShare.shared.model as! StickerEPIModel
-            
-            StickerEPIModel.StickerModel!.image = data
-            StickerEPIModel.UIImageView!.image = image
-            
-            StickerEPIModel.StickerModel = StickersManager.shared.updateCustomPackageStickerImage(name: StickerEPIModel.name!, stickerId: StickerEPIModel.StickerModel.id!, data: data!)
+        if(EditPackageImageShare.shared.onImageSetted != nil){
+            EditPackageImageShare.shared.onImageSetted!(image,data!)
         }
         
+        //Return to the specified view controller
         ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
     }
         

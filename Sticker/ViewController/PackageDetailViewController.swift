@@ -200,15 +200,23 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let indexS = "\(tappedImage.index)"
         print("tappedImage  index = " + indexS)
         
-        //Create model
-        let StickerEPIModel_ = StickerEPIModel()
-        StickerEPIModel_.name = name
-        StickerEPIModel_.UIImageView = tappedImage
-        StickerEPIModel_.StickerModel = StickerModel
-        
         //Open window to select image from gallery and edit it
-        EditPackageImageShare.shared.EditAction_ = .STICKER
-        EditPackageImageShare.shared.model = StickerEPIModel_
+        EditPackageImageShare.shared.onImageSetted = {uiimage, data in
+            
+            //Update the model
+            StickerModel!.image = data
+            StickerModel!.alreadyImageSet = true
+            
+            //Update visible image
+            tappedImage.image = uiimage
+            
+            //Update in disk the model
+            StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: StickerModel!.id!, data: data)
+        
+            //Add the new listener in touch
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.deleteStickerImageTapped(tapGestureRecognizer:)))
+            tappedImage.addGestureRecognizer(tapGestureRecognizer)
+        }
         EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
@@ -219,13 +227,21 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let name = tappedImage.name
         let StickerModel = tappedImage.StickerModel
         
-        let indexS = "\(tappedImage.index)"
-        print("tappedImage  index = " + indexS)
-        
-        DeleteStickerShare.shared.name = name
-        DeleteStickerShare.shared.stickerId = StickerModel!.id
         DeleteStickerShare.shared.imageData = tappedImage.getData()
-        DeleteStickerShare.shared.UIImageView = tappedImage
+        DeleteStickerShare.shared.onOk = {
+            
+            //Delete the image from the sticker pack of the system
+            let stickerId = StickerModel?.id
+            StickersManager.shared.deleteCustomSticker(packageName: name!, id: stickerId!)
+            
+            //Remove visual image
+            tappedImage.image = UIImage(named: "add_icon")
+            
+            //Add the new listener in touch
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.setStickerImageTapped(tapGestureRecognizer:)))
+            tappedImage.addGestureRecognizer(tapGestureRecognizer)
+        }
+        
         ViewControllersManager.shared.push(UIViewController: self, id: "DeleteStickerViewController")
     }
     
@@ -262,14 +278,15 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func btnEditPackageImagePressed(_ sender: Any) {
         
-        //Create the model
-        let TrayImageEPIModel_ = TrayImageEPIModel()
-        TrayImageEPIModel_.UIImageView = imgPackage
-        TrayImageEPIModel_.name = self.packageName
-        
         //Open window to select image from gallery and edit it
-        EditPackageImageShare.shared.EditAction_ = .TRAY_IMAGE
-        EditPackageImageShare.shared.model = TrayImageEPIModel_
+        EditPackageImageShare.shared.onImageSetted = {uiimage, data in
+            
+            //Change the image to the edited one
+            self.imgPackage.image = uiimage
+            
+            //Update the tray image in the local system
+            StickersManager.shared.updateCustomPackageTrayImage(name: self.packageName!, data: data)
+        }
         EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }

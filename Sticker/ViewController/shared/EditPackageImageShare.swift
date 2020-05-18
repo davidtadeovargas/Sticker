@@ -12,9 +12,9 @@ class EditPackageImageShare {
     
     static let shared = EditPackageImageShare()
     
-    var EditAction_:EditAction?
-    var model:AnyObject?
     var returnToUIViewController:UIViewController!
+    var onImageSetted:((UIImage,Data)->Void)? = nil
+    
     
     private init() {
     }
