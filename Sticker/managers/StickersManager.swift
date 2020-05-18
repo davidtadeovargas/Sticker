@@ -40,6 +40,7 @@ class StickersManager {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: stickers)
         let defaults = UserDefaults.standard
         defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
+        defaults.synchronize()
     }
     func deleteRemotePackage(name:String) {
         
@@ -55,6 +56,7 @@ class StickersManager {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: stickers)
         let defaults = UserDefaults.standard
         defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
+        defaults.synchronize()
     }
     func getRemotePackage(name:String) -> StickerInnerPackHttpModel? {
         
@@ -94,6 +96,16 @@ class StickersManager {
         let StickerPackage_ = StickerPackage()
         StickerPackage_.name = name
         StickerPackage_.creator = creator
+        var stickers = [StickerModel]()
+        
+        for x in 1 ... 30 {
+            let StickerModel_ = StickerModel()
+            StickerModel_.id = x
+            StickerModel_.image = UIImagePNGRepresentation(UIImage(named: "add_icon.png")!)
+            stickers.append(StickerModel_)
+        }
+        
+        StickerPackage_.stickers = stickers
         
         self.addCustomPackage(StickerPackage: StickerPackage_)
         
@@ -107,13 +119,40 @@ class StickersManager {
         self.updateCustomPackage(customPackages: packages)
     }
     
+    func updateCustomPackageTrayImage(name:String,data:Data){
+        let stickers = self.getAllCustomPackages()
+        for StickerPackage in stickers {
+            if(StickerPackage.name == name){
+                StickerPackage.trayImage = data
+                break
+            }
+        }
+        self.updateCustomPackage(customPackages: stickers)
+    }
+    
+    func updateCustomPackageStickerImage(name:String,stickerId:Int, data:Data){
+        let stickers = self.getAllCustomPackages()
+        for StickerPackage in stickers {
+            if(StickerPackage.name == name){
+                let stickersModel = StickerPackage.stickers
+                for StickerModel in stickersModel! {
+                    if(StickerModel.id == stickerId){
+                        StickerModel.image = data
+                        break
+                    }
+                }
+                break
+            }
+        }
+        self.updateCustomPackage(customPackages: stickers)
+    }
+    
     func updateCustomPackage(previousName:String, name:String, creator:String){
         let packages:[StickerPackage] = self.getAllCustomPackages()
-        var StickerPackageG:StickerPackage?
         for StickerPackage in packages {
             if(StickerPackage.name==previousName){
-                StickerPackageG?.name = name
-                StickerPackageG?.creator = creator
+                StickerPackage.name = name
+                StickerPackage.creator = creator
                 break
             }
         }
@@ -135,6 +174,7 @@ class StickersManager {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: customPackages)
         let defaults = UserDefaults.standard
         defaults.set(encodedData, forKey: "custom_stickers")
+        defaults.synchronize()
     }
     func updateCustomSticker(packageName:String, StickerModel:StickerModel){
         
@@ -154,14 +194,14 @@ class StickersManager {
         }
         self.updateCustomPackage(customPackages: stickers)
     }
-    func deleteCustomSticker(packageName:String,id:String){
+    func deleteCustomSticker(packageName:String,id:Int){
         let stickers = self.getAllCustomPackages()
         for StickerPackage in stickers {
             if(StickerPackage.name==packageName){
                 var innerStickers:[StickerModel]? =  StickerPackage.stickers
                 var x = 0
                 for StickerModel_ in innerStickers! as [StickerModel] {
-                    if(StickerModel_.id==id){
+                    if(StickerModel_.id == id){
                         innerStickers?.remove(at: x)
                         break
                     }

@@ -29,7 +29,10 @@ class StickersMakerUITableView: BaseUITableView, InitTableProtocol {
             //Cast the row model
             let StickerPackage = model as! StickerPackage
             
-            cell_!.image_.image = UIImage(named: "add_icon.png")
+            let trayImage = StickerPackage.trayImage
+            let UIImage_ = UIImage(data: trayImage, scale: 1.0)
+            cell_!.image_.image = UIImage_
+            
             cell_!.labelPackageName.text = StickerPackage.name
             cell_!.labelCreator.text = StickerPackage.creator
             

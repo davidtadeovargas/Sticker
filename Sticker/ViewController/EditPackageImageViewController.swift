@@ -110,10 +110,24 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
     
     func doneEditing(image: UIImage) {
         
+        let data = UIImagePNGRepresentation(image)
+        
         EditPackageImageShare.shared.UIImageView!.image = image
         if(EditPackageImageShare.shared.UIImageView2 != nil){
             EditPackageImageShare.shared.UIImageView2?.image = image
         }
+        if(EditPackageImageShare.shared.trayImage){
+            let name = EditPackageImageShare.shared.name
+            StickersManager.shared.updateCustomPackageTrayImage(name: name!, data: data!)
+            EditPackageImageShare.shared.trayImage = false
+        }
+        else if(EditPackageImageShare.shared.stickerImage){
+            let name = EditPackageImageShare.shared.name
+            let id = EditPackageImageShare.shared.stickerId
+            StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: id!, data: data!)
+            EditPackageImageShare.shared.stickerImage = false
+        }
+        
         ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.UIViewController!)
     }
         

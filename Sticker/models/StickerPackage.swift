@@ -11,7 +11,7 @@ import Foundation
 class StickerPackage: NSObject, NSCoding  {
     
     var name:String?
-    var trayImage:String?
+    var trayImage:Data = UIImagePNGRepresentation(UIImage(named: "add_icon")!)!
     var creator:String?
     var stickers:[StickerModel]?
     
@@ -24,7 +24,7 @@ class StickerPackage: NSObject, NSCoding  {
         if let name = aDecoder.decodeObject(forKey: "name") as? String {
             self.name = name
         }
-        if let trayImage = aDecoder.decodeObject(forKey: "trayImage") as? String {
+        if let trayImage = aDecoder.decodeObject(forKey: "trayImage") as? Data {
             self.trayImage = trayImage
         }
         if let creator = aDecoder.decodeObject(forKey: "creator") as? String {

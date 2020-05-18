@@ -57,6 +57,12 @@ class StickersMakerViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     @IBAction func btnPackageStickersClicked(_ sender: Any) {
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "PrincipalViewController")
     }

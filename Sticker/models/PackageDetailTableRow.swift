@@ -10,10 +10,9 @@ import Foundation
 
 class PackageDetailTableRow {
     
-    var image1:UIImageView = UIImageView()
-    var image2:UIImageView = UIImageView()
-    var image3:UIImageView = UIImageView()
-    var index:Int?
+    var image1 = DetailsPackageUIImageView()
+    var image2 = DetailsPackageUIImageView()
+    var image3 = DetailsPackageUIImageView()
     
     init() {
         

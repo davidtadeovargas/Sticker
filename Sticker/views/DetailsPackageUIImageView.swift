@@ -11,9 +11,8 @@ import UIKit
 class DetailsPackageUIImageView: UIImageView {
 
     var replyImage:UIImageView?
-    var index:Int?
-    var position:Int?
-    
+    var name:String?
+    var StickerModel:StickerModel?
     
     override var image: UIImage? {
         didSet {

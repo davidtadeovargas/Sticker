@@ -11,8 +11,8 @@ import Foundation
 
 class StickerModel: NSObject, NSCoding {
     
-    var id:String?
-    var image:String?
+    var id:Int?
+    var image:Data?
     var subcate:String?
     
     override init() {
@@ -21,11 +21,11 @@ class StickerModel: NSObject, NSCoding {
 
     required init(coder aDecoder: NSCoder) {
 
-        if let id = aDecoder.decodeObject(forKey: "id") as? String {
+        if let id = aDecoder.decodeObject(forKey: "id") as? Int {
             self.id = id
         }
 
-        if let image = aDecoder.decodeObject(forKey: "len") as? String {
+        if let image = aDecoder.decodeObject(forKey: "image") as? Data {
             self.image = image
         }
         
