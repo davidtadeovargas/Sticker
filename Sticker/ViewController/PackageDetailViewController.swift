@@ -155,22 +155,43 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         cell.img3.name = self.StickerPackage?.name
         cell.img3.StickerModel = StickerModel3
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        //Add event for image 1
+        let tapGestureRecognizer1:UITapGestureRecognizer
+        if StickerModel1.alreadyImageSet! {
+            tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(deleteStickerImageTapped(tapGestureRecognizer:)))
+        }
+        else{
+            tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(setStickerImageTapped(tapGestureRecognizer:)))
+        }
         cell.img1.isUserInteractionEnabled = true
-        cell.img1.addGestureRecognizer(tapGestureRecognizer)
+        cell.img1.addGestureRecognizer(tapGestureRecognizer1)
         
-        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        //Add event for image 2
+        let tapGestureRecognizer2:UITapGestureRecognizer
+        if StickerModel2.alreadyImageSet! {
+            tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(deleteStickerImageTapped(tapGestureRecognizer:)))
+        }
+        else{
+            tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(setStickerImageTapped(tapGestureRecognizer:)))
+        }
         cell.img2.isUserInteractionEnabled = true
         cell.img2.addGestureRecognizer(tapGestureRecognizer2)
         
-        let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        //Add event for image 3
+        let tapGestureRecognizer3:UITapGestureRecognizer
+        if StickerModel3.alreadyImageSet! {
+            tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(deleteStickerImageTapped(tapGestureRecognizer:)))
+        }
+        else{
+            tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(setStickerImageTapped(tapGestureRecognizer:)))
+        }
         cell.img3.isUserInteractionEnabled = true
         cell.img3.addGestureRecognizer(tapGestureRecognizer3)
         
         return cell
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func setStickerImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let tappedImage = tapGestureRecognizer.view as! DetailsPackageUIImageView
         let name = tappedImage.name
@@ -190,6 +211,22 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         EditPackageImageShare.shared.model = StickerEPIModel_
         EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
+    }
+    
+    @objc func deleteStickerImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! DetailsPackageUIImageView
+        let name = tappedImage.name
+        let StickerModel = tappedImage.StickerModel
+        
+        let indexS = "\(tappedImage.index)"
+        print("tappedImage  index = " + indexS)
+        
+        DeleteStickerShare.shared.name = name
+        DeleteStickerShare.shared.stickerId = StickerModel!.id
+        DeleteStickerShare.shared.imageData = tappedImage.getData()
+        DeleteStickerShare.shared.UIImageView = tappedImage
+        ViewControllersManager.shared.push(UIViewController: self, id: "DeleteStickerViewController")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

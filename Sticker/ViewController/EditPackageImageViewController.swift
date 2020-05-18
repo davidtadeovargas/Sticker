@@ -131,7 +131,7 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
             StickerEPIModel.StickerModel!.image = data
             StickerEPIModel.UIImageView!.image = image
             
-            StickersManager.shared.updateCustomPackageStickerImage(name: StickerEPIModel.name!, stickerId: StickerEPIModel.StickerModel.id!, data: data!)
+            StickerEPIModel.StickerModel = StickersManager.shared.updateCustomPackageStickerImage(name: StickerEPIModel.name!, stickerId: StickerEPIModel.StickerModel.id!, data: data!)
         }
         
         ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)

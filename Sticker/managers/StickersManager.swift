@@ -102,6 +102,7 @@ class StickersManager {
             let StickerModel_ = StickerModel()
             StickerModel_.id = x
             StickerModel_.image = UIImagePNGRepresentation(UIImage(named: "add_icon")!)
+            StickerModel_.alreadyImageSet = false
             stickers.append(StickerModel_)
         }
         
@@ -130,14 +131,17 @@ class StickersManager {
         self.updateCustomPackage(customPackages: stickers)
     }
     
-    func updateCustomPackageStickerImage(name:String,stickerId:Int, data:Data){
+    func updateCustomPackageStickerImage(name:String,stickerId:Int, data:Data) -> StickerModel {
         let stickers = self.getAllCustomPackages()
+        var StickerModel_:StickerModel? = nil
         for StickerPackage in stickers {
             if(StickerPackage.name == name){
                 let stickersModel = StickerPackage.stickers
                 for StickerModel in stickersModel! {
                     if(StickerModel.id == stickerId){
                         StickerModel.image = data
+                        StickerModel.alreadyImageSet = true
+                        StickerModel_ = StickerModel
                         break
                     }
                 }
@@ -145,6 +149,7 @@ class StickersManager {
             }
         }
         self.updateCustomPackage(customPackages: stickers)
+        return StickerModel_!
     }
     
     func updateCustomPackage(previousName:String, name:String, creator:String){
@@ -198,11 +203,12 @@ class StickersManager {
         let stickers = self.getAllCustomPackages()
         for StickerPackage in stickers {
             if(StickerPackage.name==packageName){
-                var innerStickers:[StickerModel]? =  StickerPackage.stickers
+                let innerStickers:[StickerModel]? =  StickerPackage.stickers
                 var x = 0
                 for StickerModel_ in innerStickers! as [StickerModel] {
                     if(StickerModel_.id == id){
-                        innerStickers?.remove(at: x)
+                        StickerModel_.alreadyImageSet = false
+                        StickerModel_.image = UIImagePNGRepresentation(UIImage(named: "add_icon")!)
                         break
                     }
                     x = x + 1

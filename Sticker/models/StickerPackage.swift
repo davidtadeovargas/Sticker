@@ -33,7 +33,6 @@ class StickerPackage: NSObject, NSCoding  {
         if let stickers = aDecoder.decodeObject(forKey: "stickers") as? [StickerModel] {
             self.stickers = stickers
         }
-
     }
 
     func encode(with aCoder: NSCoder) {

@@ -26,4 +26,8 @@ extension UIImageView {
             }
         }
     }
+    
+    func getData() -> Data {
+        return UIImagePNGRepresentation(self.image!)!
+    }
 }

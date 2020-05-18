@@ -88,6 +88,8 @@
 		CEF909BD247321F100FBE390 /* TrayImageEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */; };
 		CEF909BF2473243300FBE390 /* StickerEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BE2473243300FBE390 /* StickerEPIModel.swift */; };
 		CEF909C124732B1E00FBE390 /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */; };
+		CEF909C3247333C400FBE390 /* DeleteStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C2247333C400FBE390 /* DeleteStickerViewController.swift */; };
+		CEF909C52473347D00FBE390 /* DeleteStickerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C42473347D00FBE390 /* DeleteStickerShare.swift */; };
 		CEFE52B62462F76F00A0C761 /* EditPackageImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */; };
 		CEFE52B82462F7E900A0C761 /* EditPackageImageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */; };
 		CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */; };
@@ -222,6 +224,8 @@
 		CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayImageEPIModel.swift; sourceTree = "<group>"; };
 		CEF909BE2473243300FBE390 /* StickerEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerEPIModel.swift; sourceTree = "<group>"; };
 		CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
+		CEF909C2247333C400FBE390 /* DeleteStickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStickerViewController.swift; sourceTree = "<group>"; };
+		CEF909C42473347D00FBE390 /* DeleteStickerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStickerShare.swift; sourceTree = "<group>"; };
 		CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageViewController.swift; sourceTree = "<group>"; };
 		CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageShare.swift; sourceTree = "<group>"; };
 		CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailTableRow.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */,
 				CE42416C246C99E800B4897E /* PackageDetailUIViewController.swift */,
 				CE676172246D1D5A000D206C /* DetailOfPackageViewController.swift */,
+				CEF909C2247333C400FBE390 /* DeleteStickerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				CE67616E246CD223000D206C /* PackageDetailUIShare.swift */,
 				CE676170246CF22F000D206C /* PrincipalShare.swift */,
 				CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */,
+				CEF909C42473347D00FBE390 /* DeleteStickerShare.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -767,6 +773,7 @@
 				CEFE52CF2466128C00A0C761 /* BaseRequest.swift in Sources */,
 				CE42416B246C8B9700B4897E /* UIStackView.swift in Sources */,
 				CE676171246CF22F000D206C /* PrincipalShare.swift in Sources */,
+				CEF909C3247333C400FBE390 /* DeleteStickerViewController.swift in Sources */,
 				2ADFCA61222A5FD600D299CF /* YYSpriteSheetImage.m in Sources */,
 				2A2F8CBF222D47E8002B412A /* UIAlertController+Additions.swift in Sources */,
 				CEBED2D3245FE23900FFD965 /* Share.swift in Sources */,
@@ -788,6 +795,7 @@
 				CEFE52C424660B0F00A0C761 /* StickerPackageHttpModel.swift in Sources */,
 				CE676173246D1D5A000D206C /* DetailOfPackageViewController.swift in Sources */,
 				CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */,
+				CEF909C52473347D00FBE390 /* DeleteStickerShare.swift in Sources */,
 				CE676175246DE9F2000D206C /* BaseUITableView.swift in Sources */,
 				CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */,
 				2ADFCA52222A5F6A00D299CF /* Sticker.swift in Sources */,

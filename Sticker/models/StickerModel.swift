@@ -13,6 +13,7 @@ class StickerModel: NSObject, NSCoding {
     
     var id:Int?
     var image:Data?
+    var alreadyImageSet:Bool?
     var subcate:String?
     
     override init() {
@@ -32,12 +33,15 @@ class StickerModel: NSObject, NSCoding {
         if let subcate = aDecoder.decodeObject(forKey: "len") as? String {
             self.subcate = subcate
         }
-
+        if let alreadyImageSet = aDecoder.decodeObject(forKey: "alreadyImageSet") as? Bool {
+            self.alreadyImageSet = alreadyImageSet
+        }
     }
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "id")
         aCoder.encode(image, forKey: "image")
         aCoder.encode(subcate, forKey: "subcate")
+        aCoder.encode(alreadyImageSet, forKey: "alreadyImageSet")
     }
 }

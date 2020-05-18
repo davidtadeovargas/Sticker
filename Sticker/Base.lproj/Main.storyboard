@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8my-1e-oEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-560.625" y="547.5"/>
+            <point key="canvasLocation" x="-546" y="588"/>
         </scene>
         <!--StartUI Page Controller-->
         <scene sceneID="Zq2-cJ-Iks">
@@ -1264,6 +1264,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rB-Xc-Q3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="255" y="-100"/>
+        </scene>
+        <!--Delete Sticker View Controller-->
+        <scene sceneID="yay-M0-Kf7">
+            <objects>
+                <viewController storyboardIdentifier="DeleteStickerViewController" id="UlX-Sf-GUI" customClass="DeleteStickerViewController" customModule="Sticker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KvX-sI-ajz"/>
+                        <viewControllerLayoutGuide type="bottom" id="SIZ-8H-2YJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="suO-3X-qkj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-fM-by2">
+                                <rect key="frame" x="20" y="100" width="280" height="280"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertencia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1C-8H-AX8">
+                                        <rect key="frame" x="0.0" y="8" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Seguro que quieres eliminar estos stickers?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FC-ng-oOe">
+                                        <rect key="frame" x="0.0" y="37" width="280" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO5-fD-Vhd">
+                                        <rect key="frame" x="242" y="242" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="No">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noButtonTouch:" destination="UlX-Sf-GUI" eventType="touchUpInside" id="TSH-xz-xHn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcH-PH-mPv">
+                                        <rect key="frame" x="190" y="242" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Si">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yesButtonTouch:" destination="UlX-Sf-GUI" eventType="touchUpInside" id="rBQ-3h-ouP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UO5-fD-Vhd" secondAttribute="trailing" constant="8" id="3rz-bZ-Idh"/>
+                                    <constraint firstItem="u1C-8H-AX8" firstAttribute="top" secondItem="Ufg-fM-by2" secondAttribute="top" constant="8" id="9r5-bp-qIL"/>
+                                    <constraint firstAttribute="width" constant="280" id="Bbm-O7-G3d"/>
+                                    <constraint firstItem="UO5-fD-Vhd" firstAttribute="leading" secondItem="VcH-PH-mPv" secondAttribute="trailing" constant="22" id="BlX-VQ-3jx"/>
+                                    <constraint firstItem="0FC-ng-oOe" firstAttribute="top" secondItem="u1C-8H-AX8" secondAttribute="bottom" constant="8" id="GJ9-wK-A6U"/>
+                                    <constraint firstAttribute="trailing" secondItem="0FC-ng-oOe" secondAttribute="trailing" id="QCl-pI-cKn"/>
+                                    <constraint firstAttribute="bottom" secondItem="UO5-fD-Vhd" secondAttribute="bottom" constant="8" id="VWz-7a-eTU"/>
+                                    <constraint firstAttribute="bottom" secondItem="VcH-PH-mPv" secondAttribute="bottom" constant="8" id="bdh-1k-iFX"/>
+                                    <constraint firstAttribute="height" constant="280" id="hAH-Bm-4Ao"/>
+                                    <constraint firstItem="u1C-8H-AX8" firstAttribute="leading" secondItem="Ufg-fM-by2" secondAttribute="leading" id="kG8-R1-hmd"/>
+                                    <constraint firstAttribute="trailing" secondItem="u1C-8H-AX8" secondAttribute="trailing" id="lth-EN-Lwu"/>
+                                    <constraint firstItem="0FC-ng-oOe" firstAttribute="leading" secondItem="Ufg-fM-by2" secondAttribute="leading" id="vcn-14-bF4"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ax-RR-jvk">
+                                <rect key="frame" x="90.5" y="179.5" width="139" height="121"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="CKZ-NT-uja"/>
+                                    <constraint firstAttribute="width" constant="139" id="U6S-8w-i4F"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ufg-fM-by2" firstAttribute="centerY" secondItem="suO-3X-qkj" secondAttribute="centerY" id="Elv-se-ogx"/>
+                            <constraint firstItem="Ufg-fM-by2" firstAttribute="centerX" secondItem="suO-3X-qkj" secondAttribute="centerX" id="QL6-XD-T2x"/>
+                            <constraint firstItem="4ax-RR-jvk" firstAttribute="centerX" secondItem="suO-3X-qkj" secondAttribute="centerX" id="gKm-QN-e0r"/>
+                            <constraint firstItem="4ax-RR-jvk" firstAttribute="centerY" secondItem="suO-3X-qkj" secondAttribute="centerY" id="vXa-LF-h9r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainImage" destination="4ax-RR-jvk" id="gQ1-BY-FGY"/>
+                        <outlet property="mainLabel" destination="u1C-8H-AX8" id="yUn-Bl-i7v"/>
+                        <outlet property="noButton" destination="UO5-fD-Vhd" id="ztF-Xr-YIN"/>
+                        <outlet property="secondaryLabel" destination="0FC-ng-oOe" id="pOL-jb-CAS"/>
+                        <outlet property="yesButton" destination="VcH-PH-mPv" id="hic-af-a3W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xpp-PD-fkd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="151.875" y="587.5"/>
         </scene>
         <!--Edit Package Image View Controller-->
         <scene sceneID="PXL-9k-ueA">
