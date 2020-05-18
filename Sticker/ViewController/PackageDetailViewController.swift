@@ -57,14 +57,89 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             return UITableViewCell()
         }
         
-        let stringValue = "\(indexPath.row)"
-        print("index = " + stringValue)
+        let index = indexPath.row
+        
+        let indexModel1:Int
+        let indexModel2:Int
+        let indexModel3:Int
+        
+        switch index {
+            
+            case 0:
+                indexModel1 = 0
+                indexModel2 = 1
+                indexModel3 = 2
+                break
+            
+            case 1:
+                indexModel1 = 3
+                indexModel2 = 4
+                indexModel3 = 5
+                break
+            
+            case 2:
+                indexModel1 = 6
+                indexModel2 = 7
+                indexModel3 = 8
+                break
+            
+            case 3:
+                indexModel1 = 9
+                indexModel2 = 10
+                indexModel3 = 11
+                break
+            
+            case 4:
+                indexModel1 = 12
+                indexModel2 = 13
+                indexModel3 = 14
+                break
+            
+            case 5:
+                indexModel1 = 15
+                indexModel2 = 16
+                indexModel3 = 17
+                break
+            
+            case 6:
+                indexModel1 = 18
+                indexModel2 = 19
+                indexModel3 = 20
+                break
+            
+            case 7:
+                indexModel1 = 21
+                indexModel2 = 22
+                indexModel3 = 23
+                break
+            
+            case 8:
+                indexModel1 = 24
+                indexModel2 = 25
+                indexModel3 = 26
+                break
+            
+            case 9:
+                indexModel1 = 27
+                indexModel2 = 28
+                indexModel3 = 29
+                break
+            
+            default:
+                indexModel1 = 0
+                indexModel2 = 0
+                indexModel3 = 0
+            
+        }
         
         let stickers = self.StickerPackage?.stickers
         
-        let StickerModel1 = stickers![indexPath.row]
-        let StickerModel2 = stickers![indexPath.row + 1]
-        let StickerModel3 = stickers![indexPath.row + 2]
+        let StickerModel1 = stickers![indexModel1]
+        let StickerModel2 = stickers![indexModel2]
+        let StickerModel3 = stickers![indexModel3]
+        
+        let stringValue = "\(indexPath.row)"
+        print("In index = " + stringValue + " we have ids: \(StickerModel1.id), \(StickerModel2.id) ,\(StickerModel3.id)")
         
         let image1 = UIImage(data: StickerModel1.image!)
         cell.img1.image = image1
@@ -73,35 +148,24 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let image3 = UIImage(data: StickerModel3.image!)
         cell.img3.image = image3
         
-        if(cell.img1.name == nil){
-            
-            cell.img1.name = self.StickerPackage?.name
-            cell.img1.StickerModel = StickerModel1
-            cell.img2.name = self.StickerPackage?.name
-            cell.img2.StickerModel = StickerModel2
-            cell.img3.name = self.StickerPackage?.name
-            cell.img3.StickerModel = StickerModel3
-            
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-            cell.img1.isUserInteractionEnabled = true
-            cell.img1.addGestureRecognizer(tapGestureRecognizer)
-            
-            let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-            cell.img2.isUserInteractionEnabled = true
-            cell.img2.addGestureRecognizer(tapGestureRecognizer2)
-            
-            let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-            cell.img3.isUserInteractionEnabled = true
-            cell.img3.addGestureRecognizer(tapGestureRecognizer3)
-            
-            let stringValue = "\(indexPath.row)"
-            print("cell.img1.index = nil index = " + stringValue)
-            
-        }
-        else{
-            let stringValue = "\(indexPath.row)"
-            print("cell.img1.index != nil index " + stringValue)
-        }
+        cell.img1.name = self.StickerPackage?.name
+        cell.img1.StickerModel = StickerModel1
+        cell.img2.name = self.StickerPackage?.name
+        cell.img2.StickerModel = StickerModel2
+        cell.img3.name = self.StickerPackage?.name
+        cell.img3.StickerModel = StickerModel3
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.img1.isUserInteractionEnabled = true
+        cell.img1.addGestureRecognizer(tapGestureRecognizer)
+        
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.img2.isUserInteractionEnabled = true
+        cell.img2.addGestureRecognizer(tapGestureRecognizer2)
+        
+        let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.img3.isUserInteractionEnabled = true
+        cell.img3.addGestureRecognizer(tapGestureRecognizer3)
         
         return cell
     }
@@ -121,6 +185,7 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         EditPackageImageShare.shared.name = name
         EditPackageImageShare.shared.UIImageView = tappedImage
         EditPackageImageShare.shared.UIViewController = self
+        EditPackageImageShare.shared.StickerModel = StickerModel
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
     

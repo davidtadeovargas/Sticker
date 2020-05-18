@@ -21,6 +21,7 @@ class EditPackageImageShare {
     var StickerPackage:StickerPackage?
     var stickerId:Int?
     var data:Data?
+    var StickerModel:StickerModel?
     
     private init() {
     }

@@ -122,8 +122,13 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
             EditPackageImageShare.shared.trayImage = false
         }
         else if(EditPackageImageShare.shared.stickerImage){
+            
             let name = EditPackageImageShare.shared.name
             let id = EditPackageImageShare.shared.stickerId
+            let StickerModel = EditPackageImageShare.shared.StickerModel
+            
+            StickerModel?.image = data
+            
             StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: id!, data: data!)
             EditPackageImageShare.shared.stickerImage = false
         }
