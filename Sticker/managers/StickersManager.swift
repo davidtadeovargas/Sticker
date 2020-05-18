@@ -101,7 +101,7 @@ class StickersManager {
         for x in 1 ... 30 {
             let StickerModel_ = StickerModel()
             StickerModel_.id = x
-            StickerModel_.image = UIImagePNGRepresentation(UIImage(named: "add_icon.png")!)
+            StickerModel_.image = UIImagePNGRepresentation(UIImage(named: "add_icon")!)
             stickers.append(StickerModel_)
         }
         

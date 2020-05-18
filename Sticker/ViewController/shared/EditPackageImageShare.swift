@@ -12,16 +12,9 @@ class EditPackageImageShare {
     
     static let shared = EditPackageImageShare()
     
-    var UIImageView:UIImageView?
-    var UIViewController:UIViewController?
-    var UIImageView2:UIImageView?
-    var trayImage:Bool = false
-    var name:String?
-    var stickerImage = false
-    var StickerPackage:StickerPackage?
-    var stickerId:Int?
-    var data:Data?
-    var StickerModel:StickerModel?
+    var EditAction_:EditAction?
+    var model:AnyObject?
+    var returnToUIViewController:UIViewController!
     
     private init() {
     }

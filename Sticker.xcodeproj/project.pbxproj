@@ -84,6 +84,9 @@
 		CEBED2E0246133FF00FFD965 /* PackageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */; };
 		CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */; };
 		CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */; };
+		CEF909BA2473218300FBE390 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909B92473218300FBE390 /* EditAction.swift */; };
+		CEF909BD247321F100FBE390 /* TrayImageEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */; };
+		CEF909BF2473243300FBE390 /* StickerEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BE2473243300FBE390 /* StickerEPIModel.swift */; };
 		CEFE52B62462F76F00A0C761 /* EditPackageImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */; };
 		CEFE52B82462F7E900A0C761 /* EditPackageImageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */; };
 		CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */; };
@@ -214,6 +217,9 @@
 		CEBED2DF246133FF00FFD965 /* PackageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailViewController.swift; sourceTree = "<group>"; };
 		CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDialogManager.swift; sourceTree = "<group>"; };
 		CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailShare.swift; sourceTree = "<group>"; };
+		CEF909B92473218300FBE390 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
+		CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayImageEPIModel.swift; sourceTree = "<group>"; };
+		CEF909BE2473243300FBE390 /* StickerEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerEPIModel.swift; sourceTree = "<group>"; };
 		CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageViewController.swift; sourceTree = "<group>"; };
 		CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageShare.swift; sourceTree = "<group>"; };
 		CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailTableRow.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 		2AC6E34221C76883005FFDB8 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				CEF909B82473217000FBE390 /* enums */,
 				CE424169246C8B8A00B4897E /* extensions */,
 				CEFE52CD2466127600A0C761 /* requests */,
 				CEFE52BB246326A400A0C761 /* views */,
@@ -461,6 +468,7 @@
 		CEBED2DA245FFADB00FFD965 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				CEF909BB247321CC00FBE390 /* EditPackageImage */,
 				CEFE52BE24660AA700A0C761 /* http */,
 				CEBED2DB245FFAF600FFD965 /* StickerPackage.swift */,
 				CEBED2DD245FFC6E00FFD965 /* StickerModel.swift */,
@@ -479,6 +487,23 @@
 				CEA6DED7246F8CC7002FEC96 /* DetailOfPackageShare.swift */,
 			);
 			path = shared;
+			sourceTree = "<group>";
+		};
+		CEF909B82473217000FBE390 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				CEF909B92473218300FBE390 /* EditAction.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		CEF909BB247321CC00FBE390 /* EditPackageImage */ = {
+			isa = PBXGroup;
+			children = (
+				CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */,
+				CEF909BE2473243300FBE390 /* StickerEPIModel.swift */,
+			);
+			path = EditPackageImage;
 			sourceTree = "<group>";
 		};
 		CEFE52BB246326A400A0C761 /* views */ = {
@@ -722,6 +747,7 @@
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,
 				2ADFCA4E222A5F6A00D299CF /* Interoperability.swift in Sources */,
 				2A425D6122390B56007E8C0E /* Config.swift in Sources */,
+				CEF909BA2473218300FBE390 /* EditAction.swift in Sources */,
 				2ADFCA5F222A5FD600D299CF /* YYAnimatedImageView.m in Sources */,
 				CEFE52C024660ACE00A0C761 /* DataHttpModel.swift in Sources */,
 				2ADFCA4C222A5F6A00D299CF /* Limits.swift in Sources */,
@@ -752,6 +778,7 @@
 				CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */,
 				CE424168246C38B000B4897E /* LoadingIcon.swift in Sources */,
 				CEBED2DC245FFAF600FFD965 /* StickerPackage.swift in Sources */,
+				CEF909BD247321F100FBE390 /* TrayImageEPIModel.swift in Sources */,
 				2AC6E34421C76883005FFDB8 /* AppDelegate.swift in Sources */,
 				CEFE52BD246326DA00A0C761 /* DetailsPackageUIImageView.swift in Sources */,
 				CEFE52C424660B0F00A0C761 /* StickerPackageHttpModel.swift in Sources */,
@@ -761,6 +788,7 @@
 				CE5E087D245F1D54003FFA6A /* ViewControllersManager.swift in Sources */,
 				2ADFCA52222A5F6A00D299CF /* Sticker.swift in Sources */,
 				CE676177246DEF0A000D206C /* PrincipalBaseUITableView.swift in Sources */,
+				CEF909BF2473243300FBE390 /* StickerEPIModel.swift in Sources */,
 				CE5E0878245EFF25003FFA6A /* StartUIPageController.swift in Sources */,
 				2ADFCA63222A5FD600D299CF /* YYImage.m in Sources */,
 			);

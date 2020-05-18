@@ -38,7 +38,7 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
          {
             UIAlertAction in
-            ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.UIViewController!)
+            ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
             
          }
 
@@ -102,7 +102,7 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
-        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.UIViewController!)
+        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
     }
     
     
@@ -112,31 +112,32 @@ class EditPackageImageViewController: UIViewController, UIImagePickerControllerD
         
         let data = UIImagePNGRepresentation(image)
         
-        EditPackageImageShare.shared.UIImageView!.image = image
-        if(EditPackageImageShare.shared.UIImageView2 != nil){
-            EditPackageImageShare.shared.UIImageView2?.image = image
+        if(EditPackageImageShare.shared.EditAction_ == EditAction.TRAY_IMAGE){
+            
+            //Cast model
+            let TrayImageEPIModel = EditPackageImageShare.shared.model as! TrayImageEPIModel
+            
+            //Set final image to the original image
+            TrayImageEPIModel.UIImageView.image = image
+            
+            //Update the tray image in the local system
+            StickersManager.shared.updateCustomPackageTrayImage(name: TrayImageEPIModel.name, data: data!)
         }
-        if(EditPackageImageShare.shared.trayImage){
-            let name = EditPackageImageShare.shared.name
-            StickersManager.shared.updateCustomPackageTrayImage(name: name!, data: data!)
-            EditPackageImageShare.shared.trayImage = false
-        }
-        else if(EditPackageImageShare.shared.stickerImage){
+        else if(EditPackageImageShare.shared.EditAction_ == EditAction.STICKER){
             
-            let name = EditPackageImageShare.shared.name
-            let id = EditPackageImageShare.shared.stickerId
-            let StickerModel = EditPackageImageShare.shared.StickerModel
+            //Cast model
+            let StickerEPIModel = EditPackageImageShare.shared.model as! StickerEPIModel
             
-            StickerModel?.image = data
+            StickerEPIModel.StickerModel!.image = data
+            StickerEPIModel.UIImageView!.image = image
             
-            StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: id!, data: data!)
-            EditPackageImageShare.shared.stickerImage = false
+            StickersManager.shared.updateCustomPackageStickerImage(name: StickerEPIModel.name!, stickerId: StickerEPIModel.StickerModel.id!, data: data!)
         }
         
-        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.UIViewController!)
+        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
     }
         
     func canceledEditing() {
-        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.UIViewController!)
+        ViewControllersManager.shared.setRoot(routeUIViewController: EditPackageImageShare.shared.returnToUIViewController)
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 class StickerPackage: NSObject, NSCoding  {
     
     var name:String?
-    var trayImage:Data = UIImagePNGRepresentation(UIImage(named: "add_icon")!)!
+    var trayImage:Data = UIImagePNGRepresentation(UIImage(named: "image")!)!
     var creator:String?
     var stickers:[StickerModel]?
     

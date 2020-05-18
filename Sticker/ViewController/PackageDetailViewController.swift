@@ -179,13 +179,16 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let indexS = "\(tappedImage.index)"
         print("tappedImage  index = " + indexS)
         
+        //Create model
+        let StickerEPIModel_ = StickerEPIModel()
+        StickerEPIModel_.name = name
+        StickerEPIModel_.UIImageView = tappedImage
+        StickerEPIModel_.StickerModel = StickerModel
+        
         //Open window to select image from gallery and edit it
-        EditPackageImageShare.shared.stickerId = StickerModel?.id
-        EditPackageImageShare.shared.stickerImage = true
-        EditPackageImageShare.shared.name = name
-        EditPackageImageShare.shared.UIImageView = tappedImage
-        EditPackageImageShare.shared.UIViewController = self
-        EditPackageImageShare.shared.StickerModel = StickerModel
+        EditPackageImageShare.shared.EditAction_ = .STICKER
+        EditPackageImageShare.shared.model = StickerEPIModel_
+        EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
     
@@ -222,11 +225,15 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func btnEditPackageImagePressed(_ sender: Any) {
         
+        //Create the model
+        let TrayImageEPIModel_ = TrayImageEPIModel()
+        TrayImageEPIModel_.UIImageView = imgPackage
+        TrayImageEPIModel_.name = self.packageName
+        
         //Open window to select image from gallery and edit it
-        EditPackageImageShare.shared.UIImageView = imgPackage
-        EditPackageImageShare.shared.UIViewController = self
-        EditPackageImageShare.shared.trayImage = true
-        EditPackageImageShare.shared.name = self.packageName
+        EditPackageImageShare.shared.EditAction_ = .TRAY_IMAGE
+        EditPackageImageShare.shared.model = TrayImageEPIModel_
+        EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
     }
     
