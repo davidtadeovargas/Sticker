@@ -218,19 +218,7 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
         UIImageView_.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
         UIImageView_.contentMode = .scaleAspectFit // OR .scaleAspectFill
         UIImageView_.clipsToBounds = true
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                if(data == nil){
-                    print("Found nil in data in \(StickerHttpModel_.imageFileName ?? "Default value")")
-                }
-                else{
-                    let imageIcon = UIImage(data: data!)
-                    UIImageView_.image = imageIcon
-                    print("Asigning image to UIImageView_ asyncronous in \(StickerHttpModel_.imageFileName ?? "Default value")")
-                }
-            }
-        }
+        UIImageView_.loadImageFromUrl(urlString: uri!)
         return UIImageView_
     }
 }

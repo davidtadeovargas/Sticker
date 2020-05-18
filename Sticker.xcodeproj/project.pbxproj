@@ -87,6 +87,7 @@
 		CEF909BA2473218300FBE390 /* EditAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909B92473218300FBE390 /* EditAction.swift */; };
 		CEF909BD247321F100FBE390 /* TrayImageEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */; };
 		CEF909BF2473243300FBE390 /* StickerEPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909BE2473243300FBE390 /* StickerEPIModel.swift */; };
+		CEF909C124732B1E00FBE390 /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */; };
 		CEFE52B62462F76F00A0C761 /* EditPackageImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */; };
 		CEFE52B82462F7E900A0C761 /* EditPackageImageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */; };
 		CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */; };
@@ -220,6 +221,7 @@
 		CEF909B92473218300FBE390 /* EditAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAction.swift; sourceTree = "<group>"; };
 		CEF909BC247321F100FBE390 /* TrayImageEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayImageEPIModel.swift; sourceTree = "<group>"; };
 		CEF909BE2473243300FBE390 /* StickerEPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerEPIModel.swift; sourceTree = "<group>"; };
+		CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
 		CEFE52B52462F76F00A0C761 /* EditPackageImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageViewController.swift; sourceTree = "<group>"; };
 		CEFE52B72462F7E900A0C761 /* EditPackageImageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPackageImageShare.swift; sourceTree = "<group>"; };
 		CEFE52B924631FDF00A0C761 /* PackageDetailTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailTableRow.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				CE42416A246C8B9700B4897E /* UIStackView.swift */,
+				CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				2ADFCA4F222A5F6A00D299CF /* WebPManager.swift in Sources */,
 				CE5E0876245EFE37003FFA6A /* Init3ViewController.swift in Sources */,
 				CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */,
+				CEF909C124732B1E00FBE390 /* ExtensionUIImageView.swift in Sources */,
 				CEBED2DE245FFC6E00FFD965 /* StickerModel.swift in Sources */,
 				CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */,
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,

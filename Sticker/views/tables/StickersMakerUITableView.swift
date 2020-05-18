@@ -18,7 +18,7 @@ class StickersMakerUITableView: BaseUITableView, InitTableProtocol {
         
         self.TableType_ = TableType_
         
-        self.tableRowHeigth = 100
+        self.tableRowHeigth = 150
         
         //Render the table row
         self.cellForRowAt = {index, cell, model in
@@ -35,6 +35,30 @@ class StickersMakerUITableView: BaseUITableView, InitTableProtocol {
             
             cell_!.labelPackageName.text = StickerPackage.name
             cell_!.labelCreator.text = StickerPackage.creator
+            
+            //Insert just 5 the inner stickers
+            let stickers = StickerPackage.stickers
+            var x = 1
+            for StickerModel in stickers! {
+                
+                if(x == 6){
+                    break
+                }
+                
+                x += 1
+                
+                let data = StickerModel.image
+                let uiimage = UIImage(data: data!)
+                
+                let UIImageView_ =  UIImageView()
+                //UIImageView_.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+                //UIImageView_.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
+                UIImageView_.contentMode = .scaleAspectFill
+                UIImageView_.clipsToBounds = true
+                UIImageView_.image = uiimage
+                
+                cell_!.stackStickers.addArrangedSubview(UIImageView_)
+            }
             
             return cell_!
         }
