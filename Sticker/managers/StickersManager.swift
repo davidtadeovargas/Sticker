@@ -131,9 +131,8 @@ class StickersManager {
         self.updateCustomPackage(customPackages: stickers)
     }
     
-    func updateCustomPackageStickerImage(name:String,stickerId:Int, data:Data) -> StickerModel {
+    func updateCustomPackageStickerImage(name:String,stickerId:Int, data:Data) {
         let stickers = self.getAllCustomPackages()
-        var StickerModel_:StickerModel? = nil
         for StickerPackage in stickers {
             if(StickerPackage.name == name){
                 let stickersModel = StickerPackage.stickers
@@ -141,7 +140,6 @@ class StickersManager {
                     if(StickerModel.id == stickerId){
                         StickerModel.image = data
                         StickerModel.alreadyImageSet = true
-                        StickerModel_ = StickerModel
                         break
                     }
                 }
@@ -149,7 +147,6 @@ class StickersManager {
             }
         }
         self.updateCustomPackage(customPackages: stickers)
-        return StickerModel_!
     }
     
     func updateCustomPackage(previousName:String, name:String, creator:String){
