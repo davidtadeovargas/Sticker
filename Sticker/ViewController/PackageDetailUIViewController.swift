@@ -15,6 +15,7 @@ class PackageDetailUIViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var noStickersImage: UIImageView!
     
     
     var searchActive : Bool = false
@@ -47,6 +48,7 @@ class PackageDetailUIViewController: UIViewController {
         
         var stickerPack:[StickerInnerPackHttpModel]
         if(PackageDetailUIShare.shared.data != nil){
+            
             stickerPack = PackageDetailUIShare.shared.data as! [StickerInnerPackHttpModel]
             self.titleLabel.text = "Salvados"
             
@@ -54,11 +56,21 @@ class PackageDetailUIViewController: UIViewController {
             PackageDetailUIShare.shared.data = nil
         }
         else{
+            
             //Get the sticker package to preview
             let StickerPackageHttpModel_ = PackageDetailUIShare.shared.StickerPackageHttpModel_
             stickerPack = StickerPackageHttpModel_!.stickerPack
             
             self.titleLabel.text = "Stickers Suavecitos"
+        }
+        
+        if(stickerPack.count == 0){
+            self.noStickersImage.isHidden = false
+            self.tableStickers.isHidden = true
+        }
+        else{
+            self.noStickersImage.isHidden = true
+            self.tableStickers.isHidden = false
         }
         
         //Load data in table
