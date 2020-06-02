@@ -16,10 +16,22 @@ class DetailOfPackageViewController: UIViewController {
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var secondaryLabel: UILabel!
-    @IBOutlet weak var stickersStack: UIStackView!
     @IBOutlet weak var whatsappButton: UIButton!
-    @IBOutlet weak var stickersStackH: NSLayoutConstraint!
     @IBOutlet weak var downloadStickersPackButton: UIButton!
+    
+    @IBOutlet weak var img1: UIImageView!
+    @IBOutlet weak var img2: UIImageView!
+    @IBOutlet weak var img3: UIImageView!
+    @IBOutlet weak var img4: UIImageView!
+    @IBOutlet weak var img5: UIImageView!
+    @IBOutlet weak var img6: UIImageView!
+    @IBOutlet weak var img7: UIImageView!
+    @IBOutlet weak var img8: UIImageView!
+    @IBOutlet weak var img9: UIImageView!
+    @IBOutlet weak var img10: UIImageView!
+    @IBOutlet weak var img11: UIImageView!
+    @IBOutlet weak var img12: UIImageView!
+    
     
     var StickerInnerPackHttpModel_:StickerInnerPackHttpModel?
     
@@ -40,17 +52,12 @@ class DetailOfPackageViewController: UIViewController {
         //Set main image
         let imageUri = self.StickerInnerPackHttpModel_?.trayImageUri
         let url = URL(string: imageUri!)
-        DispatchQueue.global().async {
-            if(url != nil){
-                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                DispatchQueue.main.async {
-                    if(data == nil){
-                        
-                    }
-                    else{
-                        let imageIcon = UIImage(data: data!)
-                        self.mainImage.image = imageIcon
-                    }
+        if(url != nil){
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            let imageIcon = UIImage(data: data!)
+            DispatchQueue.main.async {
+                if(data != nil){
+                    self.mainImage.image = imageIcon
                 }
             }
         }
@@ -61,31 +68,56 @@ class DetailOfPackageViewController: UIViewController {
         
         //Load all the stickers
         let stickers = self.StickerInnerPackHttpModel_?.stickers
-        var UIStackView_ = self.getStack()
-        var x = 1
-        for StickerHttpModel_ in stickers! {
-            
-            let UIImageView_ = self.getUIImageView(url: StickerHttpModel_.uri)
-            
-            if(x == 4){
-                x = 1
-                let count = self.stickersStack.subviews.count
-                print("self.stickersStack.subviews.count = \(count)")
-                self.stickersStack.addArrangedSubview(UIStackView_)
-                UIStackView_ = self.getStack()
-            }
-            else{
-                x += 1
-                let count = UIStackView_.subviews.count
-                print("UIStackView_.subviews.count = \(count)")
-                UIStackView_.addArrangedSubview(UIImageView_)
-            }
-        }
         
-        let count = self.stickersStack.subviews.count
-        if(count==1){
-            stickersStackH.constant = stickersStackH.constant / 2
+        guard let StickerHttpModel1 = stickers![safe: 0] else {
+          return
         }
+        self.img1.loadImageFromUrl(urlString: StickerHttpModel1.uri)
+        guard let StickerHttpModel2 = stickers![safe: 1] else {
+          return
+        }
+        self.img2.loadImageFromUrl(urlString: StickerHttpModel2.uri)
+        guard let StickerHttpModel3 = stickers![safe: 2] else {
+          return
+        }
+        self.img3.loadImageFromUrl(urlString: StickerHttpModel3.uri)
+        guard let StickerHttpModel4 = stickers![safe: 3] else {
+          return
+        }
+        self.img4.loadImageFromUrl(urlString: StickerHttpModel4.uri)
+        guard let StickerHttpModel5 = stickers![safe: 4] else {
+          return
+        }
+        self.img5.loadImageFromUrl(urlString: StickerHttpModel5.uri)
+        guard let StickerHttpModel6 = stickers![safe: 5] else {
+          return
+        }
+        self.img6.loadImageFromUrl(urlString: StickerHttpModel6.uri)
+        guard let StickerHttpModel7 = stickers![safe: 6] else {
+          return
+        }
+        self.img7.loadImageFromUrl(urlString: StickerHttpModel7.uri)
+        guard let StickerHttpModel8 = stickers![safe: 7] else {
+          return
+        }
+        self.img8.loadImageFromUrl(urlString: StickerHttpModel8.uri)
+        guard let StickerHttpModel9 = stickers![safe: 8] else {
+          return
+        }
+        self.img9.loadImageFromUrl(urlString: StickerHttpModel9.uri)
+        guard let StickerHttpModel10 = stickers![safe: 9] else {
+          return
+        }
+        self.img10.loadImageFromUrl(urlString: StickerHttpModel10.uri)
+        guard let StickerHttpModel11 = stickers![safe: 10] else {
+          return
+        }
+        self.img11.loadImageFromUrl(urlString: StickerHttpModel11.uri)
+        guard let StickerHttpModel12 = stickers![safe: 11] else {
+          return
+        }
+        self.img12.loadImageFromUrl(urlString: StickerHttpModel12.uri)
+        
     }
     
     func packageStickersAlreadyDownloaded(){
