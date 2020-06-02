@@ -51,16 +51,8 @@ class DetailOfPackageViewController: UIViewController {
         
         //Set main image
         let imageUri = self.StickerInnerPackHttpModel_?.trayImageUri
+        self.mainImage.loadImageFromUrl(urlString: imageUri!)
         let url = URL(string: imageUri!)
-        if(url != nil){
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            let imageIcon = UIImage(data: data!)
-            DispatchQueue.main.async {
-                if(data != nil){
-                    self.mainImage.image = imageIcon
-                }
-            }
-        }
         
         //Name and publisher
         self.mainLabel.text = self.StickerInnerPackHttpModel_?.name

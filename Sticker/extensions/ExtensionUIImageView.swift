@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import Alamofire
 
 extension UIImageView {
 
     func loadImageFromUrl(urlString:String){
         
-        let url = URL(string: urlString)
+        Alamofire.request(urlString, method: .get)
+        .validate()
+        .responseData(completionHandler: { (responseData) in
+            self.image = UIImage(data: responseData.data!)
+            DispatchQueue.main.async {
+                // Refresh you views
+            }
+        })
+        
+        /*let url = URL(string: urlString)
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
             DispatchQueue.main.async {
@@ -24,7 +34,7 @@ extension UIImageView {
                     self.image = imageIcon
                 }
             }
-        }
+        }*/
     }
     
     func getData() -> Data {
