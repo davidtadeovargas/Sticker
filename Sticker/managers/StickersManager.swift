@@ -58,6 +58,38 @@ class StickersManager {
         defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
         defaults.synchronize()
     }
+    func updateRemotePackage(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) {
+        
+        let packages:[StickerInnerPackHttpModel] = self.getAllRemotePackages()
+        for StickerInnerPackHttpModel in packages {
+            if(StickerInnerPackHttpModel.name==StickerInnerPackHttpModel_.name){
+                
+                //Update the iteration model
+                StickerInnerPackHttpModel.privacyPolicyWebsite = StickerInnerPackHttpModel_.privacyPolicyWebsite
+                StickerInnerPackHttpModel.publisher = StickerInnerPackHttpModel_.publisher
+                StickerInnerPackHttpModel.isWhitelisted = StickerInnerPackHttpModel_.isWhitelisted
+                StickerInnerPackHttpModel.licenseAgreementWebsite = StickerInnerPackHttpModel_.licenseAgreementWebsite
+                StickerInnerPackHttpModel.publisher = StickerInnerPackHttpModel_.publisher
+                StickerInnerPackHttpModel.publisherEmail = StickerInnerPackHttpModel_.publisherEmail
+                StickerInnerPackHttpModel.publisherWebsite = StickerInnerPackHttpModel_.publisherWebsite
+                StickerInnerPackHttpModel.stickers = StickerInnerPackHttpModel_.stickers
+                StickerInnerPackHttpModel.stickersAddedIndex = StickerInnerPackHttpModel_.stickersAddedIndex
+                StickerInnerPackHttpModel.totalSize = StickerInnerPackHttpModel_.totalSize
+                StickerInnerPackHttpModel.trayImageFile = StickerInnerPackHttpModel_.trayImageFile
+                StickerInnerPackHttpModel.trayImageUri = StickerInnerPackHttpModel_.trayImageUri
+                StickerInnerPackHttpModel.alreadyWhatsapp = StickerInnerPackHttpModel_.alreadyWhatsapp
+                
+                //Update the model in disk
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: packages)
+                let defaults = UserDefaults.standard
+                defaults.set(encodedData, forKey: self.REMOTE_STICKERS_KEY)
+                defaults.synchronize()
+                
+                //Break the flow for optimization
+                break
+            }
+        }
+    }
     func getRemotePackage(name:String) -> StickerInnerPackHttpModel? {
         
         let packages:[StickerInnerPackHttpModel] = self.getAllRemotePackages()

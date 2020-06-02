@@ -85,6 +85,9 @@
 		CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */; };
 		CEBED2EF24619A7200FFD965 /* PackageDetailShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */; };
 		CEC3799C2486214B003F840E /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3799B2486214B003F840E /* CollectionExtension.swift */; };
+		CEC3799E24867F26003F840E /* WhatsappStickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3799D24867F26003F840E /* WhatsappStickerManager.swift */; };
+		CEC379A02486C74F003F840E /* MultiFileDownloaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3799F2486C74F003F840E /* MultiFileDownloaderManager.swift */; };
+		CEC379A22486F71A003F840E /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC379A12486F71A003F840E /* FilesManager.swift */; };
 		CEF909C124732B1E00FBE390 /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */; };
 		CEF909C3247333C400FBE390 /* DeleteStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C2247333C400FBE390 /* DeleteStickerViewController.swift */; };
 		CEF909C52473347D00FBE390 /* DeleteStickerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF909C42473347D00FBE390 /* DeleteStickerShare.swift */; };
@@ -220,6 +223,9 @@
 		CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDialogManager.swift; sourceTree = "<group>"; };
 		CEBED2EE24619A7200FFD965 /* PackageDetailShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailShare.swift; sourceTree = "<group>"; };
 		CEC3799B2486214B003F840E /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		CEC3799D24867F26003F840E /* WhatsappStickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsappStickerManager.swift; sourceTree = "<group>"; };
+		CEC3799F2486C74F003F840E /* MultiFileDownloaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFileDownloaderManager.swift; sourceTree = "<group>"; };
+		CEC379A12486F71A003F840E /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		CEF909C024732B1E00FBE390 /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
 		CEF909C2247333C400FBE390 /* DeleteStickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStickerViewController.swift; sourceTree = "<group>"; };
 		CEF909C42473347D00FBE390 /* DeleteStickerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStickerShare.swift; sourceTree = "<group>"; };
@@ -469,6 +475,9 @@
 				CEBED2EB2461976300FFD965 /* TwoDialogManager.swift */,
 				CE424167246C38B000B4897E /* LoadingIcon.swift */,
 				CEA6DED3246F2618002FEC96 /* TablesCache.swift */,
+				CEC3799D24867F26003F840E /* WhatsappStickerManager.swift */,
+				CEC3799F2486C74F003F840E /* MultiFileDownloaderManager.swift */,
+				CEC379A12486F71A003F840E /* FilesManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -741,9 +750,11 @@
 				2ADFCA4F222A5F6A00D299CF /* WebPManager.swift in Sources */,
 				CE5E0876245EFE37003FFA6A /* Init3ViewController.swift in Sources */,
 				CE12188D245F9F750008B9C0 /* StickersMakerViewController.swift in Sources */,
+				CEC3799E24867F26003F840E /* WhatsappStickerManager.swift in Sources */,
 				CEF909C124732B1E00FBE390 /* ExtensionUIImageView.swift in Sources */,
 				CEBED2DE245FFC6E00FFD965 /* StickerModel.swift in Sources */,
 				CEF909C7247350CC00FBE390 /* Extension UIImage.swift in Sources */,
+				CEC379A22486F71A003F840E /* FilesManager.swift in Sources */,
 				CEFE52BA24631FDF00A0C761 /* PackageDetailTableRow.swift in Sources */,
 				2ADFCA60222A5FD600D299CF /* YYImageCoder.m in Sources */,
 				2ADFCA4E222A5F6A00D299CF /* Interoperability.swift in Sources */,
@@ -776,6 +787,7 @@
 				CEBED2E0246133FF00FFD965 /* PackageDetailViewController.swift in Sources */,
 				CE5E087F245F20E1003FFA6A /* AlertManager.swift in Sources */,
 				CE5E0881245F2773003FFA6A /* PrincipalViewController.swift in Sources */,
+				CEC379A02486C74F003F840E /* MultiFileDownloaderManager.swift in Sources */,
 				CEBED2EC2461976300FFD965 /* TwoDialogManager.swift in Sources */,
 				CE424168246C38B000B4897E /* LoadingIcon.swift in Sources */,
 				CEBED2DC245FFAF600FFD965 /* StickerPackage.swift in Sources */,

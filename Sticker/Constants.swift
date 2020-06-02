@@ -14,8 +14,8 @@ class Constants {
     
     let AUTH_TOKEN_KEY = "Auth-Token"
     let AUTH_TOKEN = "FGn13sM4mMgQSUbbG8t1VeH1P"
-    //let STICKERS_URL = "http://stikers.solucionestpvpos.com/api/pack.php"
-    let STICKERS_URL = "http://stickets.expertolaboratorio.mx/api/pack.php"
+    let STICKERS_URL = "http://stikers.solucionestpvpos.com/api/pack.php"
+    //let STICKERS_URL = "http://stickets.expertolaboratorio.mx/api/pack.php"
     
     private init() {
     }

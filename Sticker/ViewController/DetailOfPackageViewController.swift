@@ -167,6 +167,38 @@ class DetailOfPackageViewController: UIViewController {
     }
     
     @IBAction func whatsappButtonTouch(_ sender: Any) {
+        
+        //Question if continue
+        AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres agregar el paquete de stickers a whatsapp?", onYes: {
+            
+            do {
+             
+                //Save the package stickers to whatsapp
+                WhatsappStickerManager.shared.onCompleted = {
+                    
+                    //Now the sticker package is on whatsapp
+                    self.StickerInnerPackHttpModel_?.alreadyWhatsapp = true
+                    
+                    //Update the package sticker that now is added to whatsapp
+                    StickersManager.shared.updateRemotePackage(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)
+                    
+                    //Show the view for whatsapp downloaded
+                    self.packageStickersAlreadyDownloadedInWhatsapp()
+                    
+                    AlertManager.shared.showOk(UIViewController: self, message: "Paquete de stickers agregado a whatsapp correctamente")
+                }
+                WhatsappStickerManager.shared.OnError(onError: {_ in
+                    AlertManager.shared.showError(UIViewController: self, message: self.description)
+                })
+                try WhatsappStickerManager.shared.downloadToWhatsapp(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)
+                
+            } catch {
+                AlertManager.shared.showError(UIViewController: self, message: error.localizedDescription)
+            }
+            
+        }, onNo: {
+            
+        })
     }
     
     @IBAction func deleteButtonTouch(_ sender: Any) {
