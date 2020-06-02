@@ -13,7 +13,9 @@ extension UIImageView {
 
     func loadImageFromUrl(urlString:String){
         
-        Alamofire.request(urlString, method: .get)
+        let newUrlString = urlString.replacingOccurrences(of: " ", with: "%20")
+        
+        Alamofire.request(newUrlString, method: .get)
         .validate()
         .responseData(completionHandler: { (responseData) in
             self.image = UIImage(data: responseData.data!)
