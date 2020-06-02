@@ -53,7 +53,7 @@ class PackageDetailUIViewController: UIViewController {
             self.titleLabel.text = "Salvados"
             
             //Reset previus data
-            PackageDetailUIShare.shared.data = nil
+            //PackageDetailUIShare.shared.data = nil
         }
         else{
             
