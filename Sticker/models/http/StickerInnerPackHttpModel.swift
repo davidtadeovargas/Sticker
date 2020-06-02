@@ -23,6 +23,7 @@ class StickerInnerPackHttpModel: NSObject, NSCoding {
     var totalSize:String!
     var trayImageFile:String!
     var trayImageUri:String!
+    var alreadyWhatsapp:Bool = false
     
     override init(){
     }
@@ -68,6 +69,9 @@ class StickerInnerPackHttpModel: NSObject, NSCoding {
         if let trayImageUri = aDecoder.decodeObject(forKey: "trayImageUri") as? String {
             self.trayImageUri = trayImageUri
         }
+        if let alreadyWhatsapp = aDecoder.decodeObject(forKey: "alreadyWhatsapp") as? Bool {
+            self.alreadyWhatsapp = alreadyWhatsapp
+        }
     }
 
     func encode(with aCoder: NSCoder) {
@@ -84,5 +88,6 @@ class StickerInnerPackHttpModel: NSObject, NSCoding {
         aCoder.encode(totalSize, forKey: "totalSize")
         aCoder.encode(trayImageFile, forKey: "trayImageFile")
         aCoder.encode(trayImageUri, forKey: "trayImageUri")
+        aCoder.encode(alreadyWhatsapp, forKey: "alreadyWhatsapp")
     }
 }

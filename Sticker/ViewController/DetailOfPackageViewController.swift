@@ -45,14 +45,16 @@ class DetailOfPackageViewController: UIViewController {
         if((StickerPackage) == nil){
             packageStickersNotAlreadyDownloaded()
         }
-        else{
+        else if(!StickerPackage!.alreadyWhatsapp){
             packageStickersAlreadyDownloaded()
+        }
+        else{
+            packageStickersAlreadyDownloadedInWhatsapp()
         }
         
         //Set main image
         let imageUri = self.StickerInnerPackHttpModel_?.trayImageUri
         self.mainImage.loadImageFromUrl(urlString: imageUri!)
-        let url = URL(string: imageUri!)
         
         //Name and publisher
         self.mainLabel.text = self.StickerInnerPackHttpModel_?.name

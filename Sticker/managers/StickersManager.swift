@@ -12,8 +12,6 @@ class StickersManager {
     
     let REMOTE_STICKERS_KEY = "remote_stickers"
     
-    var packages:[StickerInnerPackHttpModel]? = nil
-    
     static let shared = StickersManager()
     
     var dicSticker : NSMutableDictionary = [:]
@@ -26,17 +24,14 @@ class StickersManager {
     
     func getAllRemotePackages() -> [StickerInnerPackHttpModel] {
         
-        if(packages == nil){
-                
-            let defaults = UserDefaults.standard
-            packages = [StickerInnerPackHttpModel]()
-            if(defaults.object(forKey: self.REMOTE_STICKERS_KEY) != nil){
-                let decoded  = defaults.object(forKey: self.REMOTE_STICKERS_KEY) as! Data
-                packages = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [StickerInnerPackHttpModel]
-            }
+        let defaults = UserDefaults.standard
+        var stickers = [StickerInnerPackHttpModel]()
+        if(defaults.object(forKey: self.REMOTE_STICKERS_KEY) != nil){
+            let decoded  = defaults.object(forKey: self.REMOTE_STICKERS_KEY) as! Data
+            stickers = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [StickerInnerPackHttpModel]
         }
         
-        return packages!
+        return stickers
     }
     func addRemotePackage(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) {
         
