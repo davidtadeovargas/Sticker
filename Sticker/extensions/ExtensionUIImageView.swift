@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
+import SDWebImageWebPCoder
 
 extension UIImageView {
 
@@ -15,28 +17,24 @@ extension UIImageView {
         
         let newUrlString = urlString.replacingOccurrences(of: " ", with: "%20")
         
-        Alamofire.request(newUrlString, method: .get)
-        .validate()
-        .responseData(completionHandler: { (responseData) in
-            self.image = UIImage(data: responseData.data!)
+        if(newUrlString.hasSuffix("webp")){
+            let webPCoder = SDImageWebPCoder.shared
+            SDImageCodersManager.shared.addCoder(webPCoder)
+            guard let webpURL = URL(string: newUrlString)  else {return}
             DispatchQueue.main.async {
-                // Refresh you views
+                self.sd_setImage(with: webpURL)
             }
-        })
-        
-        /*let url = URL(string: urlString)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                if(data == nil){
-                    
+        }
+        else{
+            AF.request(newUrlString, method: .get)
+            .validate()
+            .responseData(completionHandler: { (responseData) in
+                self.image = UIImage(data: responseData.data!)
+                DispatchQueue.main.async {
+                    // Refresh you views
                 }
-                else{
-                    let imageIcon = UIImage(data: data!)
-                    self.image = imageIcon
-                }
-            }
-        }*/
+            })
+        }
     }
     
     func getData() -> Data {

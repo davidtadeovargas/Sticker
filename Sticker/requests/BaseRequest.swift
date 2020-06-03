@@ -38,7 +38,7 @@ class BaseRequest {
         
         print("Starting request to url = " + url!)
         
-        let request = Alamofire.request(self.url!, headers: headers)
+        let request = AF.request(self.url!, headers: headers)
         request.responseJSON { (data) in
             
             do {

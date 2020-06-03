@@ -69,7 +69,7 @@ class MultiFileDownloaderManager {
             }
             
             //Download the file to disk
-            Alamofire.download(FileMultiFile.url, to: destination).response { response in
+            AF.download(FileMultiFile.url, to: destination).response { response in
                 if(!(response.error != nil)){
                     
                     print("MultiFileDownloaderManager: Image downloaded")
