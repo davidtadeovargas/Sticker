@@ -92,6 +92,9 @@
                                 <state key="normal" title="AGREGAR A WHASTAPP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSendToWhatsappTouched:" destination="9b4-RX-BAO" eventType="touchUpInside" id="tlX-cr-mUa"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVp-3T-F7u" userLabel="View second">
                                 <rect key="frame" x="0.0" y="56" width="320" height="89"/>

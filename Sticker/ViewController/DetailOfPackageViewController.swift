@@ -168,6 +168,12 @@ class DetailOfPackageViewController: UIViewController {
     
     @IBAction func whatsappButtonTouch(_ sender: Any) {
         
+        //Validate that the amound of stickers is valid
+        if((self.StickerInnerPackHttpModel_?.stickers.count)! < 3){
+            AlertManager.shared.showError(UIViewController: self, message: "La cantida de stickers debe ser de 3 o mayor para poder continuar")
+            return
+        }
+        
         //Question if continue
         AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres agregar el paquete de stickers a whatsapp?", onYes: {
             

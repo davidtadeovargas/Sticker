@@ -384,6 +384,28 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
         }, onCancel: {})
     }
+    
+    @IBAction func buttonSendToWhatsappTouched(_ sender: Any) {
+        
+        //Check if the amount of stickers is valid
+        let stickers = self.StickerPackage?.stickers
+        var countStickers = 0
+        for StickerModel_ in stickers! {
+            if(StickerModel_.alreadyImageSet!){
+                countStickers = countStickers + 1
+                if(countStickers==3){
+                    break
+                }
+            }
+        }
+        
+        //Validate that the amound of stickers is valid
+        if(countStickers < 3){
+            AlertManager.shared.showError(UIViewController: self, message: "La cantida de stickers debe ser de 3 o mayor para poder continuar")
+            return
+        }
+    }
+    
 }
 
 class DetailPackageTableViewCell: UITableViewCell {
