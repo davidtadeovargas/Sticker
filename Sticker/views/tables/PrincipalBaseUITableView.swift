@@ -35,35 +35,43 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             //Set the main text
             cell_!.mainLabel.text = StickerPackageHttpModel_.categoryName
             
+            print("Showing category " + StickerPackageHttpModel_.categoryName)
+            
             //If already not init
-            if(cell_!.mainStack.subviews.count == 0){
+            //if(cell_!.mainStack.subviews.count == 0){
                
-                //Add action for "mas" button
-                let tap = UITapGestureRecognizer(target: self, action: #selector(self.plusAction))
-                cell_!.masLabel.isUserInteractionEnabled = true
-                cell_!.masLabel.addGestureRecognizer(tap)
-                
-                //Create the stack rows
-                if(StickerPackageHttpModel_.stickerPack!.count > 0){
-                    let stickers = StickerPackageHttpModel_.stickerPack
-                    for StickerInnerPackHttpModel in stickers! {
-                        
-                        //Create the stack with sticker images
-                        let UIStackView_ = self.getStackCell(StickerInnerPackHttpModel_: StickerInnerPackHttpModel)
-                        
-                        //Add gesture recognizer
-                        let StickerPackageUITapGestureRecognizer_ = StickerPackageUITapGestureRecognizer(target:self, action: #selector(self.stackStickerTouch))
-                        StickerPackageUITapGestureRecognizer_.StickerInnerPackHttpModel = StickerInnerPackHttpModel
-                        UIStackView_!.isUserInteractionEnabled = true
-                        UIStackView_!.addGestureRecognizer(StickerPackageUITapGestureRecognizer_)
-                        
-                        //Add it to the row stack
-                        if(UIStackView_ != nil){
-                            cell_!.mainStack.addArrangedSubview(UIStackView_!)
-                        }
+            //Add action for "mas" button
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.plusAction))
+            cell_!.masLabel.isUserInteractionEnabled = true
+            cell_!.masLabel.addGestureRecognizer(tap)
+            
+            print("Category contains in total \(StickerPackageHttpModel_.stickerPack!.count)")
+            
+            print("cell_!.mainStack count \(cell_!.mainStack.arrangedSubviews.count)")
+            
+            cell_!.mainStack.removeAllArrangedSubviews()
+            
+            //If there are stickers pack
+            if(StickerPackageHttpModel_.stickerPack!.count > 0){
+                let stickersTmp = StickerPackageHttpModel_.stickerPack
+                for StickerInnerPackHttpModel in stickersTmp! {
+                    
+                    //Create the stack with sticker images
+                    let UIStackView_ = self.getStackCell(StickerInnerPackHttpModel_: StickerInnerPackHttpModel)
+                    
+                    //Add gesture recognizer
+                    let StickerPackageUITapGestureRecognizer_ = StickerPackageUITapGestureRecognizer(target:self, action: #selector(self.stackStickerTouch))
+                    StickerPackageUITapGestureRecognizer_.StickerInnerPackHttpModel = StickerInnerPackHttpModel
+                    UIStackView_!.isUserInteractionEnabled = true
+                    UIStackView_!.addGestureRecognizer(StickerPackageUITapGestureRecognizer_)
+                    
+                    //Add it to the row stack
+                    if(UIStackView_ != nil){
+                        cell_!.mainStack.addArrangedSubview(UIStackView_!)
                     }
                 }
             }
+           //}
             
             return cell_!
         }
@@ -126,6 +134,8 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
     
     func getStackCell(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) -> UIStackView? {
         
+        print("getStackCell() \(StickerInnerPackHttpModel_.stickers!.count)")
+        
         //If any stickers
         if(StickerInnerPackHttpModel_.stickers!.count > 0){
             
@@ -164,11 +174,15 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             //Add the images to the stacks
             if((StickerInnerPackHttpModel_.stickers?.indices.contains(0)) != nil){
                 
+                print("Adding to first stack index 0")
+                
                 let StickerHttpModel_ = StickerInnerPackHttpModel_.stickers![0]
                 let UIImageView_:UIImageView = getUIImageView(StickerHttpModel_: StickerHttpModel_)
                 firstUIStackView.addArrangedSubview(UIImageView_)
             }
             if((StickerInnerPackHttpModel_.stickers?.indices.contains(1)) != nil){
+                
+                print("Adding to first stack index 1")
                 
                 let StickerHttpModel_ = StickerInnerPackHttpModel_.stickers![1]
                 let UIImageView_:UIImageView = getUIImageView(StickerHttpModel_: StickerHttpModel_)
@@ -176,11 +190,15 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             }
             if((StickerInnerPackHttpModel_.stickers?.indices.contains(2)) != nil){
                 
+                print("Adding to middle stack index 2")
+                
                 let StickerHttpModel_ = StickerInnerPackHttpModel_.stickers![2]
                 let UIImageView_:UIImageView = getUIImageView(StickerHttpModel_: StickerHttpModel_)
                 middleUIStackView.addArrangedSubview(UIImageView_)
             }
             if((StickerInnerPackHttpModel_.stickers?.indices.contains(3)) != nil){
+                 
+                print("Adding to middle stack index 3")
                 
                 let StickerHttpModel_ = StickerInnerPackHttpModel_.stickers![3]
                 let UIImageView_:UIImageView = getUIImageView(StickerHttpModel_: StickerHttpModel_)
@@ -200,6 +218,8 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
             bottomUIStackView.addArrangedSubview(mainLabel)
             bottomUIStackView.addArrangedSubview(secondaryLabel)
             
+            print("Returning mainUIStackView")
+            
             //Return resulting stack
             return mainUIStackView
         }
@@ -212,7 +232,6 @@ class PrincipalBaseUITableView: BaseUITableView, InitTableProtocol {
         
         let uri = StickerHttpModel_.uri?.replacingOccurrences(of: "\"", with: "")
         print("Reading image from \(uri ?? "Default value")")
-        let url = URL(string: uri!)
         let UIImageView_ =  UIImageView()
         UIImageView_.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         UIImageView_.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
