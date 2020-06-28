@@ -177,8 +177,8 @@ class DetailOfPackageViewController: UIViewController {
         //Question if continue
         AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres agregar el paquete de stickers a whatsapp?", onYes: {
             
-            do {
-             
+            do{
+                
                 //Save the package stickers to whatsapp
                 WhatsappStickerManager.shared.onCompleted = {
                     
@@ -196,9 +196,37 @@ class DetailOfPackageViewController: UIViewController {
                 WhatsappStickerManager.shared.OnError(onError: {_ in
                     AlertManager.shared.showError(UIViewController: self, message: self.description)
                 })
-                try WhatsappStickerManager.shared.downloadToWhatsapp(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)
+                try WhatsappStickerManager.shared.downloadToWhatsappHttp(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)
                 
-            } catch {
+            }catch StickerPackError.fileNotFound{
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Archivo no encontrado")
+            }
+            catch(StickerPackError.emptyString){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Cadena vacia")
+            }
+            catch(StickerPackError.unsupportedImageFormat(let String)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Formato de imagen no soportado " + String)
+            }
+            catch(StickerPackError.imageTooBig(let Int64)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Tamano de imagen muy grande " + String(Int64) + ", el maximo es  \(Limits.MaxStickerFileSize)")
+            }
+            catch(StickerPackError.incorrectImageSize(let CGSize)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Tamaño de imagen incorrecta " + NSStringFromCGSize(CGSize))
+            }
+            catch(StickerPackError.animatedImagesNotSupported){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Imagenes animadas no son soportadas")
+            }
+            catch(StickerPackError.stickersNumOutsideAllowableRange){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK stickersNumOutsideAllowableRange")
+            }
+            catch(StickerPackError.stringTooLong){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Cadena muy larga")
+            }
+            catch(StickerPackError.tooManyEmojis){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Demasiados emojis")
+            }
+            catch{
+                
                 AlertManager.shared.showError(UIViewController: self, message: error.localizedDescription)
             }
             

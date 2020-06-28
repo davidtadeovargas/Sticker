@@ -25,7 +25,76 @@ class WhatsappStickerManager {
         MultiFileDownloaderManager.shared.onError = onError
     }
 
+    func downloadToWhatsappHttp(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) throws {
+        try self.downloadToWhatsappUtil(StickerInnerPackHttpModel_: StickerInnerPackHttpModel_, trayImageFileName: StickerInnerPackHttpModel_.trayImageUri)
+    }
     
+    func downloadToWhatsappUtil(StickerInnerPackHttpModel_:StickerInnerPackHttpModel, trayImageFileName:String) throws {
+        
+        let trayImageFileNameNew:String
+        if(trayImageFileName.hasPrefix("http")){
+            trayImageFileNameNew = trayImageFileName.replacingOccurrences(of: " ", with: "%20")
+        }
+        else{
+            trayImageFileNameNew = trayImageFileName
+        }
+        
+        
+        let bundleID = Bundle.main.bundleIdentifier
+        let name = (StickerInnerPackHttpModel_.name)!
+        let publisher = (StickerInnerPackHttpModel_.publisher)!
+        let publisherWebsite = "www.gatitosyperritoschidos.com"
+        
+        print("WhatsappStickerManager: Trying to add the sticker: ")
+        print("WhatsappStickerManager: identifier: \(bundleID!)")
+        print("WhatsappStickerManager: name: \(name)")
+        print("WhatsappStickerManager: publisher: \(publisher)")
+        print("WhatsappStickerManager: trayImageFileName: \(trayImageFileNameNew)")
+        print("WhatsappStickerManager: publisherWebsite: \(publisherWebsite)")
+        
+        //Send the sticker package to whatsapp
+        let stickerPack = try StickerPack(  identifier: bundleID!,
+                                            name: name,
+                                            publisher: publisher,
+                                            trayImageFileName: trayImageFileNameNew,
+                                            publisherWebsite: publisherWebsite,
+                                            privacyPolicyWebsite: nil,
+                                            licenseAgreementWebsite: nil)
+        let stickers = StickerInnerPackHttpModel_.stickers
+        var x = 0
+        for StickerHttpModel_ in stickers! {
+            var imageFileName:String
+            if(trayImageFileName.hasPrefix("http")){
+                imageFileName = StickerHttpModel_.uri
+                imageFileName = imageFileName.replacingOccurrences(of: " ", with: "%20")
+            }
+            else{
+                imageFileName = StickerHttpModel_.imageFileName
+            }
+            
+            x += 1
+            
+            print("WhatsappStickerManager: Image number: \(x)")
+            
+            print("WhatsappStickerManager: Adding sticker image: \(imageFileName)")
+            
+            let fileExtension: String = (imageFileName as NSString).pathExtension
+            
+            print("WhatsappStickerManager: File extention: \(fileExtension)")
+            
+            if(x==9){
+                x = 9
+            }
+            try stickerPack.addSticker(contentsOfFile: imageFileName, emojis: nil)
+        }
+        stickerPack.sendToWhatsApp { _ in }
+        
+        //Callback for complete
+        if(self.onCompleted != nil){
+            self.onCompleted!()
+        }
+    }
+        
     func downloadToWhatsapp(StickerInnerPackHttpModel_:StickerInnerPackHttpModel) throws {
         
         //Init the tray image to be downloaded to disk
@@ -37,7 +106,7 @@ class WhatsappStickerManager {
         //Init the stickers image files to be download to disk
         let stickers = StickerInnerPackHttpModel_.stickers
         for StickerHttpModel_ in stickers! {
-            
+            	
             FileMultiFile_ = FileMultiFile()
             FileMultiFile_.url = StickerHttpModel_.uri
             FileMultiFile_.fileName = StickerHttpModel_.imageFileName
@@ -48,31 +117,13 @@ class WhatsappStickerManager {
         MultiFileDownloaderManager.shared.onCompleted = {
             
             do {
-                    
-                let bundleID = Bundle.main.bundleIdentifier
-                let name = (StickerInnerPackHttpModel_.name)!
-                let publisher = (StickerInnerPackHttpModel_.publisher)!
+                  
+                //Create the file path
                 let documentsDir = try FilesManager.shared.getFileFromDocumentDirectoryPath(fileName: FileMultiFile_.fileName)
                 let trayImageFileName = documentsDir?.absoluteString
                 
-                //Send the sticker package to whatsapp
-                let stickerPack = try StickerPack(  identifier: bundleID!,
-                                                    name: name,
-                                                    publisher: publisher,
-                                                    //trayImageFileName: FileMultiFile_.url!,
-                                                    trayImageFileName: "http://sinlimiteweb.com/Overoles_285803.png",
-                                                    publisherWebsite: "www.gatitosyperritoschidos.com",
-                                                    privacyPolicyWebsite: nil,
-                                                    licenseAgreementWebsite: nil)
-                for StickerHttpModel_ in stickers! {
-                    try stickerPack.addSticker(contentsOfFile: StickerHttpModel_.imageFileName, emojis: nil)
-                }
-                stickerPack.sendToWhatsApp { _ in }
-                
-                //Callback for complete
-                if(self.onCompleted != nil){
-                    self.onCompleted!()
-                }
+                //Download the whatsapp stickr pack to whatsapp app
+                try! self.downloadToWhatsappUtil(StickerInnerPackHttpModel_: StickerInnerPackHttpModel_, trayImageFileName: trayImageFileName!)
                 
             }
             catch {

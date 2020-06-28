@@ -46,6 +46,8 @@ class MultiFileDownloaderManager {
         //End of recursion
         if(FileMultiFiles.count == index){
             
+            print("MultiFileDownloaderManager: All files properly downloaded")
+            
             //Clear the list of files
             self.FileMultiFiles = []
             
@@ -65,14 +67,16 @@ class MultiFileDownloaderManager {
             
             //Delete the file if exists
             if(try FilesManager.shared.fileExistsFromdDocumentDirectory(fileName: FileMultiFile.fileName)){
+                print("MultiFileDownloaderManager: Image \(FileMultiFile.url) exists in local")
                 try FilesManager.shared.removeFileFromdDocumentDirectory(fileName: FileMultiFile.fileName)
+                print("MultiFileDownloaderManager: Image \(FileMultiFile.url) deleted from local")
             }
             
             //Download the file to disk
             AF.download(FileMultiFile.url, to: destination).response { response in
                 if(!(response.error != nil)){
                     
-                    print("MultiFileDownloaderManager: Image downloaded")
+                    print("MultiFileDownloaderManager: Image \(FileMultiFile.url) downloaded")
                     
                     do {
                         
