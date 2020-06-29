@@ -240,7 +240,8 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
             //Add the delete image at top of the original image
             let deleteImage = UIImage(named: "delete_red")
-            let image = UIImage.imageByMergingImages(topImage: deleteImage!, bottomImage: uiimage)
+            var image = UIImage.imageByMergingImages(topImage: deleteImage!, bottomImage: uiimage)
+            image = image.resizeImage(targetSize: Limits.ImageDimensions) //Resize the image
             let newData = image.getData()
             
             //Update the model
@@ -321,8 +322,11 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         //Open window to select image from gallery and edit it
         EditPackageImageShare.shared.onImageSetted = {uiimage, data in
             
+            //Resize image
+            let uiimage_ = uiimage.resizeImage(targetSize: Limits.TrayImageDimensions)
+            
             //Change the image to the edited one
-            self.imgPackage.image = uiimage
+            self.imgPackage.image = uiimage_
             
             //Update the tray image in the local system
             StickersManager.shared.updateCustomPackageTrayImage(name: self.packageName!, data: data)

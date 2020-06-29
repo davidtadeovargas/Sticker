@@ -17,6 +17,7 @@ target 'Sticker' do
   pod 'RealmSwift'
   pod 'SDWebImage', '~> 5.7'
   pod 'SDWebImageWebPCoder', '~> 0.6.1'
+  pod 'PhotoEditorSDK'
 end
 
 target 'OneSignalNotificationServiceExtension' do

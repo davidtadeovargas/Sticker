@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMobileAds
 import OneSignal
+import PhotoEditorSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        if let licenseURL = Bundle.main.url(forResource: "ios_license", withExtension: "") {
+          PESDK.unlockWithLicense(at: licenseURL)
+        }
         
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         

@@ -103,6 +103,7 @@
 		CEFE52CB2466125900A0C761 /* StickerPackageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CA2466125900A0C761 /* StickerPackageRequest.swift */; };
 		CEFE52CF2466128C00A0C761 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CE2466128C00A0C761 /* BaseRequest.swift */; };
 		FE7FD0AD6D7B3B21D3D7A6EA /* Pods_Sticker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */; };
+		FF944B7324A9BC3700B519C1 /* ios_license in Resources */ = {isa = PBXBuildFile; fileRef = FF944B7224A9BC3700B519C1 /* ios_license */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 		CEFE52CE2466128C00A0C761 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		E35D6476CA2D2EFCD9AB99F4 /* Pods-Sticker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sticker/Pods-Sticker.release.xcconfig"; sourceTree = "<group>"; };
 		E98804A84C84B3CE50123F31 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		FF944B7224A9BC3700B519C1 /* ios_license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ios_license; path = ../../../../Desktop/ios_license; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 		2AC6E34221C76883005FFDB8 /* Sticker */ = {
 			isa = PBXGroup;
 			children = (
+				FF944B7224A9BC3700B519C1 /* ios_license */,
 				CEF909B82473217000FBE390 /* enums */,
 				CE424169246C8B8A00B4897E /* extensions */,
 				CEFE52CD2466127600A0C761 /* requests */,
@@ -654,6 +657,7 @@
 				2AC6E34E21C76884005FFDB8 /* LaunchScreen.storyboard in Resources */,
 				2AC6E34B21C76884005FFDB8 /* Assets.xcassets in Resources */,
 				2A818B7722BA3700005DECE4 /* delete.png in Resources */,
+				FF944B7324A9BC3700B519C1 /* ios_license in Resources */,
 				2A818B7822BA3700005DECE4 /* edit.png in Resources */,
 				2ACD40FB22B39CC500FCAA5C /* add.png in Resources */,
 				2A425D6422392DD0007E8C0E /* rate.png in Resources */,
