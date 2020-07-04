@@ -32,6 +32,7 @@ class DetailOfPackageViewController: UIViewController {
     @IBOutlet weak var img11: UIImageView!
     @IBOutlet weak var img12: UIImageView!
     
+    @IBOutlet weak var labelStickersAddedWhatsaApp: UILabel!
     
     var StickerInnerPackHttpModel_:StickerInnerPackHttpModel?
     
@@ -118,14 +119,19 @@ class DetailOfPackageViewController: UIViewController {
         self.deleteButton.isHidden = false
         self.downloadStickersPackButton.isHidden = true
         self.whatsappButton.isHidden = false
+        self.labelStickersAddedWhatsaApp.isHidden = true
     }
     func packageStickersNotAlreadyDownloaded(){
         self.deleteButton.isHidden = true
         self.downloadStickersPackButton.isHidden = false
         self.whatsappButton.isHidden = true
+        self.labelStickersAddedWhatsaApp.isHidden = true
     }
     func packageStickersAlreadyDownloadedInWhatsapp(){
-        
+        self.deleteButton.isHidden = false
+        self.downloadStickersPackButton.isHidden = true
+        self.whatsappButton.isHidden = true
+        self.labelStickersAddedWhatsaApp.isHidden = false
     }
     
     func getStack() -> UIStackView{
@@ -261,6 +267,8 @@ class DetailOfPackageViewController: UIViewController {
     @IBAction func downloadStickersPackageButtonTouch(_ sender: Any) {
         
         AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres descargar el paquete de stickers?", onYes: {
+            
+            self.StickerInnerPackHttpModel_!.alreadyWhatsapp = false
             
             //Save the sticker in the system
             StickersManager.shared.addRemotePackage(StickerInnerPackHttpModel_: self.StickerInnerPackHttpModel_!)

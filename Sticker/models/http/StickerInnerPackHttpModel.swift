@@ -23,7 +23,7 @@ class StickerInnerPackHttpModel: NSObject, NSCoding {
     var totalSize:String!
     var trayImageFile:String!
     var trayImageUri:String!
-    var alreadyWhatsapp:Bool = false
+    var alreadyWhatsapp:Bool!
     
     override init(){
     }

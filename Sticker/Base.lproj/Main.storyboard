@@ -647,6 +647,16 @@
                                     <action selector="downloadStickersPackageButtonTouch:" destination="dtC-in-xD9" eventType="touchUpInside" id="CJh-qN-FvM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paquete de stickers agregado aWhatsApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUM-BC-DdF">
+                                <rect key="frame" x="0.0" y="443" width="320" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="R44-gj-bK5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -654,6 +664,7 @@
                             <constraint firstAttribute="trailing" secondItem="ypa-Yf-scf" secondAttribute="trailing" id="3Jh-3q-vwH"/>
                             <constraint firstItem="08o-tf-gzQ" firstAttribute="leading" secondItem="pOb-VI-3de" secondAttribute="trailing" constant="8" id="AKS-pQ-okD"/>
                             <constraint firstAttribute="trailing" secondItem="Ugh-JG-UZt" secondAttribute="trailing" id="Hob-JQ-6If"/>
+                            <constraint firstAttribute="trailing" secondItem="bUM-BC-DdF" secondAttribute="trailing" id="HrB-B9-nsF"/>
                             <constraint firstItem="pOb-VI-3de" firstAttribute="top" secondItem="ypa-Yf-scf" secondAttribute="bottom" constant="8" id="LVE-hh-08N"/>
                             <constraint firstItem="YaG-v1-Fuz" firstAttribute="top" secondItem="Ugh-JG-UZt" secondAttribute="bottom" id="O8p-xS-T0z"/>
                             <constraint firstItem="08o-tf-gzQ" firstAttribute="top" secondItem="LPJ-oR-vlB" secondAttribute="bottom" constant="2" id="TEs-Hn-5vn"/>
@@ -665,11 +676,13 @@
                             <constraint firstItem="ypa-Yf-scf" firstAttribute="leading" secondItem="7wR-hr-6Um" secondAttribute="leading" id="bky-o4-Ysv"/>
                             <constraint firstItem="LPJ-oR-vlB" firstAttribute="trailing" secondItem="7wR-hr-6Um" secondAttribute="trailingMargin" id="doV-EI-nLw"/>
                             <constraint firstItem="YaG-v1-Fuz" firstAttribute="top" secondItem="7Ep-OU-3dd" secondAttribute="bottom" id="dyk-Jx-hw7"/>
+                            <constraint firstItem="YaG-v1-Fuz" firstAttribute="top" secondItem="bUM-BC-DdF" secondAttribute="bottom" id="erP-Mk-a2l"/>
                             <constraint firstItem="Ugh-JG-UZt" firstAttribute="leading" secondItem="7wR-hr-6Um" secondAttribute="leading" id="fHc-aU-OtV"/>
                             <constraint firstAttribute="trailing" secondItem="sdN-8W-kHD" secondAttribute="trailing" id="hTx-hE-RHA"/>
                             <constraint firstItem="LPJ-oR-vlB" firstAttribute="top" secondItem="ypa-Yf-scf" secondAttribute="bottom" constant="14" id="qC4-dW-e5M"/>
                             <constraint firstItem="ypa-Yf-scf" firstAttribute="top" secondItem="2Wm-ca-RrP" secondAttribute="bottom" id="qrn-mz-Dca"/>
                             <constraint firstAttribute="trailing" secondItem="7Ep-OU-3dd" secondAttribute="trailing" id="tXq-jI-yL4"/>
+                            <constraint firstItem="bUM-BC-DdF" firstAttribute="leading" secondItem="7wR-hr-6Um" secondAttribute="leading" id="u9G-Dz-y70"/>
                             <constraint firstItem="08o-tf-gzQ" firstAttribute="trailing" secondItem="7wR-hr-6Um" secondAttribute="trailingMargin" id="zFu-la-Yks"/>
                         </constraints>
                     </view>
@@ -689,6 +702,7 @@
                         <outlet property="img7" destination="1mh-Eh-ZEf" id="J2G-WL-qkO"/>
                         <outlet property="img8" destination="t3q-nV-ujv" id="wL7-1E-bBT"/>
                         <outlet property="img9" destination="xsJ-dL-VZp" id="oSR-9t-lpS"/>
+                        <outlet property="labelStickersAddedWhatsaApp" destination="bUM-BC-DdF" id="CPS-co-kC6"/>
                         <outlet property="mainImage" destination="pOb-VI-3de" id="qno-BI-lEl"/>
                         <outlet property="mainLabel" destination="LPJ-oR-vlB" id="4NN-Lw-zSv"/>
                         <outlet property="secondaryLabel" destination="08o-tf-gzQ" id="Nqc-Y1-A54"/>
