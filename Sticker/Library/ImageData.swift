@@ -128,11 +128,11 @@ class ImageData {
         } else {
             let fileExtension: String = (filename as NSString).pathExtension
             
-            guard let imageURL = Bundle.main.url(forResource: filename, withExtension: "") else {
+            /*guard let imageURL = Bundle.main.url(forResource: filename, withExtension: fileExtension) else {
                 throw StickerPackError.fileNotFound
-            }
+            }*/
             
-            let data = try Data(contentsOf: imageURL)
+            let data = try Data(contentsOf: URL(fileURLWithPath: filename))
             guard let imageType = ImageDataExtension(rawValue: fileExtension) else {
                 throw StickerPackError.unsupportedImageFormat(fileExtension)
             }

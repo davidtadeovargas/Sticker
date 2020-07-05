@@ -150,6 +150,16 @@
                                     <action selector="btnBackClicked:" destination="9b4-RX-BAO" eventType="touchUpInside" id="161-XY-vZe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paquete de stickers agregado aWhatsApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8i-mU-vwr">
+                                <rect key="frame" x="0.0" y="434" width="320" height="46"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="a7n-Lq-ymb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.24302497510000001" green="0.38796886800000002" blue="0.64627319569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -161,8 +171,11 @@
                             <constraint firstAttribute="trailing" secondItem="zgL-Ym-Zb6" secondAttribute="trailing" id="DeK-Vk-Vq5"/>
                             <constraint firstItem="EVp-3T-F7u" firstAttribute="leading" secondItem="mbx-gO-vRH" secondAttribute="leading" id="GVA-hf-mBh"/>
                             <constraint firstItem="EVp-3T-F7u" firstAttribute="top" secondItem="C7H-dF-IC9" secondAttribute="bottom" constant="20.5" id="Gbf-GV-T0W"/>
+                            <constraint firstItem="ybX-vS-sfq" firstAttribute="top" secondItem="z8i-mU-vwr" secondAttribute="bottom" id="IYT-1S-sPY"/>
+                            <constraint firstItem="z8i-mU-vwr" firstAttribute="leading" secondItem="mbx-gO-vRH" secondAttribute="leading" id="Ndi-iB-qYm"/>
                             <constraint firstItem="zgL-Ym-Zb6" firstAttribute="leading" secondItem="mbx-gO-vRH" secondAttribute="leading" id="Nmt-Wb-j4O"/>
                             <constraint firstItem="PR2-Ff-U64" firstAttribute="top" secondItem="vN6-0Q-NSU" secondAttribute="bottom" constant="15" id="RrO-qX-6mV"/>
+                            <constraint firstAttribute="trailing" secondItem="z8i-mU-vwr" secondAttribute="trailing" id="ZBk-aW-KhL"/>
                             <constraint firstItem="uP1-Vx-rSY" firstAttribute="leading" secondItem="mbx-gO-vRH" secondAttribute="leadingMargin" id="bs0-zo-q3Q"/>
                             <constraint firstItem="ybX-vS-sfq" firstAttribute="top" secondItem="oqe-BA-VK7" secondAttribute="bottom" id="rhu-pO-R1Z"/>
                             <constraint firstAttribute="trailing" secondItem="EVp-3T-F7u" secondAttribute="trailing" id="sWd-Ib-wI9"/>
@@ -172,10 +185,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="PR2-Ff-U64" id="8r1-qx-szJ"/>
                         <outlet property="imgPackage" destination="uZ1-4m-HkS" id="Okm-7X-5W6"/>
                         <outlet property="labelCreator" destination="iyw-ht-N8h" id="KjE-os-6Zu"/>
                         <outlet property="labelPackageName" destination="Tj1-2h-j0L" id="T6V-Er-J6N"/>
+                        <outlet property="labelStickersAddedWhatsaApp" destination="z8i-mU-vwr" id="rjq-nV-Go6"/>
                         <outlet property="tableView" destination="zgL-Ym-Zb6" id="I9Z-7c-uaS"/>
+                        <outlet property="whatsappButton" destination="oqe-BA-VK7" id="Qjp-LK-4Qb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsL-Ri-y2i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

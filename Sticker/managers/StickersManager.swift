@@ -11,6 +11,7 @@ import Foundation
 class StickersManager {
     
     let REMOTE_STICKERS_KEY = "remote_stickers"
+    let CUSTOM_STICKERS_KEY = "custom_stickers"
     
     static let shared = StickersManager()
     
@@ -90,6 +91,29 @@ class StickersManager {
             }
         }
     }
+    func updateCustomPackage(StickerPackage_:StickerPackage) {
+        
+        let packages:[StickerPackage] = self.getAllCustomPackages()
+        for StickerPackage in packages {
+            if(StickerPackage.name==StickerPackage_.name){
+                
+                //Update the iteration model
+                StickerPackage.trayImage = StickerPackage_.trayImage
+                StickerPackage.creator = StickerPackage_.creator
+                StickerPackage.stickers = StickerPackage_.stickers
+                StickerPackage.alreadyWhatsapp = StickerPackage_.alreadyWhatsapp
+                
+                //Update the model in disk
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: packages)
+                let defaults = UserDefaults.standard
+                defaults.set(encodedData, forKey: self.CUSTOM_STICKERS_KEY)
+                defaults.synchronize()
+                
+                //Break the flow for optimization
+                break
+            }
+        }
+    }
     func getRemotePackage(name:String) -> StickerInnerPackHttpModel? {
         
         let packages:[StickerInnerPackHttpModel] = self.getAllRemotePackages()
@@ -120,7 +144,7 @@ class StickersManager {
         return packages
     }
     func getAllCustomPackages() -> [StickerPackage] {
-        let packages:[StickerPackage] = self.getAllPackagesForKey(key:"custom_stickers")
+        let packages:[StickerPackage] = self.getAllPackagesForKey(key:self.CUSTOM_STICKERS_KEY)
         return packages
     }
     func addCustomPackage(name:String, creator:String) -> StickerPackage{
@@ -128,6 +152,7 @@ class StickersManager {
         let StickerPackage_ = StickerPackage()
         StickerPackage_.name = name
         StickerPackage_.creator = creator
+        StickerPackage_.alreadyWhatsapp = false
         var stickers = [StickerModel]()
         
         for x in 1 ... 30 {
@@ -207,7 +232,7 @@ class StickersManager {
     func updateCustomPackage(customPackages:[StickerPackage]){
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: customPackages)
         let defaults = UserDefaults.standard
-        defaults.set(encodedData, forKey: "custom_stickers")
+        defaults.set(encodedData, forKey: self.CUSTOM_STICKERS_KEY)
         defaults.synchronize()
     }
     func updateCustomSticker(packageName:String, StickerModel:StickerModel){

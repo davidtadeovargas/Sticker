@@ -103,6 +103,7 @@
 		CEFE52CB2466125900A0C761 /* StickerPackageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CA2466125900A0C761 /* StickerPackageRequest.swift */; };
 		CEFE52CF2466128C00A0C761 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE52CE2466128C00A0C761 /* BaseRequest.swift */; };
 		FE7FD0AD6D7B3B21D3D7A6EA /* Pods_Sticker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EB5B6C26FFDCC3CF554B13 /* Pods_Sticker.framework */; };
+		FF08ACAB24B100DB006E3CB4 /* ImagesUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08ACAA24B100DB006E3CB4 /* ImagesUtility.swift */; };
 		FF944B7324A9BC3700B519C1 /* ios_license in Resources */ = {isa = PBXBuildFile; fileRef = FF944B7224A9BC3700B519C1 /* ios_license */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +244,7 @@
 		CEFE52CE2466128C00A0C761 /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		E35D6476CA2D2EFCD9AB99F4 /* Pods-Sticker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sticker/Pods-Sticker.release.xcconfig"; sourceTree = "<group>"; };
 		E98804A84C84B3CE50123F31 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		FF08ACAA24B100DB006E3CB4 /* ImagesUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesUtility.swift; sourceTree = "<group>"; };
 		FF944B7224A9BC3700B519C1 /* ios_license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ios_license; path = ../../../../Desktop/ios_license; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -481,6 +483,7 @@
 				CEC3799D24867F26003F840E /* WhatsappStickerManager.swift */,
 				CEC3799F2486C74F003F840E /* MultiFileDownloaderManager.swift */,
 				CEC379A12486F71A003F840E /* FilesManager.swift */,
+				FF08ACAA24B100DB006E3CB4 /* ImagesUtility.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				CE676171246CF22F000D206C /* PrincipalShare.swift in Sources */,
 				CEF909C3247333C400FBE390 /* DeleteStickerViewController.swift in Sources */,
 				2ADFCA61222A5FD600D299CF /* YYSpriteSheetImage.m in Sources */,
+				FF08ACAB24B100DB006E3CB4 /* ImagesUtility.swift in Sources */,
 				2A2F8CBF222D47E8002B412A /* UIAlertController+Additions.swift in Sources */,
 				CEBED2D3245FE23900FFD965 /* Share.swift in Sources */,
 				2ADFCA4D222A5F6A00D299CF /* StickerPackManager.swift in Sources */,

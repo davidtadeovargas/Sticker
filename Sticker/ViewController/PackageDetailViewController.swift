@@ -13,6 +13,10 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelPackageName: UILabel!
     @IBOutlet weak var labelCreator: UILabel!
+    @IBOutlet weak var labelStickersAddedWhatsaApp: UILabel!
+    @IBOutlet weak var whatsappButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     var details:[PackageDetailTableRow] = []
     
@@ -47,9 +51,21 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
             self.packageName = self.StickerPackage?.name
             self.creatorPackage = self.StickerPackage?.creator
+            
+            if(!StickerPackage!.alreadyWhatsapp){
+                packageStickersAlreadyDownloaded()
+            }
+            else{
+                packageStickersAlreadyDownloadedInWhatsapp()
+            }
         }
     }
 
+    func packageStickersAlreadyDownloaded(){
+        self.deleteButton.isHidden = false
+        self.whatsappButton.isHidden = false
+        self.labelStickersAddedWhatsaApp.isHidden = true
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -232,27 +248,37 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let name = tappedImage.name
         let StickerModel = tappedImage.StickerModel
         
-        let indexS = "\(tappedImage.index)"
-        print("tappedImage  index = " + indexS)
         
         //Open window to select image from gallery and edit it
         EditPackageImageShare.shared.onImageSetted = {uiimage, data in
             
+            //Resize image
+            let uiimage_ = uiimage.resizeImage(targetSize: Limits.ImageDimensions)
+            
+            let data_ = uiimage_.jpeg(.low)
+            
+            let imageData = ImageData(data: data_!, type: ImageDataExtension(rawValue: "png")!)
+            
+            print("Sticker image deseable bytes \(Limits.MaxStickerFileSize)")
+            print("Sticker image got bytes \(imageData.bytesSize)")
+            print("Sticker image deseable size \(Limits.ImageDimensions)")
+            print("Sticker image got size \(String(describing: imageData.image?.size))")
+            
             //Add the delete image at top of the original image
             let deleteImage = UIImage(named: "delete_red")
-            var image = UIImage.imageByMergingImages(topImage: deleteImage!, bottomImage: uiimage)
+            var image = UIImage.imageByMergingImages(topImage: deleteImage!, bottomImage: uiimage_)
             image = image.resizeImage(targetSize: Limits.ImageDimensions) //Resize the image
             let newData = image.getData()
             
             //Update the model
-            StickerModel!.image = newData
+            StickerModel!.image = data_
             StickerModel!.alreadyImageSet = true
             
             //Update visible image
             tappedImage.image = image
             
             //Update in disk the model
-            StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: StickerModel!.id!, data: data)
+            StickersManager.shared.updateCustomPackageStickerImage(name: name!, stickerId: StickerModel!.id!, data: data_!)
         
             //Add the new listener in touch
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.deleteStickerImageTapped(tapGestureRecognizer:)))
@@ -325,11 +351,21 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             //Resize image
             let uiimage_ = uiimage.resizeImage(targetSize: Limits.TrayImageDimensions)
             
+            let data_ = UIImagePNGRepresentation(uiimage_)
+            
+            let imageData = ImageData(data: data_!, type: ImageDataExtension(rawValue: "png")!)
+            
+            print("Sticker image deseable bytes \(Limits.MaxTrayImageFileSize)")
+            print("Sticker image got bytes \(imageData.bytesSize)")
+            print("Sticker image deseable size \(Limits.TrayImageDimensions)")
+            print("Sticker image got size \(String(describing: imageData.image?.size))")
+            
+            
             //Change the image to the edited one
             self.imgPackage.image = uiimage_
             
             //Update the tray image in the local system
-            StickersManager.shared.updateCustomPackageTrayImage(name: self.packageName!, data: data)
+            StickersManager.shared.updateCustomPackageTrayImage(name: self.packageName!, data: data_!)
         }
         EditPackageImageShare.shared.returnToUIViewController = self
         ViewControllersManager.shared.setRoot(UIViewController: self, id: "EditPackageImageViewController")
@@ -408,8 +444,104 @@ class PackageDetailViewController: UIViewController, UITableViewDelegate, UITabl
             AlertManager.shared.showError(UIViewController: self, message: "La cantida de stickers debe ser de 3 o mayor para poder continuar")
             return
         }
+        
+        //Question if continue
+        AlertManager.shared.showQuestion(UIViewController: self, question: "¿Seguro que quieres agregar el paquete de stickers a whatsapp?", onYes: {
+            
+            do{
+                
+                //Save image in disk
+                let filenpathTrayImage = try! ImagesUtility.shared.saveDataUIImageToFile(data:self.StickerPackage!.trayImage, fileName:(self.StickerPackage?.name)!)
+                
+                //Create the stickers model
+                var stickers = [StickerHttpModel]()
+                for StickerModel_ in self.StickerPackage!.stickers! {
+                
+                    if(!StickerModel_.alreadyImageSet!){
+                        continue
+                    }
+                    
+                    //Save image in disk
+                    let filepathImage = try! ImagesUtility.shared.saveDataUIImageToFile(data:StickerModel_.image!, fileName:String(StickerModel_.id!))
+                    
+                    let vStickerHttpModel_ = StickerHttpModel()
+                    vStickerHttpModel_.imageFileName = filepathImage
+                    //vStickerHttpModel_.size = ""
+                    //vStickerHttpModel_.uri = ""
+                    
+                    stickers.append(vStickerHttpModel_)
+                }
+                
+                //Create the model
+                let StickerInnerPackHttpModel_ = StickerInnerPackHttpModel()
+                StickerInnerPackHttpModel_.name = self.StickerPackage?.name
+                StickerInnerPackHttpModel_.trayImageFile = filenpathTrayImage
+                StickerInnerPackHttpModel_.publisher = self.StickerPackage?.creator
+                StickerInnerPackHttpModel_.stickers = stickers
+                StickerInnerPackHttpModel_.alreadyWhatsapp = true
+                
+                //Save the package stickers to whatsapp
+                WhatsappStickerManager.shared.onCompleted = {
+                    
+                    //Now the sticker package is on whatsapp
+                    self.StickerPackage?.alreadyWhatsapp = true
+                    
+                    //Update the package sticker that now is added to whatsapp
+                    StickersManager.shared.updateCustomPackage(StickerPackage_: self.StickerPackage!)
+                    
+                    //Show the view for whatsapp downloaded
+                    self.packageStickersAlreadyDownloadedInWhatsapp()
+                    
+                    AlertManager.shared.showOk(UIViewController: self, message: "Paquete de stickers agregado a whatsapp correctamente")
+                }
+                WhatsappStickerManager.shared.OnError(onError: {_ in
+                    AlertManager.shared.showError(UIViewController: self, message: self.description)
+                })
+                try WhatsappStickerManager.shared.downloadToWhatsappUtil(StickerInnerPackHttpModel_: StickerInnerPackHttpModel_,trayImageFileName: StickerInnerPackHttpModel_.name)
+                
+            }catch StickerPackError.fileNotFound{
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Archivo no encontrado")
+            }
+            catch(StickerPackError.emptyString){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Cadena vacia")
+            }
+            catch(StickerPackError.unsupportedImageFormat(let String)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Formato de imagen no soportado " + String)
+            }
+            catch(StickerPackError.imageTooBig(let Int64)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Tamano de imagen muy grande " + String(Int64) + ", el maximo es  \(Limits.MaxStickerFileSize)")
+            }
+            catch(StickerPackError.incorrectImageSize(let CGSize)){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Tamaño de imagen incorrecta " + NSStringFromCGSize(CGSize))
+            }
+            catch(StickerPackError.animatedImagesNotSupported){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Imagenes animadas no son soportadas")
+            }
+            catch(StickerPackError.stickersNumOutsideAllowableRange){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK stickersNumOutsideAllowableRange")
+            }
+            catch(StickerPackError.stringTooLong){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Cadena muy larga")
+            }
+            catch(StickerPackError.tooManyEmojis){
+                AlertManager.shared.showError(UIViewController: self, message: "Stickers SDK Demasiados emojis")
+            }
+            catch{
+                
+                AlertManager.shared.showError(UIViewController: self, message: error.localizedDescription)
+            }
+            
+        }, onNo: {
+            
+        })
     }
-    
+        
+    func packageStickersAlreadyDownloadedInWhatsapp(){
+        self.deleteButton.isHidden = false
+        self.whatsappButton.isHidden = true
+        self.labelStickersAddedWhatsaApp.isHidden = false
+    }
+
 }
 
 class DetailPackageTableViewCell: UITableViewCell {

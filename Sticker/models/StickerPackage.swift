@@ -14,6 +14,7 @@ class StickerPackage: NSObject, NSCoding  {
     var trayImage:Data = UIImagePNGRepresentation(UIImage(named: "image")!)!
     var creator:String?
     var stickers:[StickerModel]?
+    var alreadyWhatsapp:Bool!
     
     override init() {
         super.init()
@@ -33,6 +34,9 @@ class StickerPackage: NSObject, NSCoding  {
         if let stickers = aDecoder.decodeObject(forKey: "stickers") as? [StickerModel] {
             self.stickers = stickers
         }
+        if let alreadyWhatsapp = aDecoder.decodeObject(forKey: "alreadyWhatsapp") as? Bool {
+            self.alreadyWhatsapp = alreadyWhatsapp
+        }
     }
 
     func encode(with aCoder: NSCoder) {
@@ -40,5 +44,6 @@ class StickerPackage: NSObject, NSCoding  {
         aCoder.encode(trayImage, forKey: "trayImage")
         aCoder.encode(creator, forKey: "creator")
         aCoder.encode(stickers, forKey: "stickers")
+        aCoder.encode(alreadyWhatsapp, forKey: "alreadyWhatsapp")
     }
 }

@@ -36,7 +36,7 @@ class WhatsappStickerManager {
             trayImageFileNameNew = trayImageFileName.replacingOccurrences(of: " ", with: "%20")
         }
         else{
-            trayImageFileNameNew = trayImageFileName
+            trayImageFileNameNew = StickerInnerPackHttpModel_.trayImageFile
         }
         
         
