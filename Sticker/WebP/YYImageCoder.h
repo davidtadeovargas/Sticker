@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, YYImageType) {
     YYImageTypeGIF,         ///< gif
     YYImageTypePNG,         ///< png
     YYImageTypeWebP,        ///< webp
-    YYImageTypeOther,       ///< other image format
+    YYImageTypeOther,       ///< other image for
 };
 
 

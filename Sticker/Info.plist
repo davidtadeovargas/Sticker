@@ -35,6 +35,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Scitkers necesita tu permiso para acceder a tu camara</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is not needed. This request has popped up due to a 3rd party framework used by the app in a context that does NOT need you to reveal you location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required for xyz benefits for you</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Scitkers necesita tu permiso para acceder a tus fotos</string>
 	<key>UIBackgroundModes</key>
@@ -49,12 +55,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-    
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Your location is not needed. This request has popped up due to a 3rd party framework used by the app in a context that does NOT need you to reveal you location</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Your location is required for xyz benefits for you</string>
-    
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
