@@ -123,7 +123,7 @@ typedef NS_ENUM(NSUInteger, OSNotificationDisplayType) {
 @property(readonly)NSString* subtitle;
 @property(readonly)NSString* body;
 
-/* Web address to launch within the app via a WKWebView */
+/* Web address to launch within the app via */
 @property(readonly)NSString* launchURL;
 
 /* Additional key value properties set within the payload */

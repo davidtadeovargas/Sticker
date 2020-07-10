@@ -18,6 +18,12 @@
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
+	<key>gad_preferred_webview</key>
+	<string>wkwebview</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8959699018756589~4774453684</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSExtension</key>

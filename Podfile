@@ -18,6 +18,7 @@ target 'Sticker' do
   pod 'SDWebImage', '~> 5.7'
   pod 'SDWebImageWebPCoder', '~> 0.6.1'
   pod 'PhotoEditorSDK'
+  pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'OneSignalNotificationServiceExtension' do

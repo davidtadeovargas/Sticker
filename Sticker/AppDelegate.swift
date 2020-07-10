@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-8959699018756589~4774453684");
+        
+        //GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         OneSignal.promptForPushNotifications(userResponse: { accepted in
             print("User accepted notifications: \(accepted)")
         })

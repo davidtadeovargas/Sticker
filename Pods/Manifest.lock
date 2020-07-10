@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.2.1)
+  - Google-Mobile-Ads-SDK (7.9.0)
   - imglyKit (10.14.0)
   - iOSPhotoEditor (1.0.0)
   - libwebp (1.1.0):
@@ -32,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Google-Mobile-Ads-SDK
   - iOSPhotoEditor
   - MBProgressHUD (~> 1.1.0)
   - OneSignal (< 3.0, >= 2.6.2)
@@ -47,6 +49,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Google-Mobile-Ads-SDK
     - imglyKit
     - iOSPhotoEditor
     - libwebp
@@ -63,6 +66,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  Google-Mobile-Ads-SDK: 1b7257c6dde53a587adb28f45365535e6122c48a
   imglyKit: 7b2e9ea18bf7228c821f65dfd1ebcc4f576f3561
   iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
@@ -77,6 +81,6 @@ SPEC CHECKSUMS:
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 0fa0117756bd86b6fb3451adbe3b67484c6fba1b
+PODFILE CHECKSUM: b48431d8972343c793c68d6fb6a80122d4a876ef
 
 COCOAPODS: 1.9.2
