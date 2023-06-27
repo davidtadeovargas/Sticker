@@ -1,35 +1,38 @@
 <?php
-
 ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-        require_once('Response.php');
-        require_once('DB.php');
-        require_once('DBS.php');
-        require_once('consts.php');
+require_once('Response.php');
+require_once('DB.php');
+require_once('DBS.php');
+require_once('consts.php');
 
-        header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 
-try{
+try {
+    DB::open();
 
-DB::open();
+    $query = $_GET['query']; // Obtener el query de la base de datos desde el parámetro GET
 
-$query = $_GET['query']; // Obtener el query de la base de datos desde el parámetro GET
+    if ($result = DB::runQRY($query)) {
+        $results = array(); // Lista de resultados
 
-$result = DB::runQRY($query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $results[] = $row;
+        }
 
-$results = array(); // Lista de resultados
+        // Cerrar el objeto de resultado
+        mysqli_free_result($result);
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $results[] = $row;
+        DB::close();
+
+        // Devolver los resultados como respuesta
+        echo json_encode($results);
+    } else {
+        throw new Exception('Error en la ejecución de la consulta.');
+    }
+} catch (Exception $e) {
+    echo Response::ERRORResponse('exception', $e->getMessage());
 }
-
-DB::close();
-
-// Devolver los resultados como respuesta
-echo json_encode($results);
-
-}catch(Exception $e){
-                                echo Response::ERRORResponse('exception',$e->getMessage());
-                        } 
+?>
