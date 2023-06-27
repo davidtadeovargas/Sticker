@@ -30,6 +30,6 @@ DB::close();
 // Devolver los resultados como respuesta
 echo json_encode($results);
 
-catch(Exception $e){
+}catch(Exception $e){
                                 echo Response::ERRORResponse('exception',$e->getMessage());
                         } 
