@@ -17,7 +17,7 @@ try {
 
     $result = DB::runQRY($query);
 
-    if ($result) {
+    if ($result !== false) {
         $results = array(); // Lista de resultados
 
         while ($row = mysqli_fetch_assoc($result)) {
