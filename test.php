@@ -15,7 +15,9 @@ try {
 
     $query = $_GET['query']; // Obtener el query de la base de datos desde el parámetro GET
 
-    if ($result = DB::runQRY($query)) {
+    $result = DB::runQRY($query);
+
+    if ($result) {
         $results = array(); // Lista de resultados
 
         while ($row = mysqli_fetch_assoc($result)) {
